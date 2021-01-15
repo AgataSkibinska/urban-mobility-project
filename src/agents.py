@@ -83,6 +83,12 @@ class Person(Agent):
         # TODO losowanie planu dnia
         # można wykorzystać: travels_num_dist; destination_dist
         # [(czas1, cel1), (czas2, cel2), ...] = foo   # dokładny czas
+        self.day_schedule = self._sample_day_schedule()
+
+        self.current_place = self._sample_building(self.home_region, "home")
+        self.on_the_way = False
+        self.travel_end_time = None # time of simulation when agent finish current travel
+        self.travel_destination = None # place where agent finish current travel 
 
 
     def _sample_region(self):
@@ -104,53 +110,87 @@ class Person(Agent):
     def _sample_with_dist(self, dist):
         pass
 
+    
+    def _sample_day_schedule(self):
+        pass
 
-    # def _sample_status(self):
+    
+    def _sample_building(self, region, tag):
+        pass
 
-    #     try:
-    #         sample = np.random.multinomial(1, list(travel_dist[str(self.start_region)].values()))
-    #     except KeyError:
-    #         sample = np.random.multinomial(1, np.zeros(2))
-    #     status = not np.argmax(sample)
 
-    #     return status
-
-    # def _sample_regions_num(self):
-
-    #     try:
-    #         sample = np.random.multinomial(1, list(regions_num_dist[str(self.start_region)].values()))
-    #     except KeyError:
-    #         sample = np.random.multinomial(1, np.zeros(33))
-    #     regions_num = np.argmax(sample) + 1
-
-    #     return regions_num
-
-    # def move(self):
-
-    #     # current_region = regions[regions['NUMBER'] == int(self.current_region)].iloc[0]
-    #     # neighbors = regions[~regions.geometry.disjoint(current_region.geometry)]
-    #     # neighbors = neighbors['NUMBER'].to_list()
-
-    #     # self.current_region = np.random.choice(neighbors)
-    #     # self.regions_num_left = self.regions_num_left - 1
-
-    #     self.current_region = self._sample_next_region()
-    #     self.regions_num_left = self.regions_num_left - 1
-
-    # def _sample_next_region(self):
-
-    #     sample = np.random.multinomial(1, list(neighbors_dist[str(self.current_region)].values()))
-    #     sample = np.argmax(sample)
-    #     next_region = int(list(neighbors_dist[str(self.current_region)].keys())[sample])
-
-    #     return next_region
-
-    def step(self):
+    def step(
+        self,
+        time: int # simulation time in seconds
+    ):
         
         if self.on_the_way:
 
-            self.move()            
+            if self.travel_end_time < time:
+                self._finish_travel()
+                self._travel()
 
-            if self.regions_num_left == 0:
-                self.on_the_way = False
-                self.end_region = self.current_region
+        else:
+            self._travel()
+
+
+    def _travel(self, time):
+
+        while self._should_start_new_travel():
+            
+            self._start_new_travel()
+
+            if self.travel_end_time < time:
+                self._finish_travel()
+
+
+    def _finish_travel(self):
+        self.on_the_way = False
+        self.current_place = self.travel_destination
+
+
+    def _should_start_new_travel(self, time):
+
+        should_start = False
+        if self.day_schedule[0][0] < time and not self.on_the_way:
+                should_start = True
+
+        return should_start
+
+
+    def _start_new_travel(self):
+
+        start_time, destination_type = self.day_schedule.pop(0)[1]
+
+        travel_destination = self._sample_travel_destination(destination_type)
+
+        travel_mode = self.transport_mode_clf.predict([[
+            # clf input
+        ]])
+        travel_time = self._trip_planner(
+            self.current_place,
+            travel_destination,
+            travel_mode
+        )
+
+        self.on_the_way = True
+        self.travel_end_time = start_time + travel_time
+        self.travel_destination = travel_destination
+
+
+    def _sample_travel_destination(self, destination_type):
+        
+        current_region = self._place_to_region(self.current_place)
+        destination_region = self._gravity(current_region, destination_type)
+
+        destination_place = self._sample_building(destination_region, destination_type)
+
+        return destination_place
+        
+
+    def _place_to_region(self, place):
+        pass
+
+    def _gravity(self, current_region, destination_type):
+        pass
+         
