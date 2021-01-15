@@ -1,4 +1,5 @@
 venv_mobility
+*/kr-osmnx/cache/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
