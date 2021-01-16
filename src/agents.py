@@ -1,14 +1,17 @@
 from mesa import Agent
 
+from samplers import RegionSampler, AgeSexSampler
+
+
 class Person(Agent):
 
     def __init__(
         self,
         unique_id,
         model,
+        home_region_sampler: RegionSampler,
+        age_sex_sampler: AgeSexSampler,
         transport_mode_clf,
-        population_dist,
-        demography_dist,
         travels_num_dist,                       # grouped by age_sex_comb
         destination_dist,                       # grouped by age_sex_comb
         pub_trans_comfort_dist,                 # grouped by age_sex_comb
@@ -22,6 +25,8 @@ class Person(Agent):
     ):
         super().__init__(unique_id, model)
 
+        self.home_region_sampler = home_region_sampler
+
         # Possible output:
         #   'komunikacja samochodowa': 0,
         #   'komunikacja zbiorowa': 1,
@@ -29,7 +34,6 @@ class Person(Agent):
         #   'rower': 3,
         self.transport_mode_clf = transport_mode_clf
 
-        self.population_dist = population_dist
         self.demography_dist = demography_dist
         self.travels_num_dist = travels_num_dist
         self.destination_dist = destination_dist
