@@ -1,6 +1,8 @@
+import pickle
 from typing import Dict
 
 from pytest import fixture
+from sklearn.tree import DecisionTreeClassifier
 
 from .data_models import TransportModeInputs
 
@@ -207,3 +209,175 @@ def household_bicycles_dist() -> Dict[str, float]:
             "4": 0.1
         }
     }
+
+
+@fixture(scope='session')
+def travels_num_dist() -> Dict[str, Dict[str, float]]:
+    return {
+        "16-19_K": {
+            "0": 0.4,
+            "2": 0.4,
+            "3": 0.1,
+            "4": 0.1
+        },
+        "45-65_M": {
+            "0": 0.4,
+            "2": 0.4,
+            "3": 0.1,
+            "4": 0.1
+        }
+    }
+
+
+@fixture(scope='session')
+def start_hour_dist() -> Dict[str, Dict[str, float]]:
+    return {
+        'praca': {
+            "5": 0.05,
+            "6": 0.05,
+            "7": 0.15,
+            "8": 0.05,
+            "9": 0.05,
+            "10": 0.05,
+            "11": 0.05,
+            "12": 0.05,
+            "13": 0.05,
+            "14": 0.05,
+            "15": 0.05,
+            "16": 0.05,
+            "17": 0.05,
+            "18": 0.05,
+            "19": 0.05,
+            "20": 0.05,
+            "21": 0.05,
+            "22": 0.05,
+            "23": 0.05
+        },
+        'inne': {
+            "5": 0.05,
+            "6": 0.05,
+            "7": 0.15,
+            "8": 0.05,
+            "9": 0.05,
+            "10": 0.05,
+            "11": 0.05,
+            "12": 0.05,
+            "13": 0.05,
+            "14": 0.05,
+            "15": 0.05,
+            "16": 0.05,
+            "17": 0.05,
+            "18": 0.05,
+            "19": 0.05,
+            "20": 0.05,
+            "21": 0.05,
+            "22": 0.05,
+            "23": 0.05
+        },
+        'dom': {
+            "5": 0.05,
+            "6": 0.05,
+            "7": 0.15,
+            "8": 0.05,
+            "9": 0.05,
+            "10": 0.05,
+            "11": 0.05,
+            "12": 0.05,
+            "13": 0.05,
+            "14": 0.05,
+            "15": 0.05,
+            "16": 0.05,
+            "17": 0.05,
+            "18": 0.05,
+            "19": 0.05,
+            "20": 0.05,
+            "21": 0.05,
+            "22": 0.05,
+            "23": 0.05
+        }
+    }
+
+
+@fixture(scope='session')
+def dest_type_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
+    return {
+        "16-19_K": {
+            "dom": {
+                "dom": 0.1,
+                "praca": 0.5,
+                "inne": 0.4
+            },
+            "praca": {
+                "dom": 0.5,
+                "praca": 0.1,
+                "inne": 0.4
+            },
+            "inne": {
+                "dom": 0.4,
+                "praca": 0.4,
+                "inne": 0.2
+            }
+        },
+        "45-65_M": {
+            "dom": {
+                "dom": 0.1,
+                "praca": 0.5,
+                "inne": 0.4
+            },
+            "praca": {
+                "dom": 0.5,
+                "praca": 0.1,
+                "inne": 0.4
+            },
+            "inne": {
+                "dom": 0.4,
+                "praca": 0.4,
+                "inne": 0.2
+            }
+        },
+    }
+
+
+@fixture(scope='session')
+def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
+    return {
+        "16-19_K": {
+            "dom": {
+                "loc": 120,
+                "scale": 30
+            },
+            "praca": {
+                "loc": 640,
+                "scale": 60
+            },
+            "inne": {
+                "loc": 120,
+                "scale": 30
+            },
+        },
+        "45-65_M": {
+            "dom": {
+                "loc": 120,
+                "scale": 30
+            },
+            "praca": {
+                "loc": 640,
+                "scale": 60
+            },
+            "inne": {
+                "loc": 120,
+                "scale": 30
+            },
+        },
+    }
+
+
+@fixture(scope='session')
+def decision_tree() -> DecisionTreeClassifier:
+
+    tree_dir = './src/test_data/tree.pickle'
+
+    with open(tree_dir, 'rb') as f:
+        tree = pickle.load(f)
+
+    return tree

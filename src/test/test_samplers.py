@@ -1,7 +1,8 @@
 from collections import Counter
 from typing import Dict
 
-from ..samplers import RegionSampler, AgeSexSampler, TransportModeInputsSampler
+from ..samplers import RegionSampler, AgeSexSampler, \
+    TransportModeInputsSampler, DayScheduleSampler
 
 
 def test_region_sampler(
@@ -102,3 +103,128 @@ def test_transport_mode_inputs_sampler(
 
     assert type(inputs_1.household_bicycles) == int
     assert 0 <= inputs_1.household_bicycles <= 4
+
+
+def test_day_schedule_sampler_1(
+    travels_num_dist: Dict[str, Dict[str, float]],
+    start_hour_dist: Dict[str, Dict[str, float]],
+    dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+):
+    travels_num_dist = {
+        "16-19_K": {
+            "0": 1
+        },
+        "45-65_M": {
+            "0": 1
+        }
+    }
+
+    day_schedule_sampler = DayScheduleSampler(
+        travels_num_dist=travels_num_dist,
+        start_hour_dist=start_hour_dist,
+        dest_type_dist=dest_type_dist,
+        spend_time_dist_params=spend_time_dist_params
+    )
+
+    schedule = day_schedule_sampler("16-19_K")
+
+    assert schedule == []
+
+
+def test_day_schedule_sampler_2(
+    travels_num_dist: Dict[str, Dict[str, float]],
+    start_hour_dist: Dict[str, Dict[str, float]],
+    dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+):
+    travels_num_dist = {
+        "16-19_K": {
+            "2": 1
+        },
+        "45-65_M": {
+            "2": 1
+        }
+    }
+
+    day_schedule_sampler = DayScheduleSampler(
+        travels_num_dist=travels_num_dist,
+        start_hour_dist=start_hour_dist,
+        dest_type_dist=dest_type_dist,
+        spend_time_dist_params=spend_time_dist_params
+    )
+
+    schedule = day_schedule_sampler("16-19_K")
+
+    assert len(schedule) == 2
+    assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_type == 'dom'
+    assert schedule[0].start_time < schedule[1].start_time
+
+
+def test_day_schedule_sampler_3(
+    travels_num_dist: Dict[str, Dict[str, float]],
+    start_hour_dist: Dict[str, Dict[str, float]],
+    dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+):
+    travels_num_dist = {
+        "16-19_K": {
+            "3": 1
+        },
+        "45-65_M": {
+            "3": 1
+        }
+    }
+
+    day_schedule_sampler = DayScheduleSampler(
+        travels_num_dist=travels_num_dist,
+        start_hour_dist=start_hour_dist,
+        dest_type_dist=dest_type_dist,
+        spend_time_dist_params=spend_time_dist_params
+    )
+
+    schedule = day_schedule_sampler("16-19_K")
+
+    assert len(schedule) == 3
+    assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[2].dest_type == 'dom'
+    assert schedule[0].start_time < schedule[1].start_time
+    assert schedule[1].start_time < schedule[2].start_time
+
+
+def test_day_schedule_sampler_4(
+    travels_num_dist: Dict[str, Dict[str, float]],
+    start_hour_dist: Dict[str, Dict[str, float]],
+    dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+):
+    travels_num_dist = {
+        "16-19_K": {
+            "5": 1
+        },
+        "45-65_M": {
+            "5": 1
+        }
+    }
+
+    day_schedule_sampler = DayScheduleSampler(
+        travels_num_dist=travels_num_dist,
+        start_hour_dist=start_hour_dist,
+        dest_type_dist=dest_type_dist,
+        spend_time_dist_params=spend_time_dist_params
+    )
+
+    schedule = day_schedule_sampler("16-19_K")
+
+    assert len(schedule) == 5
+    assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[2].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[3].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[4].dest_type == 'dom'
+    assert schedule[0].start_time < schedule[1].start_time
+    assert schedule[1].start_time < schedule[2].start_time
+    assert schedule[2].start_time < schedule[3].start_time
+    assert schedule[3].start_time < schedule[4].start_time

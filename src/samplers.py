@@ -1,8 +1,8 @@
-from typing import Dict
+from typing import Dict, List
 
 import numpy as np
 
-from .data_models import TransportModeInputs
+from .data_models import TransportModeInputs, ScheduleElement
 
 
 class BaseSampler:
@@ -268,3 +268,174 @@ class TransportModeInputsSampler:
         )
 
         return input_values
+
+
+class DayScheduleSampler:
+    """
+    Sampler class to prepare plan of travels for all day.
+    """
+
+    def __init__(
+        self,
+        travels_num_dist: Dict[str, Dict[str, float]],
+        start_hour_dist: Dict[str, Dict[str, float]],
+        dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+        spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+    ):
+        """
+        Constructs DayScheduleSampler with given probability
+        distributions.
+
+        Parameters
+        ----------
+            travels_num_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    travels_num: str : probability: float}
+                }
+                contains probabilities for number of travels. Sampled
+                number will be converted to int.
+            start_hour_dist: dict
+                Dictionary
+                {dest_type: str : {
+                    hour: str : probability: float}
+                }
+                contains probabilities for start hours for travel with
+                specific destination type. Sampled hour will be converted
+                to int.
+            dest_type_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    start_dest_type: str : {
+                        finish_dest_type: str : prob: float
+                    }
+                }}
+                contains probabilities to select finish destination type.
+            spend_time_dist_params: dict
+                Dictionary
+                {age_sex: str : {
+                    place_type: str : {
+                        "loc" : mean_minutes: int,
+                        "scale" : std_minutes: int
+                    }
+                }}
+        """
+
+        self.travels_num_samplers = {}
+        for age_sex, travels_num_dist in travels_num_dist.items():
+            self.travels_num_samplers[age_sex] = BaseSampler(
+                travels_num_dist
+            )
+
+        self.start_hours_samplers = {}
+        for dest_type, dist in start_hour_dist.items():
+            self.start_hours_samplers[dest_type] = BaseSampler(
+                dist
+            )
+
+        self.finish_dest_samplers = {}
+        for age_sex in dest_type_dist.keys():
+            self.finish_dest_samplers[age_sex] = {}
+            for start_dest, dist in dest_type_dist[age_sex].items():
+                self.finish_dest_samplers[age_sex][start_dest] = BaseSampler(
+                    dist
+                )
+
+        self.spend_time_samplers = {}
+        for age_sex in spend_time_dist_params.keys():
+            self.spend_time_samplers[age_sex] = {}
+            for place_type, params in spend_time_dist_params[age_sex].items():
+                self.spend_time_samplers[age_sex][
+                    place_type
+                ] = lambda: int(
+                    np.random.normal(params['loc'], params['scale'])
+                )
+
+    def __call__(
+        self,
+        age_sex: str
+    ) -> List[ScheduleElement]:
+        """
+            Sample day schedule list sorted by travels start time.
+
+            Parameters
+            ----------
+                age_sex: str
+                    Age and sex comination string.
+
+            Returns
+            -------
+                schedule: list
+                    Day travels schedule - list of ScheduleElement.
+        """
+
+        travels_num = int(
+            self.travels_num_samplers[
+                age_sex
+            ]()
+        )
+
+        schedule = []
+
+        if travels_num >= 2:
+
+            start_place = 'dom'
+
+            first_destination = self.finish_dest_samplers[age_sex][
+                start_place
+            ]()
+            first_start_time = int(
+                self.start_hours_samplers[first_destination]() * 60
+            ) + self._sample_minutes()
+            first_spend_time = self.spend_time_samplers[age_sex][
+                first_destination
+            ]()
+
+            schedule.append(
+                ScheduleElement(
+                    start_time=first_start_time,
+                    dest_type=first_destination
+                )
+            )
+
+            prev_destination = first_destination
+            prev_start_time = first_start_time
+            prev_spend_time = first_spend_time
+
+            for i in range(travels_num-2):
+
+                next_destination = self.finish_dest_samplers[age_sex][
+                    prev_destination
+                ]()
+                next_start_time = prev_start_time + prev_spend_time
+                next_spend_time = self.spend_time_samplers[age_sex][
+                    next_destination
+                ]()
+
+                schedule.append(
+                    ScheduleElement(
+                        start_time=next_start_time,
+                        dest_type=next_destination
+                    )
+                )
+
+                prev_destination = next_destination
+                prev_start_time = next_start_time
+                prev_spend_time = next_spend_time
+
+            last_destination = 'dom'
+            last_start_time = prev_start_time + prev_spend_time
+
+            schedule.append(
+                ScheduleElement(
+                    start_time=last_start_time,
+                    dest_type=last_destination
+                )
+            )
+
+        return schedule
+
+    def _sample_minutes(
+        self
+    ) -> int:
+        return int(np.random.uniform(0, 60))
