@@ -1,6 +1,8 @@
+import pickle
 from typing import Dict
 
 from pytest import fixture
+from sklearn.tree import DecisionTreeClassifier
 
 from .data_models import TransportModeInputs
 
@@ -368,3 +370,14 @@ def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
             },
         },
     }
+
+
+@fixture(scope='session')
+def decision_tree() -> DecisionTreeClassifier:
+
+    tree_dir = './src/test_data/tree.pickle'
+
+    with open(tree_dir, 'rb') as f:
+        tree = pickle.load(f)
+
+    return tree

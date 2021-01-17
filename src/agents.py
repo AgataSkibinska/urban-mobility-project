@@ -1,6 +1,7 @@
 from mesa import Agent
 
-from samplers import RegionSampler, AgeSexSampler, TransportModeInputsSampler
+from samplers import RegionSampler, AgeSexSampler, \
+    TransportModeInputsSampler, DayScheduleSampler
 
 
 class Person(Agent):
@@ -12,10 +13,9 @@ class Person(Agent):
         home_region_sampler: RegionSampler,
         age_sex_sampler: AgeSexSampler,
         transport_mode_inputs_sampler: TransportModeInputsSampler,
+        day_schedule_sampler: DayScheduleSampler,
         transport_mode_clf,
-        travels_num_dist,                       # grouped by age_sex_comb
-        destination_dist,                       # grouped by age_sex_comb
-        drivers_dist,                           # grouped by age_sex_comb among car travels
+        drivers_dist,  # grouped by age_sex_comb among car travels
     ):
         super().__init__(unique_id, model)
 
@@ -24,6 +24,7 @@ class Person(Agent):
         self.transport_mode_inputs = transport_mode_inputs_sampler(
             self.age_sex
         )
+        self.schedule = day_schedule_sampler(self.age_sex)
 
         # Possible output:
         #   'komunikacja samochodowa': 0,
@@ -31,9 +32,6 @@ class Person(Agent):
         #   'pieszo': 2,
         #   'rower': 3,
         self.transport_mode_clf = transport_mode_clf
-
-        self.travels_num_dist = travels_num_dist
-        self.destination_dist = destination_dist
         self.drivers_dist = drivers_dist
 
         """
