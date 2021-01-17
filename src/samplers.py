@@ -2,6 +2,8 @@ from typing import Dict
 
 import numpy as np
 
+from .data_models import TransportModeInputs
+
 
 class BaseSampler:
     """
@@ -75,3 +77,194 @@ class AgeSexSampler(BaseSampler):
             self,
             prob_dist
         )
+
+
+class TransportModeInputsSampler:
+    """
+    Sampler class to select agents' input values for transport mode
+    classifier.
+    """
+
+    def __init__(
+        self,
+        pub_trans_comfort_dist: Dict[str, Dict[str, float]],
+        pub_trans_punctuality_dist: Dict[str, Dict[str, float]],
+        bicycle_infrastr_comfort_dist: Dict[str, Dict[str, float]],
+        pedestrian_inconvenience_dist: Dict[str, Dict[str, float]],
+        household_persons_dist: Dict[str, Dict[str, float]],
+        household_cars_dist: Dict[str, Dict[str, float]],
+        household_bicycles_dist: Dict[str, Dict[str, float]]
+    ):
+        """
+        Constructs TransportModeInputsSampler with given probability
+        distributions.
+
+        Parameters
+        ----------
+            pub_trans_comfort_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    pub_trans_comfort: str : probability: float}
+                }
+                contains probabilities for pub_trans_comfort input. Sampled
+                pub_trans_comfort will be converted to int.
+            pub_trans_punctuality_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    pub_trans_punctuality: str : probability: float}
+                }
+                contains probabilities for pub_trans_punctuality input.
+                Sampled pub_trans_punctuality will be converted to int.
+            bicycle_infrastr_comfort_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    bicycle_infrastr_comfort: str : probability: float}
+                }
+                contains probabilities for bicycle_infrastr_comfort input.
+                Sampled bicycle_infrastr_comfort will be converted to int.
+            pedestrian_inconvenience_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    pedestrian_inconvenience: str : probability: float}
+                }
+                contains probabilities for pedestrian_inconvenience input.
+                Sampled pedestrian_inconvenience will be converted to int.
+            household_persons_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    household_persons: str : probability: float}
+                }
+                contains probabilities for household_persons input.
+                Sampled household_persons will be converted to int.
+            household_cars_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    household_cars: str : probability: float}
+                }
+                contains probabilities for household_cars input.
+                Sampled household_cars will be converted to int.
+            household_bicycles_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    household_bicycles: str : probability: float}
+                }
+                contains probabilities for household_bicycles input.
+                Sampled household_bicycles will be converted to int.
+        """
+
+        self.pub_trans_comfort_samplers = {}
+        for age_sex, input_dist in pub_trans_comfort_dist.items():
+            self.pub_trans_comfort_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.pub_trans_punctuality_samplers = {}
+        for age_sex, input_dist in pub_trans_punctuality_dist.items():
+            self.pub_trans_punctuality_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.bicycle_infrastr_comfort_samplers = {}
+        for age_sex, input_dist in bicycle_infrastr_comfort_dist.items():
+            self.bicycle_infrastr_comfort_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.pedestrian_inconvenience_samplers = {}
+        for age_sex, input_dist in pedestrian_inconvenience_dist.items():
+            self.pedestrian_inconvenience_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.household_persons_samplers = {}
+        for age_sex, input_dist in household_persons_dist.items():
+            self.household_persons_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.household_cars_samplers = {}
+        for age_sex, input_dist in household_cars_dist.items():
+            self.household_cars_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+        self.household_bicycles_samplers = {}
+        for age_sex, input_dist in household_bicycles_dist.items():
+            self.household_bicycles_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+    def __call__(
+        self,
+        age_sex: str
+    ) -> TransportModeInputs:
+        """
+        Samples and returns TransportModeInputs
+
+        Parameters
+        ----------
+            age_sex: str
+                Age and sex combination string like "0-5", "16-19_K"...
+                Age from this string will be mapped to int 0-5 value.
+
+        Returns
+        -------
+            input_values: TransportModeInputs
+        """
+
+        age_mapping = {
+            "0-5": 0,
+            "6-15_K": 0,
+            "6-15_M": 0,
+            "16-19_K": 1,
+            "16-19_M": 1,
+            "20-24_K": 2,
+            "20-24_M": 2,
+            "25-44_K": 3,
+            "25-44_M": 3,
+            "45-60_K": 4,
+            "45-65_M": 4,
+            "61-x_K": 5,
+            "66-x_M": 5
+        }
+
+        input_values = TransportModeInputs(
+            age=age_mapping[age_sex],
+            pub_trans_comfort=int(
+                self.pub_trans_comfort_samplers[
+                    age_sex
+                ]()
+            ),
+            pub_trans_punctuality=int(
+                self.pub_trans_punctuality_samplers[
+                    age_sex
+                ]()
+            ),
+            bicycle_infrastr_comfort=int(
+                self.bicycle_infrastr_comfort_samplers[
+                    age_sex
+                ]()
+            ),
+            pedestrian_inconvenience=int(
+                self.pedestrian_inconvenience_samplers[
+                    age_sex
+                ]()
+            ),
+            household_persons=int(
+                self.household_persons_samplers[
+                    age_sex
+                ]()
+            ),
+            household_cars=int(
+                self.household_cars_samplers[
+                    age_sex
+                ]()
+            ),
+            household_bicycles=int(
+                self.household_bicycles_samplers[
+                    age_sex
+                ]()
+            )
+        )
+
+        return input_values
