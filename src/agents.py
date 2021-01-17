@@ -1,6 +1,6 @@
 from mesa import Agent
 
-from samplers import RegionSampler, AgeSexSampler
+from samplers import RegionSampler, AgeSexSampler, TransportModeInputsSampler
 
 
 class Person(Agent):
@@ -11,21 +11,19 @@ class Person(Agent):
         model,
         home_region_sampler: RegionSampler,
         age_sex_sampler: AgeSexSampler,
+        transport_mode_inputs_sampler: TransportModeInputsSampler,
         transport_mode_clf,
         travels_num_dist,                       # grouped by age_sex_comb
         destination_dist,                       # grouped by age_sex_comb
-        pub_trans_comfort_dist,                 # grouped by age_sex_comb
-        pub_trans_punctuality_dist,             # grouped by age_sex_comb
-        bicycle_infrastr_comfort_dist,          # grouped by age_sex_comb
-        pedestrian_inconvenience_dist,          # grouped by age_sex_comb
-        household_persons_dist,                 # grouped by age_sex_comb
-        household_cars_dist,                    # grouped by age_sex_comb
-        household_bicycles_dist,                # grouped by age_sex_comb
         drivers_dist,                           # grouped by age_sex_comb among car travels
     ):
         super().__init__(unique_id, model)
 
-        self.home_region_sampler = home_region_sampler
+        self.home_region = home_region_sampler()
+        self.age_sex = age_sex_sampler()
+        self.transport_mode_inputs = transport_mode_inputs_sampler(
+            self.age_sex
+        )
 
         # Possible output:
         #   'komunikacja samochodowa': 0,
@@ -34,16 +32,8 @@ class Person(Agent):
         #   'rower': 3,
         self.transport_mode_clf = transport_mode_clf
 
-        self.demography_dist = demography_dist
         self.travels_num_dist = travels_num_dist
         self.destination_dist = destination_dist
-        self.pub_trans_comfort_dist = pub_trans_comfort_dist
-        self.pub_trans_punctuality_dist = pub_trans_punctuality_dist
-        self.bicycle_infrastr_comfort_dist = bicycle_infrastr_comfort_dist
-        self.pedestrian_inconvenience_dist = pedestrian_inconvenience_dist
-        self.household_persons_dist = household_persons_dist
-        self.household_cars_dist = household_cars_dist
-        self.household_bicycles_dist = household_bicycles_dist
         self.drivers_dist = drivers_dist
 
         """

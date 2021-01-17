@@ -136,3 +136,21 @@ class TransportModeInputs:
             self.household_bicycles,
             distance
         ])
+
+
+@dataclass
+class ScheduleElement:
+    """
+    Class for keeping element of day schedule list.
+
+    Attributes
+    ----------
+        start_time: int
+            Travel start time in minutes of day.
+        dest_type: str
+            Travel destination type like "szkola", "uczelnia", "dom",
+            "praca", "inne".
+    """
+
+    start_time: int
+    dest_type: str
