@@ -208,6 +208,7 @@ def household_bicycles_dist() -> Dict[str, float]:
         }
     }
 
+
 @fixture(scope='session')
 def travels_num_dist() -> Dict[str, Dict[str, float]]:
     return {
@@ -224,6 +225,7 @@ def travels_num_dist() -> Dict[str, Dict[str, float]]:
             "4": 0.1
         }
     }
+
 
 @fixture(scope='session')
 def start_hour_dist() -> Dict[str, Dict[str, float]]:
@@ -269,8 +271,30 @@ def start_hour_dist() -> Dict[str, Dict[str, float]]:
             "21": 0.05,
             "22": 0.05,
             "23": 0.05
+        },
+        'dom': {
+            "5": 0.05,
+            "6": 0.05,
+            "7": 0.15,
+            "8": 0.05,
+            "9": 0.05,
+            "10": 0.05,
+            "11": 0.05,
+            "12": 0.05,
+            "13": 0.05,
+            "14": 0.05,
+            "15": 0.05,
+            "16": 0.05,
+            "17": 0.05,
+            "18": 0.05,
+            "19": 0.05,
+            "20": 0.05,
+            "21": 0.05,
+            "22": 0.05,
+            "23": 0.05
         }
     }
+
 
 @fixture(scope='session')
 def dest_type_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
