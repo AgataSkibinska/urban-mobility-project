@@ -1,7 +1,10 @@
 import pickle
 from typing import Dict
 
+import geopandas as gpd
+import pandas as pd
 from pytest import fixture
+from shapely import wkt
 from sklearn.tree import DecisionTreeClassifier
 
 from .data_models import TransportModeInputs
@@ -381,3 +384,28 @@ def decision_tree() -> DecisionTreeClassifier:
         tree = pickle.load(f)
 
     return tree
+
+
+@fixture(scope='session')
+def buildings_gdf() -> gpd.GeoDataFrame:
+
+    buildings_csv_dir = './src/test_data/building.csv'
+
+    buildings_df = pd.read_csv(buildings_csv_dir)
+    buildings_df = buildings_df.rename(columns={'Geometry': 'geometry'})
+    buildings_df['geometry'] = buildings_df['geometry'].apply(wkt.loads)
+    buildings_gdf = gpd.GeoDataFrame(buildings_df)
+
+    return buildings_gdf
+
+
+@fixture(scope='session')
+def regions_centroids_gdf() -> gpd.GeoDataFrame:
+
+    regions_centroids_shp_dir = \
+        './src/test_data/regions_centroids/EtapII-REJONY_wroclaw_centroidy.shp'
+
+    regions_centroids_gdf = gpd.read_file(regions_centroids_shp_dir)
+    regions_centroids_gdf = regions_centroids_gdf.to_crs(epsg=4326)
+
+    return regions_centroids_gdf

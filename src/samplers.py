@@ -1,8 +1,9 @@
 from typing import Dict, List
 
+import geopandas as gpd
 import numpy as np
 
-from .data_models import TransportModeInputs, ScheduleElement
+from .data_models import Building, ScheduleElement, TransportModeInputs
 
 
 class BaseSampler:
@@ -439,3 +440,124 @@ class DayScheduleSampler:
         self
     ) -> int:
         return int(np.random.uniform(0, 60))
+
+
+class BuildingsSampler:
+    """
+    Sampler class to select building by type in given region.
+    """
+
+    def __init__(
+        self,
+        buildings_gdf: gpd.GeoDataFrame,
+        regions_centroids_gdf: gpd.GeoDataFrame
+    ):
+        """
+        Constructs BuildingsSampler.
+
+        Parameters
+        ----------
+            buildings_gdf: GeoDataFrame
+                GeoDataFrame of buildings with columns ID, Type, geometry,
+                Region. epsg=4326
+            regions_centroids_gds: GeoDataFrame
+                GeoDataFrame of regions with columns NUMBER, geometry
+                where NUMBER is region id. epsg=4326
+        """
+
+        buildings_types = {
+            'szkola': ['school'],
+            'praca': ['office'],
+            'inne': [
+                'commercial', 'hotel', 'retail', 'warehouse', 'church',
+                'kindergarten', 'service', 'civic', 'kiosk', 'gymnasium',
+                'sports_hall', 'supermarket', 'allotment_house', 'synagogue',
+                'cathedral', 'religious', 'hostel', 'concert_hall',
+                'swimming_pool', 'stadium', 'hospital'
+            ],
+            'uczelnia': ['university', 'college'],
+            'dom': [
+                'yes', 'semidetached_house', 'residential', 'apartments',
+                'house', 'dormitory'
+            ]}
+        regions = regions_centroids_gdf['NUMBER'].unique()
+
+        buildings_gdf['objects'] = buildings_gdf.apply(
+            self._row_to_building,
+            axis=1
+        )
+
+        self.buildings = {}
+        for region in regions:
+            self.buildings[str(region)] = {}
+
+            region_sub_frame = buildings_gdf[buildings_gdf['Region'] == region]
+            self.buildings[str(region)][
+                'all'
+            ] = region_sub_frame['objects'].to_list()
+
+            if len(self.buildings[str(region)]['all']) == 0:
+                centroid = regions_centroids_gdf[
+                    regions_centroids_gdf['NUMBER'] == region
+                ].iloc[0]['geometry']
+                self.buildings[str(region)]['all'].append(
+                    Building(
+                        x=centroid.coords[0][0],
+                        y=centroid.coords[0][1],
+                        type='inne',
+                        region=str(region),
+                        osm_id='region_centroid'
+                    )
+                )
+
+            for building_type in list(buildings_types.keys()):
+                sub_frame = region_sub_frame[region_sub_frame['Type'].isin(
+                    buildings_types[building_type]
+                )]
+                selected_buildings = sub_frame['objects'].to_list()
+
+                self.buildings[str(region)][building_type] = selected_buildings
+
+    def _row_to_building(self, row):
+        return Building(
+            x=row['geometry'].centroid.coords[0][0],
+            y=row['geometry'].centroid.coords[0][1],
+            type=row['Type'],
+            region=str(row['Region']),
+            osm_id=str(row['ID'])
+        )
+
+    def __call__(
+        self,
+        region: str,
+        building_type: str
+    ) -> Building:
+        """
+        Returns building of given type from given region.
+
+        Parameters
+        ----------
+            region: str
+                Building region id.
+            building_type: str
+                Type of building like "szkola", "dom", "praca", "inne",
+                "uczelnia".
+
+        Returns
+        -------
+            building: Building
+                Sampled building.
+        """
+
+        if len(self.buildings[region][building_type]) > 0:
+            building = np.random.choice(
+                self.buildings[region][building_type]
+            )
+        else:
+            building = np.random.choice(
+                self.buildings[region]['all']
+            )
+
+        # TODO Handle regions with no buildings
+
+        return building

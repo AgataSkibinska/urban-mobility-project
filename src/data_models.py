@@ -172,9 +172,12 @@ class Building:
             Building type like "szkola", "dom", "praca", "inne", "uczelnia".
         region: str
             Building region id.
+        osm_id: str
+            Building id from OSM.
     """
 
     x: float
     y: float
     type: str
     region: str
+    osm_id: str
