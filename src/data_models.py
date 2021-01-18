@@ -156,7 +156,6 @@ class ScheduleElement:
     dest_type: str
 
 
-
 @dataclass
 class Building:
     """

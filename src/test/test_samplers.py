@@ -290,7 +290,7 @@ def test_driver_sampler(
     driver_sampler = DriverSampler(
         drivers_dist=drivers_dist
     )
-    
+
     driver_1 = driver_sampler(
         age_sex='16-19_K'
     )
