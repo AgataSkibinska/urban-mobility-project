@@ -1,14 +1,15 @@
 from typing import Dict
 
 from mesa import Model
+from mesa.datacollection import DataCollector
 from mesa.time import RandomActivation
 from sklearn.tree import DecisionTreeClassifier
 
 from .agents import Person
 from .classifiers import TranportModeDecisionTree
 from .samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
-                      GravitySampler, RegionSampler,
-                      TransportModeInputsSampler)
+                       GravitySampler, RegionSampler,
+                       TransportModeInputsSampler)
 
 
 class TrafficModel(Model):
@@ -34,13 +35,17 @@ class TrafficModel(Model):
         drivers_dist: Dict[str, Dict[str, float]],
         interregional_distances: Dict[str, Dict[str, float]],
         start_time: int = 4 * 60,
-        step_time: int = 60
+        step_time: int = 60,
+        end_time: int = 23 * 60
     ):
         self.num_agents = N
         self.schedule = RandomActivation(self)
         self.running = True
+
         self.start_time = start_time
         self.step_time = step_time
+        self.end_time = end_time
+        self.current_time = self.start_time
 
         # All Agent subclasses init
         self.home_region_sampler = RegionSampler(
@@ -93,14 +98,41 @@ class TrafficModel(Model):
             )
             self.schedule.add(a)
 
-        # self.datacollector = DataCollector(
-        #     agent_reporters={
-        #         "regions_num": "regions_num",
-        #         "start_region": "start_region",
-        #         "end_region": "end_region"
-        #     }
-        # )
+        self.agent_data_collector = DataCollector(
+            agent_reporters={
+                'agent_id': 'agent_id',
+                'home_region': 'home_region',
+                'age_sex': 'age_sex',
+                'pub_trans_comfort': 'pub_trans_comfort',
+                'pub_trans_punctuality': 'pub_trans_punctuality',
+                'bicycle_infrastr_comfort': 'bicycle_infrastr_comfort',
+                'pedestrian_inconvenience': 'pedestrian_inconvenience',
+                'household_persons': 'household_persons',
+                'household_cars': 'household_cars',
+                'household_bicycles': 'household_bicycles',
+                'travels_num': 'travels_num'
+            }
+        )
+
+        self.agent_data_collector.collect(self)
+
+        self.travels_data_collector = DataCollector(
+            agent_reporters={
+                'agent_id': 'agent_id',
+                'start_region': 'start_region',
+                'start_place_type': 'start_place_type',
+                'dest_region': 'dest_region',
+                'dest_place_type': 'dest_place_type',
+                'travel_start_time': 'travel_start_time',
+                'transport_mode': 'transport_mode',
+                'is_driver': 'is_driver'
+            }
+        )
 
     def step(self):
-        # self.datacollector.collect(self)
         self.schedule.step()
+
+        if self.current_time >= self.end_time:
+            self.travels_data_collector.collect(self)
+
+        self.current_time += self.step_time

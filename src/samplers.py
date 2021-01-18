@@ -229,44 +229,59 @@ class TransportModeInputsSampler:
             "66-x_M": 5
         }
 
-        input_values = TransportModeInputs(
-            age=age_mapping[age_sex],
-            pub_trans_comfort=int(
-                self.pub_trans_comfort_samplers[
-                    age_sex
-                ]()
-            ),
-            pub_trans_punctuality=int(
-                self.pub_trans_punctuality_samplers[
-                    age_sex
-                ]()
-            ),
-            bicycle_infrastr_comfort=int(
-                self.bicycle_infrastr_comfort_samplers[
-                    age_sex
-                ]()
-            ),
-            pedestrian_inconvenience=int(
-                self.pedestrian_inconvenience_samplers[
-                    age_sex
-                ]()
-            ),
-            household_persons=int(
-                self.household_persons_samplers[
-                    age_sex
-                ]()
-            ),
-            household_cars=int(
-                self.household_cars_samplers[
-                    age_sex
-                ]()
-            ),
-            household_bicycles=int(
-                self.household_bicycles_samplers[
-                    age_sex
-                ]()
+        if age_sex != "0-5":
+
+            input_values = TransportModeInputs(
+                age=age_mapping[age_sex],
+                pub_trans_comfort=int(
+                    self.pub_trans_comfort_samplers[
+                        age_sex
+                    ]()
+                ),
+                pub_trans_punctuality=int(
+                    self.pub_trans_punctuality_samplers[
+                        age_sex
+                    ]()
+                ),
+                bicycle_infrastr_comfort=int(
+                    self.bicycle_infrastr_comfort_samplers[
+                        age_sex
+                    ]()
+                ),
+                pedestrian_inconvenience=int(
+                    self.pedestrian_inconvenience_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_persons=int(
+                    self.household_persons_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_cars=int(
+                    self.household_cars_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_bicycles=int(
+                    self.household_bicycles_samplers[
+                        age_sex
+                    ]()
+                )
             )
-        )
+
+        else:
+
+            input_values = TransportModeInputs(
+                age=age_mapping[age_sex],
+                pub_trans_comfort=None,
+                pub_trans_punctuality=None,
+                bicycle_infrastr_comfort=None,
+                pedestrian_inconvenience=None,
+                household_persons=None,
+                household_cars=None,
+                household_bicycles=None
+            )
 
         return input_values
 
@@ -388,8 +403,8 @@ class DayScheduleSampler:
                     start_place
                 ]()
                 first_start_time = int(
-                    self.start_hours_samplers[first_destination]() * 60
-                ) + self._sample_minutes()
+                    self.start_hours_samplers[first_destination]()
+                ) * 60 + self._sample_minutes()
                 first_spend_time = self.spend_time_samplers[age_sex][
                     first_destination
                 ]()
