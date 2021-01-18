@@ -558,6 +558,117 @@ class BuildingsSampler:
                 self.buildings[region]['all']
             )
 
-        # TODO Handle regions with no buildings
-
         return building
+
+
+class GravitySampler:
+    """
+    Sampler class to select destination region based on
+    start region and travel destination type.
+    """
+
+    def __init__(
+        self,
+        gravity_dist: Dict[str, Dict[str, Dict[str, float]]]
+    ):
+        """
+        Constructs GravitySampler with given distribution.
+
+        Parameters
+        ----------
+            gravity_dist: dict
+                Dictionary
+                {dest_type: str : {
+                    start_region_id: str : {
+                        dest_region_id: str : prob: float
+                    }
+                }}
+                contains probability for destination region for travel
+                with given start region and destination type (like 'szkola'...)
+        """
+
+        self.dest_region_samplers = {}
+        for dest_type in gravity_dist.keys():
+            self.dest_region_samplers[dest_type] = {}
+            for start_region, dist in gravity_dist[dest_type].items():
+                self.dest_region_samplers[dest_type][
+                    start_region
+                ] = BaseSampler(
+                    dist
+                )
+
+    def __call__(
+        self,
+        start_region: str,
+        dest_type: str
+    ) -> str:
+        """
+        Returns destination region id for given start region id
+        and destination type.
+
+        Parameters
+        ----------
+            start_region: str
+                Start region id.
+            dest_type: str
+                Travel destination type like "szkola", "dom", "praca", "inne",
+                "uczelnia".
+
+        Returns
+        -------
+            dest_region: str
+                Sampled destination region id.
+        """
+
+        dest_region = self.dest_region_samplers[dest_type][start_region]()
+
+        return dest_region
+
+
+class DriverSampler:
+    """
+    Sampler class to select driver from those who have chosen to bravel by car.
+    """
+    def __init__(
+        self,
+        drivers_dist: Dict[str, Dict[str, float]]
+    ):
+        """
+        Constructs DriverSampler with given probability distribution.
+        Parameters
+        ----------
+            drivers_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    is_driver: str : probability: float}
+                }
+                contains probabilities for drivers_dist input. Sampled
+                drivers_dist will be converted to int.
+        """
+        self.drivers_samplers = {}
+        for age_sex, input_dist in drivers_dist.items():
+            self.drivers_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+    def __call__(
+        self,
+        age_sex: str
+    ) -> str:
+        """
+        Samples and returns DriverInputs
+
+        Parameters
+        ----------
+            age_sex: str
+                Age and sex combination string like "0-5", "16-19_K"...
+
+        Returns
+        -------
+            is_driver: str
+                Sampled passenger ('0') or driver ('1')
+        """
+
+        is_driver = self.drivers_samplers[age_sex]()
+
+        return is_driver
