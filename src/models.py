@@ -4,9 +4,9 @@ from mesa import Model
 from mesa.time import RandomActivation
 from sklearn.tree import DecisionTreeClassifier
 
-from agents import Person
-from classifiers import TranportModeDecisionTree
-from samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
+from .agents import Person
+from .classifiers import TranportModeDecisionTree
+from .samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
                       GravitySampler, RegionSampler,
                       TransportModeInputsSampler)
 
@@ -39,7 +39,7 @@ class TrafficModel(Model):
         self.num_agents = N
         self.schedule = RandomActivation(self)
         self.running = True
-        self.time = start_time
+        self.start_time = start_time
         self.step_time = step_time
 
         # All Agent subclasses init
@@ -80,14 +80,16 @@ class TrafficModel(Model):
             a = Person(
                 unique_id=i,
                 model=self,
-                home_region_sampler=self.home_region_sample,
+                home_region_sampler=self.home_region_sampler,
                 age_sex_sampler=self.age_sex_sampler,
                 transport_mode_inputs_sampler=self.mode_inputs_sampler,
                 day_schedule_sampler=self.day_schedule_sampler,
                 transport_mode_clf=self.transport_mode_clf,
                 gravity_sampler=self.gravity_sampler,
                 driver_sampler=self.driver_sampler,
-                interregional_distances=self.interregional_distances
+                interregional_distances=self.interregional_distances,
+                start_time=self.start_time,
+                step_time=self.step_time
             )
             self.schedule.add(a)
 
@@ -101,5 +103,4 @@ class TrafficModel(Model):
 
     def step(self):
         # self.datacollector.collect(self)
-        self.schedule.step(self.time)
-        self.time += self.step_time
+        self.schedule.step()

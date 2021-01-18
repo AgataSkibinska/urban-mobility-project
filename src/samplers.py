@@ -370,69 +370,71 @@ class DayScheduleSampler:
                     Day travels schedule - list of ScheduleElement.
         """
 
-        travels_num = int(
-            self.travels_num_samplers[
-                age_sex
-            ]()
-        )
-
         schedule = []
 
-        if travels_num >= 2:
+        if age_sex != "0-5":
 
-            start_place = 'dom'
-
-            first_destination = self.finish_dest_samplers[age_sex][
-                start_place
-            ]()
-            first_start_time = int(
-                self.start_hours_samplers[first_destination]() * 60
-            ) + self._sample_minutes()
-            first_spend_time = self.spend_time_samplers[age_sex][
-                first_destination
-            ]()
-
-            schedule.append(
-                ScheduleElement(
-                    start_time=first_start_time,
-                    dest_type=first_destination
-                )
+            travels_num = int(
+                self.travels_num_samplers[
+                    age_sex
+                ]()
             )
 
-            prev_destination = first_destination
-            prev_start_time = first_start_time
-            prev_spend_time = first_spend_time
+            if travels_num >= 2:
 
-            for i in range(travels_num-2):
+                start_place = 'dom'
 
-                next_destination = self.finish_dest_samplers[age_sex][
-                    prev_destination
+                first_destination = self.finish_dest_samplers[age_sex][
+                    start_place
                 ]()
-                next_start_time = prev_start_time + prev_spend_time
-                next_spend_time = self.spend_time_samplers[age_sex][
-                    next_destination
+                first_start_time = int(
+                    self.start_hours_samplers[first_destination]() * 60
+                ) + self._sample_minutes()
+                first_spend_time = self.spend_time_samplers[age_sex][
+                    first_destination
                 ]()
 
                 schedule.append(
                     ScheduleElement(
-                        start_time=next_start_time,
-                        dest_type=next_destination
+                        start_time=first_start_time,
+                        dest_type=first_destination
                     )
                 )
 
-                prev_destination = next_destination
-                prev_start_time = next_start_time
-                prev_spend_time = next_spend_time
+                prev_destination = first_destination
+                prev_start_time = first_start_time
+                prev_spend_time = first_spend_time
 
-            last_destination = 'dom'
-            last_start_time = prev_start_time + prev_spend_time
+                for i in range(travels_num-2):
 
-            schedule.append(
-                ScheduleElement(
-                    start_time=last_start_time,
-                    dest_type=last_destination
+                    next_destination = self.finish_dest_samplers[age_sex][
+                        prev_destination
+                    ]()
+                    next_start_time = prev_start_time + prev_spend_time
+                    next_spend_time = self.spend_time_samplers[age_sex][
+                        next_destination
+                    ]()
+
+                    schedule.append(
+                        ScheduleElement(
+                            start_time=next_start_time,
+                            dest_type=next_destination
+                        )
+                    )
+
+                    prev_destination = next_destination
+                    prev_start_time = next_start_time
+                    prev_spend_time = next_spend_time
+
+                last_destination = 'dom'
+                last_start_time = prev_start_time + prev_spend_time
+
+                schedule.append(
+                    ScheduleElement(
+                        start_time=last_start_time,
+                        dest_type=last_destination
+                    )
                 )
-            )
 
         return schedule
 

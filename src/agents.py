@@ -2,8 +2,8 @@ from typing import Dict
 
 from mesa import Agent
 
-from classifiers import TranportModeDecisionTree
-from samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
+from .classifiers import TranportModeDecisionTree
+from .samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
                       GravitySampler, RegionSampler,
                       TransportModeInputsSampler)
 
@@ -21,32 +21,37 @@ class Person(Agent):
         transport_mode_clf: TranportModeDecisionTree,
         gravity_sampler: GravitySampler,
         driver_sampler: DriverSampler,
-        interregional_distances: Dict[str, Dict[str, float]]
+        interregional_distances: Dict[str, Dict[str, float]],
+        start_time: int,
+        step_time: int
     ):
         super().__init__(unique_id, model)
 
         self.home_region = home_region_sampler()
         self.age_sex = age_sex_sampler()
-        self.transport_mode_inputs = transport_mode_inputs_sampler(
-            self.age_sex
-        )
         self.schedule = day_schedule_sampler(self.age_sex)
+        if self.age_sex != "0-5":
+            self.transport_mode_inputs = transport_mode_inputs_sampler(
+                self.age_sex
+            )
 
         self.transport_mode_clf = transport_mode_clf
         self.gravity_sampler = gravity_sampler
         self.driver_sampler = driver_sampler
         self.interregional_distances = interregional_distances
 
-        self.current_region = self.home_region
+        self.step_time = step_time
 
-    def step(
-        self,
-        time: int
-    ):
+        self.current_region = self.home_region
+        self.current_time = start_time
+
+    def step(self):
         while self._should_start_new_travel(
-            time=time
+            time=self.current_time
         ):
             self._start_new_travel()
+
+        self.current_time += self.step_time
 
     def _should_start_new_travel(
         self,
