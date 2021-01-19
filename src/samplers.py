@@ -363,8 +363,9 @@ class DayScheduleSampler:
             for place_type, params in spend_time_dist_params[age_sex].items():
                 self.spend_time_samplers[age_sex][
                     place_type
-                ] = lambda: int(
-                    np.random.normal(params['loc'], params['scale'])
+                ] = lambda: min(
+                    int(np.random.normal(params['loc'], params['scale'])),
+                    10
                 )
 
     def __call__(
