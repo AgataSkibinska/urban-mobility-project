@@ -30,6 +30,11 @@ def chunkIt(seq, num):
         out.append(seq[int(last):int(last + avg)])
         last += avg
 
+    while len(out) > num:
+        la = out.pop(-1)
+        for el in la:
+            out[-1].append(el)
+
     return out
 
 
