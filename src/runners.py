@@ -48,7 +48,7 @@ def run(
                 In it, files will be created:
                     - 'agents_results_<sim_num>.csv'
                     - 'travels_results_<sim_num>.csv'
-                Where <sim_num> means the simulation number and the number 
+                Where <sim_num> means the simulation number and the number
                 of such files depends on the parameter: num_simulations.
     """
 
@@ -137,7 +137,7 @@ def run(
         drivers_dist = json.load(f)
 
     # Interregional distances and decision tree classifier
-    data_dir = '../experiments/input_data'
+    data_dir = in_dir_path.replace(in_dir_path.split('/')[-1], '')
 
     # interregional distances
     data_file = 'interregional_distances.json'
