@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+
+  simulator1:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_1,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '40', '10', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator2:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_2,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '40', '10', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator3:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_3,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '40', '10', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  
