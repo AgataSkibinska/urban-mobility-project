@@ -33,7 +33,7 @@ spec:
             - /mobility-project/input_data
             - /mobility-project/results
             - "400000"
-            - "80"
+            - "50"
             - "2"
           image: kornelro/ump
           name: simulator7
