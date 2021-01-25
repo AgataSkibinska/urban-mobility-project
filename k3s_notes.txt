@@ -1,0 +1,17 @@
+mkdir results
+
+K3S SETUP
+
+export MASTER=35.170.77.9
+export WORKER1=34.235.158.42
+export WORKER2=54.89.112.211
+export WORKER3=54.242.119.123
+export WORKER4=54.80.176.111
+export WORKER5=54.164.213.146
+k3sup install --ip $MASTER --user ubuntu --ssh-key ./lsdp_vms.pem 
+export KUBECONFIG=`pwd`/kubeconfig
+(tu musialem w cubeconfig zmienic server ip z ip na adres dns, bo byl blas z kluczem ssh) // za drugim razem bez tego
+kubectl get node
+k3sup join --ip $WORKER1 --server-ip $MASTER --user ubuntu --ssh-key ./lsdp_vms.pem 
+k3sup join --ip $WORKER2 --server-ip $MASTER --user ubuntu --ssh-key ./lsdp_vms.pem
+kubectl get node

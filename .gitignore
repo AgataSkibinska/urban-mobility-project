@@ -2,6 +2,8 @@ mobility_venv
 */test.ipynb
 */kr-osmnx/cache/*
 .pytest_cache
+ump.pem
+kubeconfig
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

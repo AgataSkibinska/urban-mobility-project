@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../docker-compose.yaml
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: simulator1
+  name: simulator1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: simulator1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../docker-compose.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: simulator1
+    spec:
+      containers:
+        - args:
+            - python3
+            - run_simulations.py
+            - /mobility-project/scenarios
+            - scenarios_1
+            - /mobility-project/input_data
+            - /mobility-project/results
+            - "400000"
+            - "80"
+            - "2"
+          image: kornelro/ump
+          name: simulator1
+          resources: {}
+          volumeMounts:
+            - mountPath: /mobility-project/results
+              name: simulator1-claim0
+      restartPolicy: Always
+      volumes:
+        - name: simulator1-claim0
+          hostPath:
+            path: {{ .Values.resultsPath }}
+status: {}

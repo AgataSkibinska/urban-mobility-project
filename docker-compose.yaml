@@ -8,7 +8,7 @@ services:
     /mobility-project/scenarios, scenarios_1,
     /mobility-project/input_data,
     /mobility-project/results,
-    '40', '10', '2']
+    '400000', '80', '2']
     volumes:
       - './results:/mobility-project/results'
 
@@ -18,7 +18,7 @@ services:
     /mobility-project/scenarios, scenarios_2,
     /mobility-project/input_data,
     /mobility-project/results,
-    '40', '10', '2']
+    '400000', '80', '2']
     volumes:
       - './results:/mobility-project/results'
 
@@ -28,8 +28,76 @@ services:
     /mobility-project/scenarios, scenarios_3,
     /mobility-project/input_data,
     /mobility-project/results,
-    '40', '10', '2']
+    '400000', '80', '2']
     volumes:
       - './results:/mobility-project/results'
 
-  
+  simulator4:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_4,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator5:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_5,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator6:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_6,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator7:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_7,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator8:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_8,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator9:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_9,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
+
+  simulator10:
+    build: .
+    command: [python3, run_simulations.py,
+    /mobility-project/scenarios, scenarios_10,
+    /mobility-project/input_data,
+    /mobility-project/results,
+    '400000', '80', '2']
+    volumes:
+      - './results:/mobility-project/results'
