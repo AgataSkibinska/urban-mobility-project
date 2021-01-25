@@ -115,7 +115,8 @@ if __name__ == '__main__':
         output_folder_name = scenarios_name + '_' + str(i+1) \
             + get_output_folder_postfix(simulation_scenario)
         output_folder_path = results_path + output_folder_name
-        os.mkdir(output_folder_path)
+        if not os.path.exists(output_folder_path):
+            os.mkdir(output_folder_path)
 
         print('Starts '+str(i+1)+' simulation...')
         run(
