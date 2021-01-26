@@ -4,13 +4,12 @@ import pandas as pd
 import geopandas as gpd
 from streamlit_folium import folium_static
 
-def load_hist():
+def load_hist(scenario):
     pass
 
-def load_modal_split():
+def load_modal_split(scenario):
     pass
     
-@st.cache
 def load_city_regions():
     wroc_map = gpd.read_file('EtapII-REJONY_wroclaw.shp')
     city_regions = wroc_map[['NUMBER', 'geometry']]
@@ -18,7 +17,7 @@ def load_city_regions():
     return city_regions.to_crs(epsg=4326)
 
 def plot_flows(flow_matrix, city_regions, min_flow):
-    fdf_from = skmob.FlowDataFrame(
+    fdf = skmob.FlowDataFrame(
     data=flow_matrix,
     origin='start_region',
     destination='dest_region',
@@ -26,13 +25,12 @@ def plot_flows(flow_matrix, city_regions, min_flow):
     tile_id='REGION',
     tessellation=city_regions
     )
-    m = fdf_from.plot_tessellation(tiles='OpenStreetMap')
-    plt = fdf_from.plot_flows(m, flow_color='red', tiles='OpenStreetMap', min_flow=min_flow)
+    m = fdf.plot_tessellation(tiles='OpenStreetMap')
+    plt = fdf.plot_flows(m, flow_color='red', tiles='OpenStreetMap', min_flow=min_flow, flow_weight=0.2)
     folium_static(plt)
 
 
-def load_flows():
-    scenario = st.sidebar.selectbox('Scenario',['real', 'public transport+', 'public transport++', 'cars-', 'cars--'])
+def load_flows(scenario):
     scenario_dict = {'real' : "0_0_0"} #TODO: rest of dict #, 'public transport+', 'public transport++', 'cars-', 'cars--'}
     flows_mode = st.sidebar.selectbox('Flows',['All', 'Age + sex', 'Transport mode'])
     flows_mode_dict = {'All' : 'all', 'Age + sex': 'asc', 'Transport mode': 'tm'}
@@ -40,10 +38,10 @@ def load_flows():
     if flows_mode == 'Age + sex':
         sex = st.sidebar.selectbox('Sex',['Male', 'Female'])
         if sex == 'Female':
-            age = st.sidebar.selectbox('Age',['0-5', '6-15', '16-19', '20-24', '25-44', '45-60', '61-x'])
+            age = st.sidebar.selectbox('Age',['6-15', '16-19', '20-24', '25-44', '45-60', '61-x'])
             sex = 'K'
         else:
-            age = st.sidebar.selectbox('Age',['0-5', '6-15', '16-19', '20-24', '25-44', '45-65', '66-x'])
+            age = st.sidebar.selectbox('Age',['6-15', '16-19', '20-24', '25-44', '45-65', '66-x'])
             sex = 'M'
         age_sex = age + "_" + sex
         flow_matrix = flow_matrix.reset_index()
@@ -54,8 +52,8 @@ def load_flows():
         flow_matrix = flow_matrix.reset_index()
         flow_matrix = flow_matrix[flow_matrix['transport_mode']==transport_mode_dict[transport_mode]]
 
-    min_flow = 50
-    min_flow = st.sidebar.slider('min flow', 50, 100)
+    min_flow = 20
+    min_flow = st.sidebar.slider('min flow', 20, 100)
     submmit = st.sidebar.button("Check result")
     if submmit: 
         city_regions = load_city_regions()
@@ -67,14 +65,14 @@ def load_flows():
 
 
 
-
+scenario = st.sidebar.selectbox('Scenario',['real', 'public transport+', 'public transport++', 'cars-', 'cars--'])
 selected = st.sidebar.selectbox('Results',['Histograms', 'Modal split', 'Flows'])
 if selected == 'Histograms':
-    load_hist()
+    load_hist(scenario)
 elif selected == 'Modal split':
-    load_modal_split()
+    load_modal_split(scenario)
 elif selected == 'Flows':
-    load_flows()
+    load_flows(scenario)
 
 
 
