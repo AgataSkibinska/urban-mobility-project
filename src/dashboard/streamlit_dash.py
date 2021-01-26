@@ -28,11 +28,10 @@ def plot_flows(flow_matrix, city_regions, min_flow):
 
 
 def load_flows():
-    scenario = st.sidebar.selectbox('Scenario',['real', 'public transport+', 'public transport++', 'cars-', 'cars--', 'comparison'])
-    scenario_dict = {'real' : "0_0_0"} #TODO: rest of dict #, 'public transport+', 'public transport++', 'cars-', 'cars--'}
+    scenario = st.sidebar.selectbox('Scenario',['0_0_0', '0_0_3', '15_15_0', '15_15_15', '0_0_15', '3_3_0','3_3_3'])
     flows_mode = st.sidebar.selectbox('Flows',['All', 'Age + sex', 'Transport mode'])
     flows_mode_dict = {'All' : 'all', 'Age + sex': 'asc', 'Transport mode': 'tm'}
-    flow_matrix = pd.read_pickle('fm_'+ flows_mode_dict[flows_mode] + "_sceanario_" + scenario_dict[scenario] + '.pkl')
+    flow_matrix = pd.read_pickle('fm_'+ flows_mode_dict[flows_mode] + "_sceanario_" + scenario + '.pkl')
     if flows_mode == 'Age + sex':
         sex = st.sidebar.selectbox('Sex',['Male', 'Female'])
         if sex == 'Female':
