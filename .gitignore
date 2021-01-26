@@ -4,6 +4,7 @@ mobility_venv
 .pytest_cache
 ump.pem
 kubeconfig
+results/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
