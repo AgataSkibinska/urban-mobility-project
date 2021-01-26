@@ -15,3 +15,33 @@ kubectl get node
 k3sup join --ip $WORKER1 --server-ip $MASTER --user ubuntu --ssh-key ./lsdp_vms.pem 
 k3sup join --ip $WORKER2 --server-ip $MASTER --user ubuntu --ssh-key ./lsdp_vms.pem
 kubectl get node
+
+
+--------------------------------------------------------------------------------
+
+
+export MASTER=52.54.176.43
+
+export WORKER1=54.80.72.120
+export WORKER2=18.206.95.165
+export WORKER3=204.236.252.21
+export WORKER4=54.175.37.142
+export WORKER5=35.172.116.31
+export WORKER6=3.90.241.136
+export WORKER7=34.207.228.102
+
+k3sup install --ip $MASTER --user ubuntu --ssh-key ./ump.pem 
+export KUBECONFIG=`pwd`/kubeconfig
+kubectl get node
+
+k3sup join --ip $WORKER1 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem 
+k3sup join --ip $WORKER2 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+k3sup join --ip $WORKER3 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+k3sup join --ip $WORKER4 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+k3sup join --ip $WORKER5 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+k3sup join --ip $WORKER6 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+k3sup join --ip $WORKER7 --server-ip $MASTER --user ubuntu --ssh-key ./ump.pem
+kubectl get node
+
+
+ssh -i "ump.pem" ubuntu@$WORKER1

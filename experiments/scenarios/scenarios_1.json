@@ -1,1 +1,1 @@
-{"scenarios": [[["decision_tree/pub_trans_comfort_dist-up", 0.0], ["decision_tree/pub_trans_punctuality_dist-up", 0.0], ["decision_tree/household_cars_dist-down", 0.0]], [["decision_tree/pub_trans_comfort_dist-up", 0.0], ["decision_tree/pub_trans_punctuality_dist-up", 0.0], ["decision_tree/household_cars_dist-down", 0.15]]]}
+{"scenarios": [[["decision_tree/pub_trans_comfort_dist-up", 0.0], ["decision_tree/pub_trans_punctuality_dist-up", 0.0], ["decision_tree/household_cars_dist-down", 0.0]]]}

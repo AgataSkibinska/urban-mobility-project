@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
-    io.kompose.service: simulator4
-  name: simulator4
+    io.kompose.service: simulator7
+  name: simulator7
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: simulator4
+      io.kompose.service: simulator7
   strategy:
     type: Recreate
   template:
@@ -22,28 +22,28 @@ spec:
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
-        io.kompose.service: simulator4
+        io.kompose.service: simulator7
     spec:
       containers:
         - args:
             - python3
             - run_simulations.py
             - /mobility-project/scenarios
-            - scenarios_4
+            - scenarios_7
             - /mobility-project/input_data
             - /mobility-project/results
-            - "400000"
-            - "50"
-            - "2"
+            - "600000"
+            - "100"
+            - "4"
           image: kornelro/ump
-          name: simulator4
+          name: simulator7
           resources: {}
           volumeMounts:
             - mountPath: /mobility-project/results
-              name: simulator4-claim0
+              name: simulator7-claim0
       restartPolicy: Always
       volumes:
-        - name: simulator4-claim0
+        - name: simulator7-claim0
           hostPath:
             path: {{ .Values.resultsPath }}
 status: {}

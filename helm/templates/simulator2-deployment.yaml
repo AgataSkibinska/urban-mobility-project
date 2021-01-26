@@ -32,9 +32,9 @@ spec:
             - scenarios_2
             - /mobility-project/input_data
             - /mobility-project/results
-            - "400000"
-            - "50"
-            - "2"
+            - "600000"
+            - "100"
+            - "4"
           image: kornelro/ump
           name: simulator2
           resources: {}
