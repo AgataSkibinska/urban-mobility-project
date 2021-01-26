@@ -4,12 +4,9 @@ import pandas as pd
 import geopandas as gpd
 from streamlit_folium import folium_static
 
-def load_hist(scenario):
+def load_comparison():
     pass
 
-def load_modal_split(scenario):
-    pass
-    
 def load_city_regions():
     wroc_map = gpd.read_file('EtapII-REJONY_wroclaw.shp')
     city_regions = wroc_map[['NUMBER', 'geometry']]
@@ -30,7 +27,8 @@ def plot_flows(flow_matrix, city_regions, min_flow):
     folium_static(plt)
 
 
-def load_flows(scenario):
+def load_flows():
+    scenario = st.sidebar.selectbox('Scenario',['real', 'public transport+', 'public transport++', 'cars-', 'cars--', 'comparison'])
     scenario_dict = {'real' : "0_0_0"} #TODO: rest of dict #, 'public transport+', 'public transport++', 'cars-', 'cars--'}
     flows_mode = st.sidebar.selectbox('Flows',['All', 'Age + sex', 'Transport mode'])
     flows_mode_dict = {'All' : 'all', 'Age + sex': 'asc', 'Transport mode': 'tm'}
@@ -65,14 +63,12 @@ def load_flows(scenario):
 
 
 
-scenario = st.sidebar.selectbox('Scenario',['real', 'public transport+', 'public transport++', 'cars-', 'cars--'])
-selected = st.sidebar.selectbox('Results',['Histograms', 'Modal split', 'Flows'])
-if selected == 'Histograms':
-    load_hist(scenario)
-elif selected == 'Modal split':
-    load_modal_split(scenario)
+
+selected = st.sidebar.selectbox('Mode',['Scenario comparison', 'Flows'])
+if selected == 'Scenario comparison':
+    load_comparison()
 elif selected == 'Flows':
-    load_flows(scenario)
+    load_flows()
 
 
 
