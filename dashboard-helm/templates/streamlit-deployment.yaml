@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../../dashboard/docker-compose.yaml
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: streamlit
+  name: streamlit
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      io.kompose.service: streamlit
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../../dashboard/docker-compose.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: streamlit
+    spec:
+      containers:
+        - args:
+            - streamlit
+            - run
+            - ./streamlit_dash.py
+          image: kornelro/ump_streamlit
+          name: streamlit
+          ports:
+            - containerPort: 8501
+          resources: {}
+      restartPolicy: Always
+status: {}

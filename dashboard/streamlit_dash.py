@@ -46,7 +46,7 @@ def plot_transportation_by_agesex(display_name, selected_age_sex):
     index = df_m.index[:-1]
     new_df = pd.DataFrame(df_m.values[:-1], columns=headers, index=index)
     new_df = (100. * new_df / new_df.sum()).astype(float).round(1)
-    labels = {'index': "Transportation", chosen_age: "Percentage of mean of transport usage"}
+    labels = {'index': "Transport mode", chosen_age: "Mean of percentage of transport mode usage"}
     fig = px.bar(data_frame=new_df, y=chosen_age, x=new_df.index, title=chosen_age,
                  labels=labels, range_y=[0, 50]
                  )
@@ -130,7 +130,7 @@ def plot_flows(flow_matrix, city_regions, min_flow):
     )
     m = fdf.plot_tessellation(tiles='OpenStreetMap')
     plt = fdf.plot_flows(m, flow_color='red', tiles='OpenStreetMap', min_flow=min_flow, flow_weight=0.35, zoom=1000)
-    folium_static(plt)
+    folium_static(plt, width=1000, height=600)
 
 
 def load_flows():

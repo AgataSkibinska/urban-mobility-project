@@ -1,6 +1,9 @@
 venv_mobility
 */test.ipynb
 */kr-osmnx/cache/*
+kubeconfig
+results/*
+ump.pem
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
