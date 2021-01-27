@@ -1,0 +1,6 @@
+streamlit
+streamlit-folium
+pandas
+geopandas
+plotly
+scikit-mobility
