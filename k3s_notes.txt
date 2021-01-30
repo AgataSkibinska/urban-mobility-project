@@ -26,8 +26,8 @@ export WORKER1=100.24.15.250
 export WORKER2=52.90.202.158
 export WORKER3=52.23.218.185
 export WORKER4=54.159.85.220
-export WORKER5=35.172.116.31
-export WORKER6=3.90.241.136
+export WORKER5=35.173.251.224
+export WORKER6=34.229.99.66
 export WORKER7=34.207.228.102
 
 k3sup install --ip $MASTER --user ubuntu --ssh-key ./ump.pem 
