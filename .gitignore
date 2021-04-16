@@ -2,9 +2,9 @@ mobility_venv
 */test.ipynb
 */kr-osmnx/cache/*
 .pytest_cache
-ump.pem
 kubeconfig
 results/*
+ump.pem
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -85,6 +85,7 @@ target/
 
 # exclude data from source control by default
 /data/raw
+/data/processed/scenarios
 
 # Mac OS-specific storage files
 .DS_Store
