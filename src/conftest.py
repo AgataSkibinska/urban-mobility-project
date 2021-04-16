@@ -409,3 +409,74 @@ def regions_centroids_gdf() -> gpd.GeoDataFrame:
     regions_centroids_gdf = regions_centroids_gdf.to_crs(epsg=4326)
 
     return regions_centroids_gdf
+
+
+@fixture(scope='session')
+def gravity_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
+    return {
+        'praca': {
+            "1": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+            "2": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+            "3": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+        },
+        'inne': {
+            "1": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+            "2": {
+                "1": 1,
+                "2": 0,
+                "3": 0,
+            },
+            "3": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+        },
+        'dom': {
+            "1": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+            "2": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+            "3": {
+                "1": 0.3,
+                "2": 0.3,
+                "3": 0.4,
+            },
+        }
+    }
+
+
+@fixture(scope='session')
+def drivers_dist() -> Dict[str, Dict[str, float]]:
+    return {
+        "16-19_K": {
+            "0": 0.2,
+            "1": 0.8
+        },
+        "45-65_M": {
+            "0": 1,
+            "1": 0
+        }
+    }

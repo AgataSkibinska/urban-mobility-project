@@ -229,44 +229,59 @@ class TransportModeInputsSampler:
             "66-x_M": 5
         }
 
-        input_values = TransportModeInputs(
-            age=age_mapping[age_sex],
-            pub_trans_comfort=int(
-                self.pub_trans_comfort_samplers[
-                    age_sex
-                ]()
-            ),
-            pub_trans_punctuality=int(
-                self.pub_trans_punctuality_samplers[
-                    age_sex
-                ]()
-            ),
-            bicycle_infrastr_comfort=int(
-                self.bicycle_infrastr_comfort_samplers[
-                    age_sex
-                ]()
-            ),
-            pedestrian_inconvenience=int(
-                self.pedestrian_inconvenience_samplers[
-                    age_sex
-                ]()
-            ),
-            household_persons=int(
-                self.household_persons_samplers[
-                    age_sex
-                ]()
-            ),
-            household_cars=int(
-                self.household_cars_samplers[
-                    age_sex
-                ]()
-            ),
-            household_bicycles=int(
-                self.household_bicycles_samplers[
-                    age_sex
-                ]()
+        if age_sex != "0-5":
+
+            input_values = TransportModeInputs(
+                age=age_mapping[age_sex],
+                pub_trans_comfort=int(
+                    self.pub_trans_comfort_samplers[
+                        age_sex
+                    ]()
+                ),
+                pub_trans_punctuality=int(
+                    self.pub_trans_punctuality_samplers[
+                        age_sex
+                    ]()
+                ),
+                bicycle_infrastr_comfort=int(
+                    self.bicycle_infrastr_comfort_samplers[
+                        age_sex
+                    ]()
+                ),
+                pedestrian_inconvenience=int(
+                    self.pedestrian_inconvenience_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_persons=int(
+                    self.household_persons_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_cars=int(
+                    self.household_cars_samplers[
+                        age_sex
+                    ]()
+                ),
+                household_bicycles=int(
+                    self.household_bicycles_samplers[
+                        age_sex
+                    ]()
+                )
             )
-        )
+
+        else:
+
+            input_values = TransportModeInputs(
+                age=age_mapping[age_sex],
+                pub_trans_comfort=None,
+                pub_trans_punctuality=None,
+                bicycle_infrastr_comfort=None,
+                pedestrian_inconvenience=None,
+                household_persons=None,
+                household_cars=None,
+                household_bicycles=None
+            )
 
         return input_values
 
@@ -348,8 +363,9 @@ class DayScheduleSampler:
             for place_type, params in spend_time_dist_params[age_sex].items():
                 self.spend_time_samplers[age_sex][
                     place_type
-                ] = lambda: int(
-                    np.random.normal(params['loc'], params['scale'])
+                ] = lambda: min(
+                    int(np.random.normal(params['loc'], params['scale'])),
+                    10
                 )
 
     def __call__(
@@ -370,69 +386,71 @@ class DayScheduleSampler:
                     Day travels schedule - list of ScheduleElement.
         """
 
-        travels_num = int(
-            self.travels_num_samplers[
-                age_sex
-            ]()
-        )
-
         schedule = []
 
-        if travels_num >= 2:
+        if age_sex != "0-5":
 
-            start_place = 'dom'
-
-            first_destination = self.finish_dest_samplers[age_sex][
-                start_place
-            ]()
-            first_start_time = int(
-                self.start_hours_samplers[first_destination]() * 60
-            ) + self._sample_minutes()
-            first_spend_time = self.spend_time_samplers[age_sex][
-                first_destination
-            ]()
-
-            schedule.append(
-                ScheduleElement(
-                    start_time=first_start_time,
-                    dest_type=first_destination
-                )
+            travels_num = int(
+                self.travels_num_samplers[
+                    age_sex
+                ]()
             )
 
-            prev_destination = first_destination
-            prev_start_time = first_start_time
-            prev_spend_time = first_spend_time
+            if travels_num >= 2:
 
-            for i in range(travels_num-2):
+                start_place = 'dom'
 
-                next_destination = self.finish_dest_samplers[age_sex][
-                    prev_destination
+                first_destination = self.finish_dest_samplers[age_sex][
+                    start_place
                 ]()
-                next_start_time = prev_start_time + prev_spend_time
-                next_spend_time = self.spend_time_samplers[age_sex][
-                    next_destination
+                first_start_time = int(
+                    self.start_hours_samplers[first_destination]()
+                ) * 60 + self._sample_minutes()
+                first_spend_time = self.spend_time_samplers[age_sex][
+                    first_destination
                 ]()
 
                 schedule.append(
                     ScheduleElement(
-                        start_time=next_start_time,
-                        dest_type=next_destination
+                        start_time=first_start_time,
+                        dest_type=first_destination
                     )
                 )
 
-                prev_destination = next_destination
-                prev_start_time = next_start_time
-                prev_spend_time = next_spend_time
+                prev_destination = first_destination
+                prev_start_time = first_start_time
+                prev_spend_time = first_spend_time
 
-            last_destination = 'dom'
-            last_start_time = prev_start_time + prev_spend_time
+                for i in range(travels_num-2):
 
-            schedule.append(
-                ScheduleElement(
-                    start_time=last_start_time,
-                    dest_type=last_destination
+                    next_destination = self.finish_dest_samplers[age_sex][
+                        prev_destination
+                    ]()
+                    next_start_time = prev_start_time + prev_spend_time
+                    next_spend_time = self.spend_time_samplers[age_sex][
+                        next_destination
+                    ]()
+
+                    schedule.append(
+                        ScheduleElement(
+                            start_time=next_start_time,
+                            dest_type=next_destination
+                        )
+                    )
+
+                    prev_destination = next_destination
+                    prev_start_time = next_start_time
+                    prev_spend_time = next_spend_time
+
+                last_destination = 'dom'
+                last_start_time = prev_start_time + prev_spend_time
+
+                schedule.append(
+                    ScheduleElement(
+                        start_time=last_start_time,
+                        dest_type=last_destination
+                    )
                 )
-            )
 
         return schedule
 
@@ -558,6 +576,117 @@ class BuildingsSampler:
                 self.buildings[region]['all']
             )
 
-        # TODO Handle regions with no buildings
-
         return building
+
+
+class GravitySampler:
+    """
+    Sampler class to select destination region based on
+    start region and travel destination type.
+    """
+
+    def __init__(
+        self,
+        gravity_dist: Dict[str, Dict[str, Dict[str, float]]]
+    ):
+        """
+        Constructs GravitySampler with given distribution.
+
+        Parameters
+        ----------
+            gravity_dist: dict
+                Dictionary
+                {dest_type: str : {
+                    start_region_id: str : {
+                        dest_region_id: str : prob: float
+                    }
+                }}
+                contains probability for destination region for travel
+                with given start region and destination type (like 'szkola'...)
+        """
+
+        self.dest_region_samplers = {}
+        for dest_type in gravity_dist.keys():
+            self.dest_region_samplers[dest_type] = {}
+            for start_region, dist in gravity_dist[dest_type].items():
+                self.dest_region_samplers[dest_type][
+                    start_region
+                ] = BaseSampler(
+                    dist
+                )
+
+    def __call__(
+        self,
+        start_region: str,
+        dest_type: str
+    ) -> str:
+        """
+        Returns destination region id for given start region id
+        and destination type.
+
+        Parameters
+        ----------
+            start_region: str
+                Start region id.
+            dest_type: str
+                Travel destination type like "szkola", "dom", "praca", "inne",
+                "uczelnia".
+
+        Returns
+        -------
+            dest_region: str
+                Sampled destination region id.
+        """
+
+        dest_region = self.dest_region_samplers[dest_type][start_region]()
+
+        return dest_region
+
+
+class DriverSampler:
+    """
+    Sampler class to select driver from those who have chosen to bravel by car.
+    """
+    def __init__(
+        self,
+        drivers_dist: Dict[str, Dict[str, float]]
+    ):
+        """
+        Constructs DriverSampler with given probability distribution.
+        Parameters
+        ----------
+            drivers_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    is_driver: str : probability: float}
+                }
+                contains probabilities for drivers_dist input. Sampled
+                drivers_dist will be converted to int.
+        """
+        self.drivers_samplers = {}
+        for age_sex, input_dist in drivers_dist.items():
+            self.drivers_samplers[age_sex] = BaseSampler(
+                input_dist
+            )
+
+    def __call__(
+        self,
+        age_sex: str
+    ) -> str:
+        """
+        Samples and returns DriverInputs
+
+        Parameters
+        ----------
+            age_sex: str
+                Age and sex combination string like "0-5", "16-19_K"...
+
+        Returns
+        -------
+            is_driver: str
+                Sampled passenger ('0') or driver ('1')
+        """
+
+        is_driver = self.drivers_samplers[age_sex]()
+
+        return is_driver

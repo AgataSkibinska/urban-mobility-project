@@ -1,8 +1,11 @@
+from typing import Dict
+
 from mesa import Agent
 
-from classifiers import TranportModeDecisionTree
-from samplers import RegionSampler, AgeSexSampler, \
-    TransportModeInputsSampler, DayScheduleSampler
+from .classifiers import TranportModeDecisionTree
+from .samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
+                       GravitySampler, RegionSampler,
+                       TransportModeInputsSampler)
 
 
 class Person(Agent):
@@ -16,98 +19,106 @@ class Person(Agent):
         transport_mode_inputs_sampler: TransportModeInputsSampler,
         day_schedule_sampler: DayScheduleSampler,
         transport_mode_clf: TranportModeDecisionTree,
-        drivers_dist,  # grouped by age_sex_comb among car travels
+        gravity_sampler: GravitySampler,
+        driver_sampler: DriverSampler,
+        interregional_distances: Dict[str, Dict[str, float]],
+        start_time: int,
+        step_time: int
     ):
         super().__init__(unique_id, model)
 
         self.home_region = home_region_sampler()
         self.age_sex = age_sex_sampler()
+        self.schedule = day_schedule_sampler(self.age_sex)
         self.transport_mode_inputs = transport_mode_inputs_sampler(
             self.age_sex
         )
-        self.schedule = day_schedule_sampler(self.age_sex)
+
         self.transport_mode_clf = transport_mode_clf
+        self.gravity_sampler = gravity_sampler
+        self.driver_sampler = driver_sampler
+        self.interregional_distances = interregional_distances
 
-        self.drivers_dist = drivers_dist
+        self.step_time = step_time
 
-        self.current_place = self._sample_building(self.home_region, "home")
-        self.on_the_way = False
-        self.travel_end_time = None # time of simulation when agent finish current travel
-        self.travel_destination = None # place where agent finish current travel
+        self.current_region = self.home_region
+        self.current_place_type = 'dom'
+        self.current_time = start_time
 
+        # Additional fields for agent data collector
+        self.agent_id = unique_id
+        #  home_region already exists
+        #  age_sex already exists
+        self.pub_trans_comfort = self.transport_mode_inputs.pub_trans_comfort
+        self.pub_trans_punctuality = self.transport_mode_inputs.pub_trans_punctuality
+        self.bicycle_infrastr_comfort = self.transport_mode_inputs.bicycle_infrastr_comfort
+        self.pedestrian_inconvenience = self.transport_mode_inputs.pedestrian_inconvenience
+        self.household_persons = self.transport_mode_inputs.household_persons
+        self.household_cars = self.transport_mode_inputs.household_cars
+        self.household_bicycles = self.transport_mode_inputs.household_bicycles
+        self.travels_num = len(self.schedule)
 
-    def step(
-        self,
-        time: int # simulation time in seconds
-    ):
-        
-        if self.on_the_way:
+        # Additional fields for travels data collector
+        #  self.agent_id already exists
+        self.start_region = []
+        self.start_place_type = []
+        self.dest_region = []
+        self.dest_place_type = []
+        self.travel_start_time = []
+        self.transport_mode = []
+        self.is_driver = []
 
-            if self.travel_end_time < time:
-                self._finish_travel()
-                self._travel()
-
-        else:
-            self._travel()
-
-
-    def _travel(self, time):
-
-        while self._should_start_new_travel():
-            
+    def step(self):
+        while self._should_start_new_travel(
+            time=self.current_time
+        ):
             self._start_new_travel()
 
-            if self.travel_end_time < time:
-                self._finish_travel()
+        self.current_time += self.step_time
 
-
-    def _finish_travel(self):
-        self.on_the_way = False
-        self.current_place = self.travel_destination
-
-
-    def _should_start_new_travel(self, time):
-
-        should_start = False
-        if self.day_schedule[0][0] < time and not self.on_the_way:
-                should_start = True
-
-        return should_start
-
+    def _should_start_new_travel(
+        self,
+        time: int
+    ):
+        return len(self.schedule) > 0 and self.schedule[0].start_time <= time
 
     def _start_new_travel(self):
+        schedule_element = self.schedule.pop(0)
 
-        start_time, destination_type = self.day_schedule.pop(0)[1]
+        if schedule_element.dest_type == 'dom':
+            dest_region = self.home_region
+        else:
+            dest_region = self.gravity_sampler(
+                start_region=self.current_region,
+                dest_type=schedule_element.dest_type
+            )
 
-        travel_destination = self._sample_travel_destination(destination_type)
+        distance = self.interregional_distances[
+            self.current_region
+        ][
+            dest_region
+        ]
 
-        travel_mode = self.transport_mode_clf.predict([[
-            # clf input
-        ]])
-        travel_time = self._trip_planner(
-            self.current_place,
-            travel_destination,
-            travel_mode
+        travel_mode = self.transport_mode_clf(
+            self.transport_mode_inputs.get_input_vector(
+                distance=distance
+            )
         )
 
-        self.on_the_way = True
-        self.travel_end_time = start_time + travel_time
-        self.travel_destination = travel_destination
+        is_driver = None
+        if travel_mode == 0:
+            is_driver = self.driver_sampler(
+                age_sex=self.age_sex
+            )
 
+        # update fields for travels data collector
+        self.start_region.append(self.current_region)
+        self.start_place_type.append(self.current_place_type)
+        self.dest_region.append(dest_region)
+        self.dest_place_type.append(schedule_element.dest_type)
+        self.travel_start_time.append(schedule_element.start_time)
+        self.transport_mode.append(travel_mode)
+        self.is_driver.append(is_driver)
 
-    def _sample_travel_destination(self, destination_type):
-        
-        current_region = self._place_to_region(self.current_place)
-        destination_region = self._gravity(current_region, destination_type)
-
-        destination_place = self._sample_building(destination_region, destination_type)
-
-        return destination_place
-        
-
-    def _place_to_region(self, place):
-        pass
-
-    def _gravity(self, current_region, destination_type):
-        pass
-         
+        self.current_region = dest_region
+        self.current_place_type = schedule_element.dest_type

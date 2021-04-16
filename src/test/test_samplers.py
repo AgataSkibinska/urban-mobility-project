@@ -5,7 +5,8 @@ import geopandas as gpd
 
 from ..data_models import Building
 from ..samplers import (AgeSexSampler, BuildingsSampler, DayScheduleSampler,
-                        RegionSampler, TransportModeInputsSampler)
+                        RegionSampler, TransportModeInputsSampler,
+                        GravitySampler, DriverSampler)
 
 
 def test_region_sampler(
@@ -163,6 +164,8 @@ def test_day_schedule_sampler_2(
     assert schedule[0].dest_type in ['dom', 'praca', 'inne']
     assert schedule[1].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
+    assert 0 <= schedule[0].start_time <= 24 * 60
+    assert 0 <= schedule[1].start_time <= 24 * 60
 
 
 def test_day_schedule_sampler_3(
@@ -195,6 +198,8 @@ def test_day_schedule_sampler_3(
     assert schedule[2].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
     assert schedule[1].start_time < schedule[2].start_time
+    assert 0 <= schedule[0].start_time <= 24 * 60
+    assert 0 <= schedule[1].start_time <= 24 * 60
 
 
 def test_day_schedule_sampler_4(
@@ -231,6 +236,11 @@ def test_day_schedule_sampler_4(
     assert schedule[1].start_time < schedule[2].start_time
     assert schedule[2].start_time < schedule[3].start_time
     assert schedule[3].start_time < schedule[4].start_time
+    assert 0 <= schedule[0].start_time <= 24 * 60
+    assert 0 <= schedule[1].start_time <= 24 * 60
+    assert 0 <= schedule[1].start_time <= 24 * 60
+    assert 0 <= schedule[2].start_time <= 24 * 60
+    assert 0 <= schedule[3].start_time <= 24 * 60
 
 
 def test_buildings_sampler(
@@ -259,3 +269,46 @@ def test_buildings_sampler(
     assert type(building_2) == Building
     assert round(building_2.x, 6) == round(16.89475215576043, 6)
     assert round(building_2.y, 6) == round(51.18178842847963551, 6)
+
+
+def test_gravity_sampler(
+    gravity_dist: Dict[str, Dict[str, Dict[str, float]]]
+):
+    gravity_sampler = GravitySampler(
+        gravity_dist=gravity_dist
+    )
+
+    dest_region_1 = gravity_sampler(
+        start_region="1",
+        dest_type="praca"
+    )
+    dest_region_2 = gravity_sampler(
+        start_region="2",
+        dest_type="inne"
+    )
+
+    assert type(dest_region_1) == str
+    assert dest_region_1 in ["1", "2", "3"]
+    assert type(dest_region_2) == str
+    assert dest_region_2 == "1"
+
+
+def test_driver_sampler(
+    drivers_dist: Dict[str, Dict[str, float]]
+):
+    driver_sampler = DriverSampler(
+        drivers_dist=drivers_dist
+    )
+
+    driver_1 = driver_sampler(
+        age_sex='16-19_K'
+    )
+
+    driver_2 = driver_sampler(
+        age_sex='45-65_M'
+    )
+
+    assert type(driver_1) == str
+    assert driver_1 in ["0", "1"]
+    assert type(driver_2) == str
+    assert driver_2 == "0"

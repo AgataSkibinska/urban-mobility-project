@@ -1,4 +1,4 @@
-venv_mobility
+mobility_venv
 */test.ipynb
 */kr-osmnx/cache/*
 kubeconfig
@@ -84,6 +84,7 @@ target/
 
 # exclude data from source control by default
 /data/raw
+/data/processed/scenarios
 
 # Mac OS-specific storage files
 .DS_Store
