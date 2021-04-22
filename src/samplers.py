@@ -48,6 +48,53 @@ class BaseSampler:
         return object_id
 
 
+class BaseNormalSampler:
+    """
+    Class to sample integer from normal distribution.
+    """
+
+    def __init__(
+        self,
+        loc: int,
+        scale: int,
+        min_value: int
+    ):
+        """
+        Constructs NormalSampler with given params.
+
+        Parameters
+        ----------
+            loc: int
+                Mean value - normaln distribution parameter.
+            scale: int
+                Std - normaln distribution parameter.
+            min_value: int
+                Minimal output value. If sampled value is less than
+                min_value then min_value is returned.
+        """
+
+        self.loc = loc
+        self.scale = scale
+        self.min_value = min_value
+
+    def __call__(self) -> int:
+        """
+            Sample value from normal distribution with sampler's params.
+
+            Returns
+            -------
+                sample: int
+                    Sampled integer.
+        """
+
+        sample = max(
+            int(np.random.normal(self.loc, self.scale)),
+            self.min_value
+        )
+
+        return sample
+
+
 class RegionSampler(BaseSampler):
     """
     Sampler class to select region for given distribution.
@@ -363,9 +410,10 @@ class DayScheduleSampler:
             for place_type, params in spend_time_dist_params[age_sex].items():
                 self.spend_time_samplers[age_sex][
                     place_type
-                ] = lambda: min(
-                    int(np.random.normal(params['loc'], params['scale'])),
-                    10
+                ] = BaseNormalSampler(
+                    loc=params['loc'],
+                    scale=params['scale'],
+                    min_value=10
                 )
 
     def __call__(
