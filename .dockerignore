@@ -10,3 +10,4 @@ experiments/*ipynb
 mobility_venv/*
 notebooks/*
 src.egg-info/*
+results/*
