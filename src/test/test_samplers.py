@@ -164,8 +164,8 @@ def test_day_schedule_sampler_2(
     assert schedule[0].dest_type in ['dom', 'praca', 'inne']
     assert schedule[1].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
-    assert 0 <= schedule[0].start_time <= 24 * 60
-    assert 0 <= schedule[1].start_time <= 24 * 60
+    assert 0 <= schedule[0].start_time
+    assert 0 <= schedule[1].start_time
 
 
 def test_day_schedule_sampler_3(
@@ -198,8 +198,8 @@ def test_day_schedule_sampler_3(
     assert schedule[2].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
     assert schedule[1].start_time < schedule[2].start_time
-    assert 0 <= schedule[0].start_time <= 24 * 60
-    assert 0 <= schedule[1].start_time <= 24 * 60
+    assert 0 <= schedule[0].start_time
+    assert 0 <= schedule[1].start_time
 
 
 def test_day_schedule_sampler_4(
@@ -236,11 +236,11 @@ def test_day_schedule_sampler_4(
     assert schedule[1].start_time < schedule[2].start_time
     assert schedule[2].start_time < schedule[3].start_time
     assert schedule[3].start_time < schedule[4].start_time
-    assert 0 <= schedule[0].start_time <= 24 * 60
-    assert 0 <= schedule[1].start_time <= 24 * 60
-    assert 0 <= schedule[1].start_time <= 24 * 60
-    assert 0 <= schedule[2].start_time <= 24 * 60
-    assert 0 <= schedule[3].start_time <= 24 * 60
+    assert 0 <= schedule[0].start_time
+    assert 0 <= schedule[1].start_time
+    assert 0 <= schedule[1].start_time
+    assert 0 <= schedule[2].start_time
+    assert 0 <= schedule[3].start_time
 
 
 def test_buildings_sampler(
