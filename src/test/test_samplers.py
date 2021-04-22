@@ -2,11 +2,58 @@ from collections import Counter
 from typing import Dict
 
 import geopandas as gpd
+import numpy as np
 
 from ..data_models import Building
-from ..samplers import (AgeSexSampler, BuildingsSampler, DayScheduleSampler,
-                        RegionSampler, TransportModeInputsSampler,
-                        GravitySampler, DriverSampler)
+from ..samplers import (AgeSexSampler, BaseNormalSampler, BaseSampler,
+                        BuildingsSampler, DayScheduleSampler, DriverSampler,
+                        GravitySampler, RegionSampler,
+                        TransportModeInputsSampler)
+
+
+def test_base_sampler_1():
+    dist = {
+        "A": 1.,
+        "B": 0
+    }
+
+    sampler = BaseSampler(dist)
+
+    samples = [sampler() for i in range(100000)]
+
+    assert samples == ["A" for i in range(100000)]
+
+
+def test_base_sampler_2():
+    dist = {
+        "A": 0.5,
+        "B": 0.3,
+        "C": 0.2
+    }
+
+    sampler = BaseSampler(dist)
+
+    samples = [sampler() for i in range(100000)]
+
+    assert samples.count("A") > samples.count("B") > samples.count("C")
+
+
+def test_base_normal_sampler():
+    loc = 100
+    scale = 10
+    min_value = 10
+
+    norm_sampler = BaseNormalSampler(
+        loc=loc,
+        scale=scale,
+        min_value=min_value
+    )
+
+    samples = np.array([norm_sampler() for i in range(100000)])
+
+    assert 99 < samples.mean() < 101
+    assert 9 < samples.std() < 11
+    assert min(samples) >= min_value
 
 
 def test_region_sampler(

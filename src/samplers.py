@@ -25,6 +25,8 @@ class BaseSampler:
                 probabilities of selecting elements.
         """
 
+        assert 0.99 < round(sum(prob_dist.values()), 4) <= 1
+
         self.prob_dist = prob_dist
 
     def __call__(
@@ -72,6 +74,8 @@ class BaseNormalSampler:
                 Minimal output value. If sampled value is less than
                 min_value then min_value is returned.
         """
+
+        assert scale >= 0
 
         self.loc = loc
         self.scale = scale
