@@ -25,6 +25,8 @@ class BaseSampler:
                 probabilities of selecting elements.
         """
 
+        assert 0.99 < round(sum(prob_dist.values()), 4) <= 1
+
         self.prob_dist = prob_dist
 
     def __call__(
@@ -46,6 +48,55 @@ class BaseSampler:
         object_id = object_ids[sample]
 
         return object_id
+
+
+class BaseNormalSampler:
+    """
+    Class to sample integer from normal distribution.
+    """
+
+    def __init__(
+        self,
+        loc: int,
+        scale: int,
+        min_value: int
+    ):
+        """
+        Constructs NormalSampler with given params.
+
+        Parameters
+        ----------
+            loc: int
+                Mean value - normaln distribution parameter.
+            scale: int
+                Std - normaln distribution parameter.
+            min_value: int
+                Minimal output value. If sampled value is less than
+                min_value then min_value is returned.
+        """
+
+        assert scale >= 0
+
+        self.loc = loc
+        self.scale = scale
+        self.min_value = min_value
+
+    def __call__(self) -> int:
+        """
+            Sample value from normal distribution with sampler's params.
+
+            Returns
+            -------
+                sample: int
+                    Sampled integer.
+        """
+
+        sample = max(
+            int(np.random.normal(self.loc, self.scale)),
+            self.min_value
+        )
+
+        return sample
 
 
 class RegionSampler(BaseSampler):
@@ -363,9 +414,10 @@ class DayScheduleSampler:
             for place_type, params in spend_time_dist_params[age_sex].items():
                 self.spend_time_samplers[age_sex][
                     place_type
-                ] = lambda: min(
-                    int(np.random.normal(params['loc'], params['scale'])),
-                    10
+                ] = BaseNormalSampler(
+                    loc=params['loc'],
+                    scale=params['scale'],
+                    min_value=10
                 )
 
     def __call__(
