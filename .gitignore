@@ -5,6 +5,7 @@ mobility_venv
 kubeconfig
 results/*
 ump.pem
+data/external/google_mobility_reports/*/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
