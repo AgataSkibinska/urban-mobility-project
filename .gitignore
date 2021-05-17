@@ -6,6 +6,8 @@ kubeconfig
 results/*
 ump.pem
 data/external/google_mobility_reports/*/*.csv
+data/external/time_use_survey/*.pdf
+data/external/time_use_survey/*.xlsx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
