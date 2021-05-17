@@ -347,6 +347,7 @@ class DayScheduleSampler:
         travels_num_dist: Dict[str, Dict[str, float]],
         start_hour_dist: Dict[str, Dict[str, float]],
         dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+        other_travels_dist: Dict[str, Dict[str, float]],
         spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
     ):
         """
@@ -407,6 +408,12 @@ class DayScheduleSampler:
                 self.finish_dest_samplers[age_sex][start_dest] = BaseSampler(
                     dist
                 )
+        
+        self.other_travels_samplers = {}
+        for age_sex, dist in other_travels_dist.items():
+            self.other_travels_samplers[age_sex] = BaseSampler(
+                dist
+            )
 
         self.spend_time_samplers = {}
         for age_sex in spend_time_dist_params.keys():
@@ -455,17 +462,23 @@ class DayScheduleSampler:
                 first_destination = self.finish_dest_samplers[age_sex][
                     start_place
                 ]()
+
+                if first_destination == 'inne':
+                    first_destination_with_other_split = self.other_travels_samplers[age_sex]()
+                else:
+                    first_destination_with_other_split = first_destination
+
                 first_start_time = int(
                     self.start_hours_samplers[first_destination]()
                 ) * 60 + self._sample_minutes()
                 first_spend_time = self.spend_time_samplers[age_sex][
-                    first_destination
+                    first_destination_with_other_split
                 ]()
 
                 schedule.append(
                     ScheduleElement(
                         start_time=first_start_time,
-                        dest_type=first_destination
+                        dest_type=first_destination_with_other_split
                     )
                 )
 
@@ -474,19 +487,23 @@ class DayScheduleSampler:
                 prev_spend_time = first_spend_time
 
                 for i in range(travels_num-2):
-
                     next_destination = self.finish_dest_samplers[age_sex][
                         prev_destination
                     ]()
+                    if first_destination == 'inne':
+                        next_destination_with_other_split = self.other_travels_samplers[age_sex]()
+                    else:
+                        next_destination_with_other_split = next_destination
+
                     next_start_time = prev_start_time + prev_spend_time
                     next_spend_time = self.spend_time_samplers[age_sex][
-                        next_destination
+                        next_destination_with_other_split
                     ]()
 
                     schedule.append(
                         ScheduleElement(
                             start_time=next_start_time,
-                            dest_type=next_destination
+                            dest_type=next_destination_with_other_split
                         )
                     )
 

@@ -1,1 +1,8 @@
-{"retail_and_recreation": -14.869565217391305, "grocery_and_pharmacy": -17.782608695652176, "parks": 66.8695652173913, "transit_stations": -38.0, "workplaces": -34.73913043478261, "residential": 6.869565217391305}
+{
+    "retail_and_recreation": -14.869565217391305,
+    "grocery_and_pharmacy": -17.782608695652176,
+    "parks": 66.8695652173913,
+    "transit_stations": -38.0,
+    "workplaces": -34.73913043478261,
+    "residential": 6.869565217391305
+}

@@ -39,6 +39,7 @@ def run(
                         - travels_num_dist.json
                         - start_hour_dist.json
                         - dest_type_dist.json
+                        - other_travels_dist.json
                         - spend_time_dist_params.json
                         - gravity_dist.json
                         - drivers_dist.json
@@ -52,98 +53,75 @@ def run(
                 of such files depends on the parameter: num_simulations.
     """
 
+    def load_object(name, in_dir='out'):
+        file_name = name if name.endswith('.json') else (name + '.json')
+        file_path = os.path.join(in_dir, file_name)
+        with open(file_path, 'r') as f:
+            return json.load(f)
+
     # Demography distributions
     data_dir = in_dir_path + '/demography/'
 
     data_file = 'population_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        population_dist = json.load(f)
+    population_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'demography_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        demography_dist = json.load(f)
+    demography_dist = load_object(name=data_file, in_dir=data_dir)
 
     # Decision tree distributions
     data_dir = in_dir_path + '/decision_tree/'
 
     data_file = 'pub_trans_comfort_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        pub_trans_comfort_dist = json.load(f)
+    pub_trans_comfort_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'pub_trans_punctuality_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        pub_trans_punctuality_dist = json.load(f)
+    pub_trans_punctuality_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'bicycle_infrastr_comfort_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        bicycle_infrastr_comfort_dist = json.load(f)
+    bicycle_infrastr_comfort_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'pedestrian_inconvenience_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        pedestrian_inconvenience_dist = json.load(f)
+    pedestrian_inconvenience_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'household_persons_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        household_persons_dist = json.load(f)
+    household_persons_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'household_cars_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        household_cars_dist = json.load(f)
+    household_cars_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'household_bicycles_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        household_bicycles_dist = json.load(f)
+    household_bicycles_dist = load_object(name=data_file, in_dir=data_dir)
 
     # Travel planning distributions
     data_dir = in_dir_path + '/travel_planning/'
 
     data_file = 'travels_num_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        travels_num_dist = json.load(f)
+    travels_num_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'start_hour_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        start_hour_dist = json.load(f)
+    start_hour_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'dest_type_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        dest_type_dist = json.load(f)
+    dest_type_dist = load_object(name=data_file, in_dir=data_dir)
+    
+    data_file = 'other_travels_dist.json'
+    other_travels_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'spend_time_dist_params.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        spend_time_dist_params = json.load(f)
+    spend_time_dist_params = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'gravity_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        gravity_dist = json.load(f)
+    gravity_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'drivers_dist.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        drivers_dist = json.load(f)
+    drivers_dist = load_object(name=data_file, in_dir=data_dir)
 
     # Interregional distances and decision tree classifier
     data_dir = in_dir_path.replace(in_dir_path.split('/')[-1], '')
 
     # interregional distances
     data_file = 'interregional_distances.json'
-    data_path = os.path.join(data_dir, data_file)
-    with open(data_path, 'r') as f:
-        interregional_distances = json.load(f)
+    interregional_distances = load_object(name=data_file, in_dir=data_dir)
 
     # decision tree
     data_file = 'decision_tree.pickle'
@@ -165,6 +143,7 @@ def run(
         'travels_num_dist': travels_num_dist,
         'start_hour_dist': start_hour_dist,
         'dest_type_dist': dest_type_dist,
+        'other_travels_dist': other_travels_dist,
         'spend_time_dist_params': spend_time_dist_params,
         'decision_tree': decision_tree,
         'gravity_dist': gravity_dist,
@@ -202,6 +181,7 @@ def run_single(params):
         travels_num_dist=params['travels_num_dist'],
         start_hour_dist=params['start_hour_dist'],
         dest_type_dist=params['dest_type_dist'],
+        other_travels_dist=params['other_travels_dist'], 
         spend_time_dist_params=params['spend_time_dist_params'],
         decision_tree=params['decision_tree'],
         gravity_dist=params['gravity_dist'],

@@ -29,6 +29,7 @@ class TrafficModel(Model):
         travels_num_dist: Dict[str, Dict[str, float]],
         start_hour_dist: Dict[str, Dict[str, float]],
         dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+        other_travels_dist: Dict[str, Dict[str, float]],
         spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
         decision_tree: DecisionTreeClassifier,
         gravity_dist: Dict[str, Dict[str, Dict[str, float]]],
@@ -67,6 +68,7 @@ class TrafficModel(Model):
             travels_num_dist=travels_num_dist,
             start_hour_dist=start_hour_dist,
             dest_type_dist=dest_type_dist,
+            other_travels_dist=other_travels_dist,
             spend_time_dist_params=spend_time_dist_params
         )
         self.transport_mode_clf = TranportModeDecisionTree(

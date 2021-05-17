@@ -160,6 +160,7 @@ def test_day_schedule_sampler_1(
     travels_num_dist: Dict[str, Dict[str, float]],
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
 ):
     travels_num_dist = {
@@ -175,6 +176,7 @@ def test_day_schedule_sampler_1(
         travels_num_dist=travels_num_dist,
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
+        other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params
     )
 
@@ -187,6 +189,7 @@ def test_day_schedule_sampler_2(
     travels_num_dist: Dict[str, Dict[str, float]],
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
 ):
     travels_num_dist = {
@@ -202,13 +205,18 @@ def test_day_schedule_sampler_2(
         travels_num_dist=travels_num_dist,
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
+        other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params
     )
 
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 2
-    assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    # assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[0].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
     assert schedule[1].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
     assert 0 <= schedule[0].start_time
@@ -219,6 +227,7 @@ def test_day_schedule_sampler_3(
     travels_num_dist: Dict[str, Dict[str, float]],
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
 ):
     travels_num_dist = {
@@ -234,14 +243,23 @@ def test_day_schedule_sampler_3(
         travels_num_dist=travels_num_dist,
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
+        other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params
     )
 
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 3
-    assert schedule[0].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[1].dest_type in ['dom', 'praca', 'inne']
+    # assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[0].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
+    # assert schedule[1].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
     assert schedule[2].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
     assert schedule[1].start_time < schedule[2].start_time
@@ -253,6 +271,7 @@ def test_day_schedule_sampler_4(
     travels_num_dist: Dict[str, Dict[str, float]],
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+    other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
 ):
     travels_num_dist = {
@@ -268,6 +287,7 @@ def test_day_schedule_sampler_4(
         travels_num_dist=travels_num_dist,
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
+        other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params
     )
 
@@ -275,9 +295,26 @@ def test_day_schedule_sampler_4(
 
     assert len(schedule) == 5
     assert schedule[0].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[1].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[2].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[3].dest_type in ['dom', 'praca', 'inne']
+    # assert schedule[0].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[0].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
+    # assert schedule[1].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
+    # assert schedule[2].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[2].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
+    # assert schedule[3].dest_type in ['dom', 'praca', 'inne']
+    assert schedule[3].dest_type in [
+        'dom', 'praca', 'culture_and_entertainment',
+        'gastronomy', 'grocery_shopping'
+    ]
     assert schedule[4].dest_type == 'dom'
     assert schedule[0].start_time < schedule[1].start_time
     assert schedule[1].start_time < schedule[2].start_time

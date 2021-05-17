@@ -342,6 +342,22 @@ def dest_type_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
 
 
 @fixture(scope='session')
+def other_travels_dist() -> Dict[str, Dict[str, float]]:
+    return {
+        "16-19_K": {
+            "culture_and_entertainment": 0.3,
+            "gastronomy": 0.3,
+            "grocery_shopping": 0.4
+        },
+        "45-65_M": {
+            "culture_and_entertainment": 0.2,
+            "gastronomy": 0.2,
+            "grocery_shopping": 0.6
+        }
+    }
+
+
+@fixture(scope='session')
 def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
     return {
         "16-19_K": {
@@ -353,9 +369,17 @@ def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
                 "loc": 640,
                 "scale": 60
             },
-            "inne": {
+            "culture_and_entertainment": {
                 "loc": 120,
-                "scale": 30
+                "scale": 60
+            },
+            "gastronomy": {
+                "loc": 120,
+                "scale": 60
+            },
+            "grocery_shopping": {
+                "loc": 120,
+                "scale": 60
             },
         },
         "45-65_M": {
@@ -367,9 +391,17 @@ def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
                 "loc": 640,
                 "scale": 60
             },
-            "inne": {
+            "culture_and_entertainment": {
                 "loc": 120,
-                "scale": 30
+                "scale": 60
+            },
+            "gastronomy": {
+                "loc": 120,
+                "scale": 60
+            },
+            "grocery_shopping": {
+                "loc": 120,
+                "scale": 60
             },
         },
     }
