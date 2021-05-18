@@ -463,7 +463,7 @@ def gravity_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
                 "3": 0.4,
             },
         },
-        'inne': {
+        'culture_and_entertainment': {
             "1": {
                 "1": 0.3,
                 "2": 0.3,

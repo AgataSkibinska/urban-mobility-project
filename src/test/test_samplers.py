@@ -368,7 +368,7 @@ def test_gravity_sampler(
     )
     dest_region_2 = gravity_sampler(
         start_region="2",
-        dest_type="inne"
+        dest_type="culture_and_entertainment"
     )
 
     assert type(dest_region_1) == str
