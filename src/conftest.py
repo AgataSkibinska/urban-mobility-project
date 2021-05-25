@@ -419,6 +419,28 @@ def trip_cancel_prob() -> Dict[str, float]:
 
 
 @fixture(scope='session')
+def trip_cancel_prob_2() -> Dict[str, float]:
+    return {
+        "dom": 1.0,
+        "praca": 1.0,
+        "culture_and_entertainment": 1.0,
+        "gastronomy": 1.0,
+        "grocery_shopping": 1.0
+    }
+
+
+@fixture(scope='session')
+def trip_cancel_prob_3() -> Dict[str, float]:
+    return {
+        "dom": 0.0,
+        "praca": 1.0,
+        "culture_and_entertainment": 1.0,
+        "gastronomy": 0.0,
+        "grocery_shopping": 0.0
+    }
+
+
+@fixture(scope='session')
 def decision_tree() -> DecisionTreeClassifier:
 
     tree_dir = './src/test_data/tree.pickle'
