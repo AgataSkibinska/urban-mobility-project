@@ -8,6 +8,7 @@ ump.pem
 data/external/google_mobility_reports/*/*.csv
 data/external/time_use_survey/*.pdf
 data/external/time_use_survey/*.xlsx
+data/external/time_use_survey/*.numbers
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

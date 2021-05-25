@@ -41,6 +41,7 @@ def run(
                         - dest_type_dist.json
                         - other_travels_dist.json
                         - spend_time_dist_params.json
+                        - trip_cancel_prob.json
                         - gravity_dist.json
                         - drivers_dist.json
             out_dir_path: str
@@ -110,6 +111,9 @@ def run(
     data_file = 'spend_time_dist_params.json'
     spend_time_dist_params = load_object(name=data_file, in_dir=data_dir)
 
+    data_file = 'trip_cancel_prob.json'
+    trip_cancel_prob = load_object(name=data_file, in_dir=data_dir)
+
     data_file = 'gravity_dist.json'
     gravity_dist = load_object(name=data_file, in_dir=data_dir)
 
@@ -145,6 +149,7 @@ def run(
         'dest_type_dist': dest_type_dist,
         'other_travels_dist': other_travels_dist,
         'spend_time_dist_params': spend_time_dist_params,
+        'trip_cancel_prob': trip_cancel_prob,
         'decision_tree': decision_tree,
         'gravity_dist': gravity_dist,
         'drivers_dist': drivers_dist,
@@ -183,6 +188,7 @@ def run_single(params):
         dest_type_dist=params['dest_type_dist'],
         other_travels_dist=params['other_travels_dist'], 
         spend_time_dist_params=params['spend_time_dist_params'],
+        trip_cancel_prob=params['trip_cancel_prob'],
         decision_tree=params['decision_tree'],
         gravity_dist=params['gravity_dist'],
         drivers_dist=params['drivers_dist'],

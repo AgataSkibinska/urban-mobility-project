@@ -408,6 +408,17 @@ def spend_time_dist_params() -> Dict[str, Dict[str, Dict[str, int]]]:
 
 
 @fixture(scope='session')
+def trip_cancel_prob() -> Dict[str, float]:
+    return {
+        "dom": 0.0,
+        "praca": 0.0,
+        "culture_and_entertainment": 0.0,
+        "gastronomy": 0.0,
+        "grocery_shopping": 0.0
+    }
+
+
+@fixture(scope='session')
 def decision_tree() -> DecisionTreeClassifier:
 
     tree_dir = './src/test_data/tree.pickle'

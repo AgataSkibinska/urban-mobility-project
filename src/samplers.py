@@ -348,7 +348,8 @@ class DayScheduleSampler:
         start_hour_dist: Dict[str, Dict[str, float]],
         dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
         other_travels_dist: Dict[str, Dict[str, float]],
-        spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+        spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+        trip_cancel_prob: Dict[str, float]
     ):
         """
         Constructs DayScheduleSampler with given probability
@@ -379,6 +380,7 @@ class DayScheduleSampler:
                     }
                 }}
                 contains probabilities to select finish destination type.
+            TODO: other_travels_samplers
             spend_time_dist_params: dict
                 Dictionary
                 {age_sex: str : {
@@ -387,6 +389,7 @@ class DayScheduleSampler:
                         "scale" : std_minutes: int
                     }
                 }}
+            TODO: trip_cancel_prob
         """
 
         self.travels_num_samplers = {}
@@ -426,6 +429,9 @@ class DayScheduleSampler:
                     scale=params['scale'],
                     min_value=10
                 )
+
+        self.trip_cancel_prob = trip_cancel_prob
+        
 
     def __call__(
         self,
@@ -467,7 +473,7 @@ class DayScheduleSampler:
                     first_destination_with_other_split = self.other_travels_samplers[age_sex]()
                 else:
                     first_destination_with_other_split = first_destination
-
+                
                 first_start_time = int(
                     self.start_hours_samplers[first_destination]()
                 ) * 60 + self._sample_minutes()
@@ -475,14 +481,17 @@ class DayScheduleSampler:
                     first_destination_with_other_split
                 ]()
 
-                schedule.append(
-                    ScheduleElement(
-                        start_time=first_start_time,
-                        dest_type=first_destination_with_other_split
+                if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():  # do not cancel this trip
+                    schedule.append(
+                        ScheduleElement(
+                            start_time=first_start_time,
+                            dest_type=first_destination_with_other_split
+                        )
                     )
-                )
-
-                prev_destination = first_destination
+                    prev_destination = first_destination
+                else:
+                    prev_destination = start_place
+                
                 prev_start_time = first_start_time
                 prev_spend_time = first_spend_time
 
@@ -500,26 +509,28 @@ class DayScheduleSampler:
                         next_destination_with_other_split
                     ]()
 
-                    schedule.append(
-                        ScheduleElement(
-                            start_time=next_start_time,
-                            dest_type=next_destination_with_other_split
+                    if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():  # do not cancel this trip
+                        schedule.append(
+                            ScheduleElement(
+                                start_time=next_start_time,
+                                dest_type=next_destination_with_other_split
+                            )
                         )
-                    )
+                        prev_destination = next_destination
 
-                    prev_destination = next_destination
                     prev_start_time = next_start_time
                     prev_spend_time = next_spend_time
 
                 last_destination = 'dom'
                 last_start_time = prev_start_time + prev_spend_time
 
-                schedule.append(
-                    ScheduleElement(
-                        start_time=last_start_time,
-                        dest_type=last_destination
+                if schedule:
+                    schedule.append(
+                        ScheduleElement(
+                            start_time=last_start_time,
+                            dest_type=last_destination
+                        )
                     )
-                )
 
         return schedule
 

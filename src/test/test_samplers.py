@@ -159,7 +159,8 @@ def test_day_schedule_sampler_1(
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
-    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+    trip_cancel_prob: Dict[str, float]
 ):
     travels_num_dist = {
         "16-19_K": {
@@ -175,7 +176,8 @@ def test_day_schedule_sampler_1(
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
-        spend_time_dist_params=spend_time_dist_params
+        spend_time_dist_params=spend_time_dist_params,
+        trip_cancel_prob=trip_cancel_prob
     )
 
     schedule = day_schedule_sampler("16-19_K")
@@ -188,7 +190,8 @@ def test_day_schedule_sampler_2(
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
-    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+    trip_cancel_prob: Dict[str, float]
 ):
     travels_num_dist = {
         "16-19_K": {
@@ -204,7 +207,8 @@ def test_day_schedule_sampler_2(
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
-        spend_time_dist_params=spend_time_dist_params
+        spend_time_dist_params=spend_time_dist_params,
+        trip_cancel_prob=trip_cancel_prob
     )
 
     schedule = day_schedule_sampler("16-19_K")
@@ -226,7 +230,8 @@ def test_day_schedule_sampler_3(
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
-    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+    trip_cancel_prob: Dict[str, float]
 ):
     travels_num_dist = {
         "16-19_K": {
@@ -242,7 +247,8 @@ def test_day_schedule_sampler_3(
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
-        spend_time_dist_params=spend_time_dist_params
+        spend_time_dist_params=spend_time_dist_params,
+        trip_cancel_prob=trip_cancel_prob
     )
 
     schedule = day_schedule_sampler("16-19_K")
@@ -270,7 +276,8 @@ def test_day_schedule_sampler_4(
     start_hour_dist: Dict[str, Dict[str, float]],
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
-    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]]
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+    trip_cancel_prob: Dict[str, float]
 ):
     travels_num_dist = {
         "16-19_K": {
@@ -286,7 +293,8 @@ def test_day_schedule_sampler_4(
         start_hour_dist=start_hour_dist,
         dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
-        spend_time_dist_params=spend_time_dist_params
+        spend_time_dist_params=spend_time_dist_params,
+        trip_cancel_prob=trip_cancel_prob
     )
 
     schedule = day_schedule_sampler("16-19_K")

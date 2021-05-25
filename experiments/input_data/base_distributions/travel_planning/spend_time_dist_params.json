@@ -52,6 +52,10 @@
             "loc": 58,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -117,6 +121,10 @@
         "other_shopping": {
             "loc": 58,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
@@ -184,6 +192,10 @@
             "loc": 56,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -249,6 +261,10 @@
         "other_shopping": {
             "loc": 56,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
@@ -316,6 +332,10 @@
             "loc": 52,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -381,6 +401,10 @@
         "other_shopping": {
             "loc": 52,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
@@ -448,6 +472,10 @@
             "loc": 53,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -513,6 +541,10 @@
         "other_shopping": {
             "loc": 53,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
@@ -580,6 +612,10 @@
             "loc": 59,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -645,6 +681,10 @@
         "other_shopping": {
             "loc": 59,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
@@ -712,6 +752,10 @@
             "loc": 61,
             "scale": 15
         },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
+        },
         "religion": {
             "loc": 60,
             "scale": 15
@@ -777,6 +821,10 @@
         "other_shopping": {
             "loc": 61,
             "scale": 15
+        },
+        "pharmacy": {
+            "loc": 15,
+            "scale": 2
         },
         "religion": {
             "loc": 60,
