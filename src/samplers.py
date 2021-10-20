@@ -431,7 +431,6 @@ class DayScheduleSampler:
                 )
 
         self.trip_cancel_prob = trip_cancel_prob
-        
 
     def __call__(
         self,
@@ -473,7 +472,7 @@ class DayScheduleSampler:
                     first_destination_with_other_split = self.other_travels_samplers[age_sex]()
                 else:
                     first_destination_with_other_split = first_destination
-                
+
                 first_start_time = int(
                     self.start_hours_samplers[first_destination]()
                 ) * 60 + self._sample_minutes()
@@ -491,7 +490,7 @@ class DayScheduleSampler:
                     prev_destination = first_destination
                 else:
                     prev_destination = start_place
-                
+
                 prev_start_time = first_start_time
                 prev_spend_time = first_spend_time
 

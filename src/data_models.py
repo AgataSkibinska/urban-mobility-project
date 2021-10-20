@@ -149,11 +149,15 @@ class ScheduleElement:
             Travel start time in minutes of day.
         dest_type: str
             Travel destination type like "szkola", "uczelnia", "dom",
-            "praca", "inne".
+            "praca", "inne"
+        next_activity_dur_time: int
+            Duration time (minutes) of activity that starts  after this travel.
+            Default value is 0.
     """
 
     start_time: int
     dest_type: str
+    next_activity_dur_time: int = 0
 
 
 # @dataclass
