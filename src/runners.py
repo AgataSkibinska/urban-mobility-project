@@ -104,7 +104,7 @@ def run(
 
     data_file = 'dest_type_dist.json'
     dest_type_dist = load_object(name=data_file, in_dir=data_dir)
-    
+
     data_file = 'other_travels_dist.json'
     other_travels_dist = load_object(name=data_file, in_dir=data_dir)
 
@@ -186,7 +186,7 @@ def run_single(params):
         travels_num_dist=params['travels_num_dist'],
         start_hour_dist=params['start_hour_dist'],
         dest_type_dist=params['dest_type_dist'],
-        other_travels_dist=params['other_travels_dist'], 
+        other_travels_dist=params['other_travels_dist'],
         spend_time_dist_params=params['spend_time_dist_params'],
         trip_cancel_prob=params['trip_cancel_prob'],
         decision_tree=params['decision_tree'],
@@ -211,8 +211,8 @@ def run_single(params):
         travels_results[travels_results['start_region'].astype(str) != '[]'],
         [
             'start_region', 'start_place_type', 'dest_region',
-            'dest_place_type', 'travel_start_time', 'transport_mode',
-            'is_driver'
+            'dest_place_type', 'travel_start_time', 'dest_activity_dur_time',
+            'transport_mode', 'is_driver'
         ],
         fill_value=''
     )

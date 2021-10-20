@@ -65,6 +65,7 @@ class Person(Agent):
         self.dest_region = []
         self.dest_place_type = []
         self.travel_start_time = []
+        self.dest_activity_dur_time = []
         self.transport_mode = []
         self.is_driver = []
 
@@ -80,17 +81,17 @@ class Person(Agent):
         self,
         time: int
     ):
-        return len(self.schedule) > 0 and self.schedule[0].start_time <= time
+        return len(self.schedule) > 0 and self.schedule[0].travel_start_time <= time
 
     def _start_new_travel(self):
         schedule_element = self.schedule.pop(0)
 
-        if schedule_element.dest_type == 'dom':
+        if schedule_element.dest_activity_type == 'dom':
             dest_region = self.home_region
         else:
             dest_region = self.gravity_sampler(
                 start_region=self.current_region,
-                dest_type=schedule_element.dest_type
+                dest_type=schedule_element.dest_activity_type
             )
 
         distance = self.interregional_distances[
@@ -115,10 +116,11 @@ class Person(Agent):
         self.start_region.append(self.current_region)
         self.start_place_type.append(self.current_place_type)
         self.dest_region.append(dest_region)
-        self.dest_place_type.append(schedule_element.dest_type)
-        self.travel_start_time.append(schedule_element.start_time)
+        self.dest_place_type.append(schedule_element.dest_activity_type)
+        self.travel_start_time.append(schedule_element.travel_start_time)
+        self.dest_activity_dur_time.append(schedule_element.dest_activity_dur_time)
         self.transport_mode.append(travel_mode)
         self.is_driver.append(is_driver)
 
         self.current_region = dest_region
-        self.current_place_type = schedule_element.dest_type
+        self.current_place_type = schedule_element.dest_activity_type

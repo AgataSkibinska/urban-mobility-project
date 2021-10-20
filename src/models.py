@@ -128,6 +128,7 @@ class TrafficModel(Model):
                 'dest_region': 'dest_region',
                 'dest_place_type': 'dest_place_type',
                 'travel_start_time': 'travel_start_time',
+                'dest_activity_dur_time': 'dest_activity_dur_time',
                 'transport_mode': 'transport_mode',
                 'is_driver': 'is_driver'
             }
