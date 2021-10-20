@@ -214,15 +214,15 @@ def test_day_schedule_sampler_2(
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 2
-    # assert schedule[0].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[0].dest_type in [
+    # assert schedule[0].dest_activity_type in ['dom', 'praca', 'inne']
+    assert schedule[0].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[1].dest_type == 'dom'
-    assert schedule[0].start_time < schedule[1].start_time
-    assert 0 <= schedule[0].start_time
-    assert 0 <= schedule[1].start_time
+    assert schedule[1].dest_activity_type == 'dom'
+    assert schedule[0].travel_start_time < schedule[1].travel_start_time
+    assert 0 <= schedule[0].travel_start_time
+    assert 0 <= schedule[1].travel_start_time
 
 
 def test_day_schedule_sampler_3(
@@ -254,21 +254,21 @@ def test_day_schedule_sampler_3(
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 3
-    # assert schedule[0].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[0].dest_type in [
+    # assert schedule[0].dest_activity_type in ['dom', 'praca', 'inne']
+    assert schedule[0].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    # assert schedule[1].dest_type in ['dom', 'praca', 'inne']
-    assert schedule[1].dest_type in [
+    # assert schedule[1].dest_activity_type in ['dom', 'praca', 'inne']
+    assert schedule[1].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[2].dest_type == 'dom'
-    assert schedule[0].start_time < schedule[1].start_time
-    assert schedule[1].start_time < schedule[2].start_time
-    assert 0 <= schedule[0].start_time
-    assert 0 <= schedule[1].start_time
+    assert schedule[2].dest_activity_type == 'dom'
+    assert schedule[0].travel_start_time < schedule[1].travel_start_time
+    assert schedule[1].travel_start_time < schedule[2].travel_start_time
+    assert 0 <= schedule[0].travel_start_time
+    assert 0 <= schedule[1].travel_start_time
 
 
 def test_day_schedule_sampler_4(
@@ -300,32 +300,32 @@ def test_day_schedule_sampler_4(
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 5
-    assert schedule[0].dest_type in [
+    assert schedule[0].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[1].dest_type in [
+    assert schedule[1].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[2].dest_type in [
+    assert schedule[2].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[3].dest_type in [
+    assert schedule[3].dest_activity_type in [
         'dom', 'praca', 'culture_and_entertainment',
         'gastronomy', 'grocery_shopping'
     ]
-    assert schedule[4].dest_type == 'dom'
-    assert schedule[0].start_time < schedule[1].start_time
-    assert schedule[1].start_time < schedule[2].start_time
-    assert schedule[2].start_time < schedule[3].start_time
-    assert schedule[3].start_time < schedule[4].start_time
-    assert 0 <= schedule[0].start_time
-    assert 0 <= schedule[1].start_time
-    assert 0 <= schedule[1].start_time
-    assert 0 <= schedule[2].start_time
-    assert 0 <= schedule[3].start_time
+    assert schedule[4].dest_activity_type == 'dom'
+    assert schedule[0].travel_start_time < schedule[1].travel_start_time
+    assert schedule[1].travel_start_time < schedule[2].travel_start_time
+    assert schedule[2].travel_start_time < schedule[3].travel_start_time
+    assert schedule[3].travel_start_time < schedule[4].travel_start_time
+    assert 0 <= schedule[0].travel_start_time
+    assert 0 <= schedule[1].travel_start_time
+    assert 0 <= schedule[1].travel_start_time
+    assert 0 <= schedule[2].travel_start_time
+    assert 0 <= schedule[3].travel_start_time
 
 
 def test_day_schedule_sampler_5(
@@ -389,7 +389,7 @@ def test_day_schedule_sampler_6(
 
     assert len(schedule) <= 5
     for schedule_element in schedule:
-        assert schedule_element.dest_type in [
+        assert schedule_element.dest_activity_type in [
             'dom', 'gastronomy', 'grocery_shopping'
         ]
 
@@ -400,7 +400,7 @@ def test_day_schedule_sampler_7(
     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
-    trip_cancel_prob_3: Dict[str, float]
+    trip_cancel_prob: Dict[str, float]
 ):
     travels_num_dist = {
         "16-19_K": {
@@ -417,17 +417,17 @@ def test_day_schedule_sampler_7(
         dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params,
-        trip_cancel_prob=trip_cancel_prob_3
+        trip_cancel_prob=trip_cancel_prob
     )
 
     schedule = day_schedule_sampler("16-19_K")
 
     assert len(schedule) == 5
-    for i in range(len(schedule-1)):
-        start_time = schedule[i].next_activity_dur_time
-        end_time = schedule[i+1].next_activity_dur_time
+    for i in range(len(schedule)-1):
+        start_time = schedule[i].travel_start_time
+        end_time = schedule[i+1].travel_start_time
         dur_time = end_time - start_time
-        assert schedule[i].next_activity_dur_time == dur_time
+        assert schedule[i].dest_activity_dur_time == dur_time
 
 # def test_buildings_sampler(
 #     buildings_gdf: gpd.GeoDataFrame,

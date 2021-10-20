@@ -483,8 +483,9 @@ class DayScheduleSampler:
                 if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():  # do not cancel this trip
                     schedule.append(
                         ScheduleElement(
-                            start_time=first_start_time,
-                            dest_type=first_destination_with_other_split
+                            travel_start_time=first_start_time,
+                            dest_activity_type=first_destination_with_other_split,
+                            dest_activity_dur_time=first_spend_time
                         )
                     )
                     prev_destination = first_destination
@@ -511,8 +512,9 @@ class DayScheduleSampler:
                     if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():  # do not cancel this trip
                         schedule.append(
                             ScheduleElement(
-                                start_time=next_start_time,
-                                dest_type=next_destination_with_other_split
+                                travel_start_time=next_start_time,
+                                dest_activity_type=next_destination_with_other_split,
+                                dest_activity_dur_time=next_spend_time
                             )
                         )
                         prev_destination = next_destination
@@ -526,8 +528,8 @@ class DayScheduleSampler:
                 if schedule:
                     schedule.append(
                         ScheduleElement(
-                            start_time=last_start_time,
-                            dest_type=last_destination
+                            travel_start_time=last_start_time,
+                            dest_activity_type=last_destination
                         )
                     )
 
