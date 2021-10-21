@@ -145,15 +145,22 @@ class ScheduleElement:
 
     Attributes
     ----------
-        start_time: int
-            Travel start time in minutes of day.
-        dest_type: str
+        travel_start_time: int
+            Travel start time in minutes of day. Take a note that for
+            second and each next travel the start time field is a time 
+            of destination activity start without estimation of travel
+            time between activities.
+        dest_activity_type: str
             Travel destination type like "szkola", "uczelnia", "dom",
-            "praca", "inne".
+            "praca", "inne"
+        dest_activity_dur_time: int
+            Duration time (minutes) of activity that is this travel
+            destination. Default value is 0.
     """
 
-    start_time: int
-    dest_type: str
+    travel_start_time: int
+    dest_activity_type: str
+    dest_activity_dur_time: int = 0
 
 
 # @dataclass
