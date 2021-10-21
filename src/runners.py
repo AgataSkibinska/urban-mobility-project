@@ -36,6 +36,9 @@ def run(
                         - household_cars_dist.json
                         - household_bicycles_dist.json
                     - /travel_planning/
+                        - /travel_chains_approach/
+                            - any_travel_dist.json
+                            - travel_chains_dist.json
                         - travels_num_dist.json
                         - start_hour_dist.json
                         - dest_type_dist.json
@@ -94,16 +97,25 @@ def run(
     household_bicycles_dist = load_object(name=data_file, in_dir=data_dir)
 
     # Travel planning distributions
+    data_dir = in_dir_path + '/travel_planning/travel_chains_approach/'
+
+    data_file = 'any_travel_dist.json'
+    any_travel_dist = load_object(name=data_file, in_dir=data_dir)
+
+    data_file = 'travel_chains_dist.json'
+    travel_chains_dist = load_object(name=data_file, in_dir=data_dir)
+
+    # Travel planning distributions
     data_dir = in_dir_path + '/travel_planning/'
 
-    data_file = 'travels_num_dist.json'
-    travels_num_dist = load_object(name=data_file, in_dir=data_dir)
+    # data_file = 'travels_num_dist.json'
+    # travels_num_dist = load_object(name=data_file, in_dir=data_dir)
 
     data_file = 'start_hour_dist.json'
     start_hour_dist = load_object(name=data_file, in_dir=data_dir)
 
-    data_file = 'dest_type_dist.json'
-    dest_type_dist = load_object(name=data_file, in_dir=data_dir)
+    # data_file = 'dest_type_dist.json'
+    # dest_type_dist = load_object(name=data_file, in_dir=data_dir)
     
     data_file = 'other_travels_dist.json'
     other_travels_dist = load_object(name=data_file, in_dir=data_dir)
@@ -144,9 +156,11 @@ def run(
         'household_persons_dist': household_persons_dist,
         'household_cars_dist': household_cars_dist,
         'household_bicycles_dist': household_bicycles_dist,
-        'travels_num_dist': travels_num_dist,
+        # 'travels_num_dist': travels_num_dist,
+        'any_travel_dist': any_travel_dist,
+        'travel_chains_dist': travel_chains_dist,
         'start_hour_dist': start_hour_dist,
-        'dest_type_dist': dest_type_dist,
+        # 'dest_type_dist': dest_type_dist,
         'other_travels_dist': other_travels_dist,
         'spend_time_dist_params': spend_time_dist_params,
         'trip_cancel_prob': trip_cancel_prob,
@@ -183,9 +197,11 @@ def run_single(params):
         household_persons_dist=params['household_persons_dist'],
         household_cars_dist=params['household_cars_dist'],
         household_bicycles_dist=params['household_bicycles_dist'],
-        travels_num_dist=params['travels_num_dist'],
+        # travels_num_dist=params['travels_num_dist'],
+        any_travel_dist=params['any_travel_dist'],
+        travel_chains_dist=params['travel_chains_dist'],
         start_hour_dist=params['start_hour_dist'],
-        dest_type_dist=params['dest_type_dist'],
+        # dest_type_dist=params['dest_type_dist'],
         other_travels_dist=params['other_travels_dist'], 
         spend_time_dist_params=params['spend_time_dist_params'],
         trip_cancel_prob=params['trip_cancel_prob'],
