@@ -26,11 +26,9 @@ class TrafficModel(Model):
         household_persons_dist: Dict[str, Dict[str, float]],
         household_cars_dist: Dict[str, Dict[str, float]],
         household_bicycles_dist: Dict[str, Dict[str, float]],
-        # travels_num_dist: Dict[str, Dict[str, float]],
         any_travel_dist: Dict[str, Dict[str, float]],
         travel_chains_dist: Dict[str, Dict[str, float]],
         start_hour_dist: Dict[str, Dict[str, float]],
-        # dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
         other_travels_dist: Dict[str, Dict[str, float]],
         spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
         trip_cancel_prob: Dict[str, float],
@@ -68,11 +66,9 @@ class TrafficModel(Model):
             household_bicycles_dist=household_bicycles_dist
         )
         self.day_schedule_sampler = DayScheduleSampler(
-            # travels_num_dist=travels_num_dist,
             any_travel_dist=any_travel_dist,
             travel_chains_dist=travel_chains_dist,
             start_hour_dist=start_hour_dist,
-            # dest_type_dist=dest_type_dist,
             other_travels_dist=other_travels_dist,
             spend_time_dist_params=spend_time_dist_params,
             trip_cancel_prob=trip_cancel_prob

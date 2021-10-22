@@ -214,24 +214,6 @@ def household_bicycles_dist() -> Dict[str, float]:
     }
 
 
-# @fixture(scope='session')
-# def travels_num_dist() -> Dict[str, Dict[str, float]]:
-#     return {
-#         "16-19_K": {
-#             "0": 0.4,
-#             "2": 0.4,
-#             "3": 0.1,
-#             "4": 0.1
-#         },
-#         "45-65_M": {
-#             "0": 0.4,
-#             "2": 0.4,
-#             "3": 0.1,
-#             "4": 0.1
-#         }
-#     }
-
-
 @fixture(scope='session')
 def any_travel_dist() -> Dict[str, Dict[str, float]]:
     return {
@@ -329,46 +311,6 @@ def start_hour_dist() -> Dict[str, Dict[str, float]]:
             "23": 0.05
         }
     }
-
-
-# @fixture(scope='session')
-# def dest_type_dist() -> Dict[str, Dict[str, Dict[str, float]]]:
-#     return {
-#         "16-19_K": {
-#             "dom": {
-#                 "dom": 0.1,
-#                 "praca": 0.5,
-#                 "inne": 0.4
-#             },
-#             "praca": {
-#                 "dom": 0.5,
-#                 "praca": 0.1,
-#                 "inne": 0.4
-#             },
-#             "inne": {
-#                 "dom": 0.4,
-#                 "praca": 0.4,
-#                 "inne": 0.2
-#             }
-#         },
-#         "45-65_M": {
-#             "dom": {
-#                 "dom": 0.1,
-#                 "praca": 0.5,
-#                 "inne": 0.4
-#             },
-#             "praca": {
-#                 "dom": 0.5,
-#                 "praca": 0.1,
-#                 "inne": 0.4
-#             },
-#             "inne": {
-#                 "dom": 0.4,
-#                 "praca": 0.4,
-#                 "inne": 0.2
-#             }
-#         },
-#     }
 
 
 @fixture(scope='session')
