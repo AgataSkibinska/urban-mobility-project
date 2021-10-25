@@ -1,0 +1,365 @@
+age_sex_comb,source-destination,count
+16-19_K,"dom-szkola, szkola-dom",50
+16-19_K,"dom-inne, inne-dom",8
+16-19_K,"dom-uczelnia, uczelnia-dom",8
+16-19_K,"dom-szkola, szkola-dom, dom-inne, inne-dom",4
+16-19_K,"dom-praca, praca-dom",3
+16-19_K,dom-inne,1
+16-19_K,"dom-inne, inne-inne, inne-szkola, szkola-inne, inne-inne, inne-inne",1
+16-19_K,"dom-inne, inne-szkola, szkola-dom, dom-inne, inne-dom",1
+16-19_K,dom-praca,1
+16-19_K,"dom-praca, praca-dom, dom-inne, inne-dom",1
+16-19_K,"dom-praca, praca-inne, inne-dom",1
+16-19_K,"dom-szkola, szkola-inne, inne-dom",1
+16-19_K,"dom-szkola, szkola-szkola, szkola-inne, inne-inne, inne-inne, inne-inne, inne-dom",1
+16-19_K,"dom-uczelnia, dom-uczelnia, uczelnia-dom, uczelnia-dom",1
+16-19_K,"dom-uczelnia, uczelnia-dom, dom-inne",1
+16-19_K,"dom-uczelnia, uczelnia-praca, praca-dom",1
+16-19_M,"dom-szkola, szkola-dom",77
+16-19_M,"dom-inne, inne-dom",13
+16-19_M,"dom-uczelnia, uczelnia-dom",10
+16-19_M,"dom-szkola, szkola-dom, dom-inne, inne-dom",5
+16-19_M,"dom-szkola, szkola-inne, inne-dom",5
+16-19_M,"dom-praca, praca-dom",3
+16-19_M,dom-szkola,3
+16-19_M,"dom-inne, inne-dom, dom-inne, inne-dom, dom-inne, inne-dom",1
+16-19_M,"dom-inne, inne-szkola, szkola-dom",1
+16-19_M,"dom-praca, praca-inne, inne-dom",1
+16-19_M,"dom-szkola, szkola-inne, inne-inne, inne-inne, inne-dom",1
+16-19_M,"dom-szkola, szkola-inne, inne-inne, inne-inne, inne-inne, inne-dom",1
+16-19_M,"dom-uczelnia, uczelnia-dom, dom-praca, praca-dom",1
+16-19_M,"dom-uczelnia, uczelnia-inne, inne-dom",1
+16-19_M,inne-dom,1
+20-24_K,"dom-uczelnia, uczelnia-dom",82
+20-24_K,"dom-inne, inne-dom",46
+20-24_K,"dom-praca, praca-dom",40
+20-24_K,"dom-uczelnia, uczelnia-inne, inne-dom",19
+20-24_K,"dom-szkola, szkola-dom",10
+20-24_K,"dom-uczelnia, uczelnia-dom, dom-inne, inne-dom",9
+20-24_K,"dom-uczelnia, dom-uczelnia, uczelnia-dom, uczelnia-dom",4
+20-24_K,dom-inne,3
+20-24_K,"dom-inne, inne-dom, dom-inne, inne-dom",3
+20-24_K,"dom-praca, praca-inne, inne-dom",3
+20-24_K,"dom-uczelnia, uczelnia-inne",3
+20-24_K,"dom-uczelnia, uczelnia-praca, praca-dom",3
+20-24_K,dom-dom,2
+20-24_K,dom-praca,2
+20-24_K,"dom-praca, praca-dom, dom-inne, inne-dom",2
+20-24_K,"dom-uczelnia, uczelnia-inne, inne-uczelnia, uczelnia-dom",2
+20-24_K,"dom-inne, dom-inne, inne-dom, inne-dom",1
+20-24_K,"dom-inne, dom-uczelnia, inne-dom, dom-szkola, uczelnia-dom, szkola-dom",1
+20-24_K,"dom-inne, inne-inne",1
+20-24_K,"dom-inne, inne-inne, inne-dom",1
+20-24_K,"dom-inne, inne-inne, inne-uczelnia, uczelnia-dom",1
+20-24_K,"dom-praca, praca-inne",1
+20-24_K,"dom-szkola, szkola-inne, inne-dom",1
+20-24_K,dom-uczelnia,1
+20-24_K,"dom-uczelnia, uczelnia-dom, dom-uczelnia, uczelnia-dom",1
+20-24_K,"dom-uczelnia, uczelnia-inne, inne-inne, inne-inne, inne-dom",1
+20-24_K,"dom-uczelnia, uczelnia-inne, inne-uczelnia, uczelnia-inne, inne-inne, inne-dom",1
+20-24_K,inne-dom,1
+20-24_K,"inne-dom, dom-praca, dom-praca, dom-praca, dom-uczelnia, dom-uczelnia, dom-praca, dom-inne, uczelnia-inne, dom-inne, inne-dom, dom-uczelnia, uczelnia-dom, inne-dom, inne-dom, uczelnia-dom, dom-praca, dom-inne, inne-dom, dom-inne, praca-dom, dom-inne, inne-dom, inne-dom, inne-dom, praca-dom, inne-dom, dom-inne, praca-dom, inne-dom, inne-dom, dom-inne, inne-dom, praca-dom, dom-inne, dom-inne, inne-dom, dom-inne, praca-dom, inne-dom, inne-dom, inne-dom",1
+20-24_K,"inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne, inne-inne",1
+20-24_K,"inne-inne, inne-inne, inne-inne, inne-inne, inne-praca, inne-inne, inne-inne, praca-inne",1
+20-24_K,"uczelnia-uczelnia, uczelnia-inne, inne-dom",1
+20-24_M,"dom-uczelnia, uczelnia-dom",83
+20-24_M,"dom-inne, inne-dom",47
+20-24_M,"dom-praca, praca-dom",38
+20-24_M,"dom-uczelnia, uczelnia-inne, inne-dom",13
+20-24_M,"dom-uczelnia, uczelnia-dom, dom-inne, inne-dom",8
+20-24_M,"dom-szkola, szkola-dom",4
+20-24_M,"dom-uczelnia, dom-uczelnia, uczelnia-dom, uczelnia-dom",4
+20-24_M,dom-uczelnia,3
+20-24_M,dom-inne,2
+20-24_M,"dom-inne, inne-inne, inne-dom",2
+20-24_M,dom-praca,2
+20-24_M,"dom-uczelnia, dom-inne, uczelnia-dom, inne-dom",2
+20-24_M,"dom-uczelnia, uczelnia-dom, dom-praca, praca-dom",2
+20-24_M,praca-dom,2
+20-24_M,"dom-inne, dom-inne, inne-dom, inne-dom, inne-dom, dom-praca, dom-uczelnia, dom-uczelnia, inne-dom, uczelnia-dom, dom-inne, dom-inne, inne-dom, dom-inne, dom-inne, uczelnia-dom, inne-dom, inne-dom, dom-praca, dom-praca, dom-inne, praca-dom, praca-dom, praca-dom",1
+20-24_M,"dom-inne, inne-inne, inne-inne, inne-dom",1
+20-24_M,"dom-inne, inne-inne, inne-uczelnia, uczelnia-inne, inne-inne, inne-dom",1
+20-24_M,"dom-inne, inne-praca, praca-dom",1
+20-24_M,"dom-inne, inne-praca, praca-inne, inne-dom",1
+20-24_M,"dom-praca, dom-praca, praca-dom, praca-dom",1
+20-24_M,"dom-praca, dom-uczelnia, uczelnia-dom, praca-dom",1
+20-24_M,"dom-praca, praca-dom, dom-inne, inne-dom",1
+20-24_M,"dom-praca, praca-inne, inne-dom",1
+20-24_M,dom-szkola,1
+20-24_M,"dom-szkola, dom-szkola, dom-szkola, szkola-dom, szkola-dom, szkola-dom",1
+20-24_M,"dom-uczelnia, dom-praca, uczelnia-dom, praca-dom",1
+20-24_M,"dom-uczelnia, dom-uczelnia, dom-uczelnia, uczelnia-dom, uczelnia-dom, uczelnia-dom",1
+20-24_M,"dom-uczelnia, uczelnia-dom, dom-inne, inne-inne, inne-dom",1
+20-24_M,"dom-uczelnia, uczelnia-inne, inne-inne, inne-dom, dom-inne, inne-dom",1
+20-24_M,"dom-uczelnia, uczelnia-praca, praca-dom",1
+20-24_M,"dom-uczelnia, uczelnia-uczelnia, uczelnia-dom",1
+20-24_M,"inne-inne, dom-inne, inne-praca",1
+20-24_M,"inne-inne, inne-inne",1
+20-24_M,"inne-inne, inne-inne, inne-inne, inne-inne, inne-inne",1
+20-24_M,"inne-uczelnia, inne-inne, uczelnia-inne, inne-inne",1
+20-24_M,"praca-inne, inne-dom",1
+25-44_K,"dom-praca, praca-dom",488
+25-44_K,"dom-inne, inne-dom",228
+25-44_K,"dom-praca, praca-inne, inne-dom",44
+25-44_K,"dom-praca, praca-dom, dom-inne, inne-dom",26
+25-44_K,"dom-uczelnia, uczelnia-dom",19
+25-44_K,"dom-szkola, szkola-dom",15
+25-44_K,"dom-inne, inne-dom, dom-inne, inne-dom",13
+25-44_K,dom-praca,9
+25-44_K,inne-dom,9
+25-44_K,"dom-inne, inne-inne, inne-dom",7
+25-44_K,"dom-inne, inne-praca, praca-dom",7
+25-44_K,"dom-szkola, szkola-dom, dom-szkola, szkola-dom",7
+25-44_K,"dom-szkola, szkola-praca, praca-dom",7
+25-44_K,dom-inne,5
+25-44_K,"dom-szkola, szkola-praca, praca-szkola, szkola-dom",5
+25-44_K,"dom-praca, praca-inne, inne-inne, inne-dom",4
+25-44_K,"dom-szkola, szkola-inne, inne-dom, dom-szkola, szkola-dom",4
+25-44_K,"dom-uczelnia, uczelnia-inne, inne-dom",4
+25-44_K,"dom-inne, inne-dom, dom-praca, praca-dom",3
+25-44_K,"dom-inne, inne-praca, praca-inne, inne-dom",3
+25-44_K,"dom-praca, praca-praca, praca-dom",3
+25-44_K,"dom-praca, praca-szkola, szkola-dom",3
+25-44_K,"praca-praca, praca-dom",3
+25-44_K,dom-dom,2
+25-44_K,"dom-inne, inne-dom, dom-inne, inne-dom, dom-inne, inne-dom",2
+25-44_K,"dom-inne, inne-inne, inne-praca, praca-inne, inne-inne, inne-dom",2
+25-44_K,"dom-praca, dom-praca, praca-dom, praca-dom",2
+25-44_K,"dom-praca, praca-dom, dom-szkola, szkola-dom",2
+25-44_K,"dom-praca, praca-inne",2
+25-44_K,"dom-praca, praca-praca",2
+25-44_K,"dom-szkola, szkola-inne, inne-dom",2
+25-44_K,"dom-szkola, szkola-praca, praca-inne, inne-dom",2
+25-44_K,"dom-szkola, szkola-praca, praca-szkola, szkola-dom, dom-inne, inne-dom",2
+25-44_K,"inne-inne, inne-dom",2
+25-44_K,"dom-dom, dom-inne",1
+25-44_K,"dom-inne, dom-inne, inne-dom, inne-dom",1
+25-44_K,"dom-inne, inne-dom, dom-inne",1
+25-44_K,"dom-inne, inne-dom, dom-inne, inne-praca, praca-inne, inne-dom",1
+25-44_K,"dom-inne, inne-dom, dom-praca",1
+25-44_K,"dom-inne, inne-dom, dom-szkola, szkola-dom",1
+25-44_K,"dom-inne, inne-inne",1
+25-44_K,"dom-inne, inne-inne, inne-dom, dom-inne, inne-dom",1
+25-44_K,"dom-inne, inne-inne, inne-inne, inne-dom",1
+25-44_K,"dom-inne, inne-inne, inne-inne, inne-inne",1
+25-44_K,"dom-inne, inne-inne, inne-praca, praca-dom",1
+25-44_K,"dom-inne, inne-praca, praca-inne",1
+25-44_K,"dom-inne, inne-szkola",1
+25-44_K,"dom-praca, dom-inne, inne-dom, praca-dom",1
+25-44_K,"dom-praca, praca-dom, dom-inne",1
+25-44_K,"dom-praca, praca-dom, dom-inne, inne-inne, inne-dom",1
+25-44_K,"dom-praca, praca-dom, dom-praca, praca-dom",1
+25-44_K,"dom-szkola, szkola-dom, dom-inne, inne-dom, dom-praca, praca-szkola, szkola-dom",1
+25-44_K,"dom-szkola, szkola-dom, dom-inne, inne-dom, dom-szkola, szkola-dom",1
+25-44_K,"dom-szkola, szkola-dom, dom-inne, inne-szkola, szkola-dom",1
+25-44_K,"dom-szkola, szkola-dom, dom-praca, praca-dom",1
+25-44_K,"dom-szkola, szkola-praca",1
+25-44_K,"dom-szkola, szkola-praca, praca-szkola, szkola-dom, dom-praca, praca-dom",1
+25-44_K,"dom-uczelnia, uczelnia-inne, inne-inne, inne-inne, inne-dom",1
+25-44_K,"inne-dom, dom-inne",1
+25-44_K,inne-inne,1
+25-44_K,"inne-inne, inne-inne, inne-inne",1
+25-44_K,praca-dom,1
+25-44_K,"praca-dom, dom-praca, praca-dom",1
+25-44_K,"szkola-szkola, szkola-praca, praca-szkola, szkola-dom",1
+25-44_K,"uczelnia-praca, praca-dom",1
+25-44_M,"dom-praca, praca-dom",576
+25-44_M,"dom-inne, inne-dom",145
+25-44_M,"dom-praca, praca-inne, inne-dom",44
+25-44_M,"dom-uczelnia, uczelnia-dom",25
+25-44_M,"dom-praca, praca-dom, dom-inne, inne-dom",23
+25-44_M,dom-praca,14
+25-44_M,"dom-inne, inne-inne, inne-dom",6
+25-44_M,"praca-praca, praca-dom",6
+25-44_M,"dom-praca, praca-praca, praca-dom",5
+25-44_M,"dom-szkola, szkola-praca, praca-dom",5
+25-44_M,praca-dom,5
+25-44_M,dom-inne,3
+25-44_M,"dom-inne, inne-inne, inne-inne, inne-dom",3
+25-44_M,"dom-inne, inne-praca, praca-dom",3
+25-44_M,"dom-praca, praca-inne, inne-inne, inne-dom",3
+25-44_M,"dom-szkola, szkola-dom",3
+25-44_M,"dom-szkola, szkola-praca, praca-inne, inne-dom",3
+25-44_M,inne-dom,3
+25-44_M,"dom-inne, dom-inne, inne-dom, inne-dom",2
+25-44_M,"dom-inne, inne-dom, dom-praca, praca-dom",2
+25-44_M,"dom-praca, dom-inne, inne-dom, praca-dom",2
+25-44_M,"dom-praca, dom-praca, praca-dom, praca-dom",2
+25-44_M,"dom-praca, praca-dom, dom-inne",2
+25-44_M,"dom-praca, praca-dom, dom-praca, praca-dom",2
+25-44_M,"dom-praca, praca-inne",2
+25-44_M,"dom-inne, inne-dom, dom-inne, inne-dom",1
+25-44_M,"dom-inne, inne-dom, dom-inne, inne-praca, praca-dom",1
+25-44_M,"dom-inne, inne-inne, inne-dom, dom-inne, inne-dom",1
+25-44_M,"dom-inne, inne-inne, inne-praca, praca-inne, inne-inne, inne-dom",1
+25-44_M,"dom-inne, inne-praca, praca-inne, inne-dom",1
+25-44_M,"dom-praca, dom-praca, dom-praca, dom-praca, praca-dom, praca-dom, praca-dom, praca-dom",1
+25-44_M,"dom-praca, dom-praca, praca-dom",1
+25-44_M,"dom-praca, dom-praca, praca-inne, praca-dom, inne-dom",1
+25-44_M,"dom-praca, inne-inne, inne-dom",1
+25-44_M,"dom-praca, praca-dom, dom-dom",1
+25-44_M,"dom-praca, praca-inne, inne-dom, dom-inne, inne-dom",1
+25-44_M,"dom-praca, praca-inne, inne-dom, dom-praca, praca-dom",1
+25-44_M,"dom-praca, praca-inne, inne-praca, praca-dom, dom-inne, inne-dom",1
+25-44_M,"dom-praca, praca-praca",1
+25-44_M,"dom-praca, praca-praca, praca-praca, praca-dom",1
+25-44_M,"dom-praca, praca-szkola, szkola-dom, dom-inne, inne-dom",1
+25-44_M,"dom-szkola, szkola-dom, dom-szkola, szkola-dom, dom-praca",1
+25-44_M,"dom-szkola, szkola-inne, inne-inne, inne-dom, dom-szkola, szkola-dom",1
+25-44_M,"dom-szkola, szkola-inne, inne-inne, inne-inne, inne-dom",1
+25-44_M,"dom-szkola, szkola-praca, praca-szkola, szkola-dom",1
+25-44_M,"dom-szkola, szkola-praca, praca-szkola, szkola-dom, dom-inne, inne-dom",1
+25-44_M,"dom-uczelnia, uczelnia-praca, praca-dom",1
+25-44_M,"inne-dom, dom-inne",1
+25-44_M,"inne-inne, inne-inne",1
+25-44_M,"praca-inne, inne-dom",1
+25-44_M,"praca-praca, praca-inne",1
+45-60_K,"dom-praca, praca-dom",310
+45-60_K,"dom-inne, inne-dom",217
+45-60_K,"dom-praca, praca-inne, inne-dom",26
+45-60_K,"dom-inne, inne-inne, inne-dom",13
+45-60_K,"dom-praca, praca-dom, dom-inne, inne-dom",13
+45-60_K,dom-praca,8
+45-60_K,"dom-inne, inne-dom, dom-inne, inne-dom",7
+45-60_K,dom-inne,5
+45-60_K,"dom-inne, inne-inne, inne-inne, inne-dom",3
+45-60_K,"dom-praca, praca-inne, inne-inne, inne-inne, inne-dom",3
+45-60_K,"dom-praca, praca-praca, praca-dom",3
+45-60_K,inne-dom,3
+45-60_K,dom-dom,2
+45-60_K,"dom-inne, inne-dom, dom-praca, praca-dom",2
+45-60_K,"dom-inne, inne-praca, praca-dom",2
+45-60_K,"dom-praca, praca-inne, inne-inne, inne-dom",2
+45-60_K,"dom-szkola, szkola-dom, dom-szkola, szkola-dom",2
+45-60_K,"dom-szkola, szkola-praca, praca-dom",2
+45-60_K,"dom-inne, dom-inne",1
+45-60_K,"dom-inne, dom-inne, inne-inne, dom-inne, inne-dom, inne-dom",1
+45-60_K,"dom-inne, inne-inne",1
+45-60_K,"dom-inne, inne-inne, inne-inne, inne-inne, inne-dom",1
+45-60_K,"dom-inne, inne-inne, inne-praca",1
+45-60_K,"dom-inne, inne-inne, inne-praca, praca-dom",1
+45-60_K,"dom-inne, inne-praca, praca-inne, inne-dom",1
+45-60_K,"dom-praca, inne-inne, inne-inne, inne-inne, inne-dom",1
+45-60_K,"dom-praca, praca-inne",1
+45-60_K,"dom-praca, praca-inne, inne-dom, dom-inne, inne-dom",1
+45-60_K,"dom-praca, praca-praca, praca-praca, praca-dom",1
+45-60_K,"dom-szkola, szkola-dom, dom-inne, inne-dom",1
+45-60_K,"dom-szkola, szkola-dom, dom-inne, inne-szkola, szkola-dom",1
+45-60_K,"dom-szkola, szkola-inne, inne-dom",1
+45-60_K,"dom-szkola, szkola-inne, inne-dom, dom-szkola, szkola-dom",1
+45-60_K,"dom-szkola, szkola-praca, praca-inne, inne-dom",1
+45-60_K,"dom-szkola, szkola-praca, praca-szkola, szkola-dom",1
+45-60_K,inne-inne,1
+45-60_K,"inne-inne, inne-inne, inne-dom",1
+45-60_K,"praca-praca, praca-dom",1
+45-65_M,"dom-praca, praca-dom",425
+45-65_M,"dom-inne, inne-dom",197
+45-65_M,"dom-praca, praca-inne, inne-dom",21
+45-65_M,"dom-praca, praca-dom, dom-inne, inne-dom",17
+45-65_M,dom-praca,9
+45-65_M,dom-inne,7
+45-65_M,"dom-inne, inne-inne, inne-dom",7
+45-65_M,"dom-praca, praca-inne, inne-inne, inne-dom",7
+45-65_M,"dom-inne, inne-dom, dom-inne, inne-dom",6
+45-65_M,dom-dom,5
+45-65_M,"dom-szkola, szkola-praca, praca-dom",4
+45-65_M,praca-dom,4
+45-65_M,"dom-inne, inne-praca",3
+45-65_M,"dom-szkola, szkola-dom",3
+45-65_M,inne-dom,3
+45-65_M,"dom-inne, inne-praca, praca-dom",2
+45-65_M,"dom-inne, inne-praca, praca-inne, inne-dom",2
+45-65_M,"dom-praca, praca-inne, inne-inne, inne-inne, inne-dom",2
+45-65_M,"dom-praca, praca-praca, praca-praca, praca-dom",2
+45-65_M,"dom-inne, dom-praca, inne-inne, inne-dom",1
+45-65_M,"dom-inne, inne-dom, dom-inne",1
+45-65_M,"dom-inne, inne-inne",1
+45-65_M,"dom-inne, inne-inne, inne-inne",1
+45-65_M,"dom-inne, inne-inne, inne-inne, inne-dom",1
+45-65_M,"dom-inne, inne-praca, praca-dom, dom-inne, inne-dom",1
+45-65_M,"dom-praca, inne-dom, praca-inne",1
+45-65_M,"dom-praca, inne-inne, inne-dom",1
+45-65_M,"dom-praca, inne-inne, inne-inne, inne-dom",1
+45-65_M,"dom-praca, praca-dom, dom-inne, inne-praca, praca-inne, inne-dom, dom-praca, praca-dom",1
+45-65_M,"dom-praca, praca-inne",1
+45-65_M,"dom-praca, praca-inne, inne-inne",1
+45-65_M,"dom-praca, praca-praca",1
+45-65_M,"dom-praca, praca-praca, praca-dom",1
+45-65_M,"dom-praca, praca-uczelnia",1
+45-65_M,"dom-szkola, szkola-inne, inne-inne, inne-dom",1
+45-65_M,"dom-szkola, szkola-praca, praca-szkola, szkola-dom",1
+45-65_M,"dom-uczelnia, uczelnia-dom",1
+45-65_M,"inne-dom, dom-inne",1
+45-65_M,inne-inne,1
+45-65_M,"praca-dom, dom-inne, inne-dom",1
+45-65_M,"praca-praca, praca-dom",1
+45-65_M,"uczelnia-praca, praca-dom",1
+6-15_K,"dom-szkola, szkola-dom",240
+6-15_K,"dom-inne, inne-dom",24
+6-15_K,"dom-szkola, szkola-dom, dom-inne, inne-dom",19
+6-15_K,"dom-szkola, szkola-inne, inne-dom",7
+6-15_K,dom-inne,2
+6-15_K,"dom-inne, inne-inne, inne-dom",2
+6-15_K,"inne-szkola, szkola-dom",2
+6-15_K,dom-szkola,1
+6-15_K,"dom-szkola, szkola-dom, dom-inne, inne-inne",1
+6-15_K,"dom-szkola, szkola-dom, dom-praca, praca-dom",1
+6-15_K,"dom-szkola, szkola-inne, inne-inne, inne-dom",1
+6-15_K,"dom-szkola, szkola-inne, inne-szkola, szkola-dom",1
+6-15_K,"dom-szkola, szkola-szkola",1
+6-15_K,"dom-szkola, szkola-szkola, szkola-dom",1
+6-15_K,inne-dom,1
+6-15_K,"praca-szkola, szkola-szkola",1
+6-15_K,"szkola-szkola, szkola-dom",1
+6-15_M,"dom-szkola, szkola-dom",190
+6-15_M,"dom-inne, inne-dom",29
+6-15_M,"dom-szkola, szkola-dom, dom-inne, inne-dom",9
+6-15_M,"dom-szkola, szkola-inne, inne-dom",9
+6-15_M,dom-szkola,3
+6-15_M,"dom-praca, praca-dom",2
+6-15_M,"dom-szkola, szkola-inne, inne-inne, inne-dom",2
+6-15_M,"dom-szkola, szkola-dom, dom-inne",1
+6-15_M,"dom-szkola, szkola-inne, inne-inne, inne-inne, inne-inne, inne-dom",1
+6-15_M,"dom-szkola, szkola-praca",1
+6-15_M,inne-dom,1
+6-15_M,"inne-szkola, szkola-dom",1
+6-15_M,szkola-dom,1
+61-x_K,"dom-inne, inne-dom",620
+61-x_K,"dom-praca, praca-dom",62
+61-x_K,"dom-inne, inne-dom, dom-inne, inne-dom",22
+61-x_K,"dom-inne, inne-inne, inne-dom",18
+61-x_K,dom-inne,10
+61-x_K,"dom-inne, inne-inne, inne-inne, inne-dom",10
+61-x_K,inne-dom,10
+61-x_K,dom-dom,3
+61-x_K,"dom-inne, inne-inne, inne-dom, dom-inne, inne-dom",3
+61-x_K,"dom-praca, praca-dom, dom-inne, inne-dom",3
+61-x_K,"dom-praca, praca-inne, inne-dom",3
+61-x_K,dom-praca,2
+61-x_K,"dom-inne, inne-dom, dom-inne, inne-inne, inne-dom",1
+61-x_K,"dom-inne, inne-inne",1
+61-x_K,"dom-inne, inne-inne, inne-inne, inne-inne",1
+61-x_K,"dom-inne, inne-inne, inne-inne, inne-inne, inne-dom",1
+61-x_K,"dom-szkola, szkola-dom",1
+61-x_K,"dom-uczelnia, uczelnia-dom",1
+61-x_K,"inne-dom, dom-inne",1
+61-x_K,praca-dom,1
+61-x_K,praca-praca,1
+61-x_K,"praca-praca, praca-inne, inne-dom",1
+66-x_M,"dom-inne, inne-dom",331
+66-x_M,"dom-praca, praca-dom",20
+66-x_M,"dom-inne, inne-inne, inne-dom",15
+66-x_M,"dom-inne, inne-dom, dom-inne, inne-dom",9
+66-x_M,"dom-inne, inne-inne, inne-inne, inne-dom",8
+66-x_M,dom-inne,5
+66-x_M,"dom-inne, inne-inne",3
+66-x_M,"dom-uczelnia, uczelnia-dom",3
+66-x_M,dom-dom,2
+66-x_M,"dom-inne, inne-inne, inne-inne, inne-inne, inne-dom",2
+66-x_M,"dom-dom, dom-dom",1
+66-x_M,dom-praca,1
+66-x_M,"dom-praca, praca-dom, dom-inne, inne-dom",1
+66-x_M,"dom-praca, praca-inne, inne-dom",1
+66-x_M,inne-dom,1
+66-x_M,"inne-inne, inne-dom",1
+66-x_M,"praca-inne, inne-dom",1

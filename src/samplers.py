@@ -344,9 +344,9 @@ class DayScheduleSampler:
 
     def __init__(
         self,
-        travels_num_dist: Dict[str, Dict[str, float]],
+        any_travel_dist: Dict[str, Dict[str, float]],
+        travel_chains_dist: Dict[str, Dict[str, float]],
         start_hour_dist: Dict[str, Dict[str, float]],
-        dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
         other_travels_dist: Dict[str, Dict[str, float]],
         spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
         trip_cancel_prob: Dict[str, float]
@@ -357,13 +357,20 @@ class DayScheduleSampler:
 
         Parameters
         ----------
-            travels_num_dist: dict
+            any_travel_dist: dict
                 Dictionary
                 {age_sex: str : {
-                    travels_num: str : probability: float}
+                    any_travel_occured: int : probability: float}
                 }
-                contains probabilities for number of travels. Sampled
-                number will be converted to int.
+                contains probabilities of whether any travel has taken place
+                (1 means that at least one trip must take place; 0 - no travel).
+            travel_chains_dist: dict
+                Dictionary
+                {age_sex: str : {
+                    travel_chain: str : probability: float}
+                }
+                contains probabilities for specific chains of destinations,
+                ordered according to their sequence of execution.
             start_hour_dist: dict
                 Dictionary
                 {dest_type: str : {
@@ -372,15 +379,13 @@ class DayScheduleSampler:
                 contains probabilities for start hours for travel with
                 specific destination type. Sampled hour will be converted
                 to int.
-            dest_type_dist: dict
+            other_travels_dist: dict
                 Dictionary
                 {age_sex: str : {
-                    start_dest_type: str : {
-                        finish_dest_type: str : prob: float
-                    }
+                    other_place_type: str : probability: float}
                 }}
-                contains probabilities to select finish destination type.
-            TODO: other_travels_samplers
+                contains probabilities of performing an activity from
+                the available subcategories for the category "inne".
             spend_time_dist_params: dict
                 Dictionary
                 {age_sex: str : {
@@ -389,13 +394,23 @@ class DayScheduleSampler:
                         "scale" : std_minutes: int
                     }
                 }}
-            TODO: trip_cancel_prob
+            trip_cancel_prob: dict
+                Dictionary
+                {place_type: str : probability: float}}
+                contains probabilities of cancellation of activities
+                associated with a specific destination place type.
         """
 
-        self.travels_num_samplers = {}
-        for age_sex, travels_num_dist in travels_num_dist.items():
-            self.travels_num_samplers[age_sex] = BaseSampler(
-                travels_num_dist
+        self.any_travel_samplers = {}
+        for age_sex, dist in any_travel_dist.items():
+            self.any_travel_samplers[age_sex] = BaseSampler(
+                dist
+            )
+
+        self.travel_chains_samplers = {}
+        for age_sex, dist in travel_chains_dist.items():
+            self.travel_chains_samplers[age_sex] = BaseSampler(
+                dist
             )
 
         self.start_hours_samplers = {}
@@ -403,14 +418,6 @@ class DayScheduleSampler:
             self.start_hours_samplers[dest_type] = BaseSampler(
                 dist
             )
-
-        self.finish_dest_samplers = {}
-        for age_sex in dest_type_dist.keys():
-            self.finish_dest_samplers[age_sex] = {}
-            for start_dest, dist in dest_type_dist[age_sex].items():
-                self.finish_dest_samplers[age_sex][start_dest] = BaseSampler(
-                    dist
-                )
 
         self.other_travels_samplers = {}
         for age_sex, dist in other_travels_dist.items():
@@ -452,86 +459,65 @@ class DayScheduleSampler:
 
         schedule = []
 
-        if age_sex != "0-5":
+        any_travel = self.any_travel_samplers[
+            age_sex
+        ]()
 
-            travels_num = int(
-                self.travels_num_samplers[
-                    age_sex
-                ]()
-            )
+        if age_sex != "0-5" and any_travel == '1':
 
-            if travels_num >= 2:
+            travel_chain = self.travel_chains_samplers[
+                age_sex
+            ]().split(',')
 
-                start_place = 'dom'
+            first_destination = travel_chain[0]
 
-                first_destination = self.finish_dest_samplers[age_sex][
-                    start_place
-                ]()
+            if first_destination == 'inne':
+                first_destination_with_other_split = self.other_travels_samplers[age_sex]()
+            else:
+                first_destination_with_other_split = first_destination
 
-                if first_destination == 'inne':
-                    first_destination_with_other_split = self.other_travels_samplers[age_sex]()
+            first_start_time = int(
+                self.start_hours_samplers[first_destination]()
+            ) * 60 + self._sample_minutes()
+            first_spend_time = self.spend_time_samplers[age_sex][
+                first_destination_with_other_split
+            ]()
+
+            if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():
+                # do not cancel this trip, so add it to schedule
+                schedule.append(
+                    ScheduleElement(
+                        travel_start_time=first_start_time,
+                        dest_activity_type=first_destination_with_other_split,
+                        dest_activity_dur_time=first_spend_time
+                    )
+                )
+
+            prev_start_time = first_start_time
+            prev_spend_time = first_spend_time
+
+            for next_destination in travel_chain[1:]:  # will work fine (min travels in chain = 2)
+                if next_destination == 'inne':
+                    next_destination_with_other_split = self.other_travels_samplers[age_sex]()
                 else:
-                    first_destination_with_other_split = first_destination
+                    next_destination_with_other_split = next_destination
 
-                first_start_time = int(
-                    self.start_hours_samplers[first_destination]()
-                ) * 60 + self._sample_minutes()
-                first_spend_time = self.spend_time_samplers[age_sex][
-                    first_destination_with_other_split
+                next_start_time = prev_start_time + prev_spend_time
+                next_spend_time = self.spend_time_samplers[age_sex][
+                    next_destination_with_other_split
                 ]()
 
-                if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():  # do not cancel this trip
+                if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
+                    # do not cancel this trip, so add it to schedule
                     schedule.append(
                         ScheduleElement(
-                            travel_start_time=first_start_time,
-                            dest_activity_type=first_destination_with_other_split,
-                            dest_activity_dur_time=first_spend_time
+                            travel_start_time=next_start_time,
+                            dest_activity_type=next_destination_with_other_split,
+                            dest_activity_dur_time=next_spend_time
                         )
                     )
-                    prev_destination = first_destination
-                else:
-                    prev_destination = start_place
-
-                prev_start_time = first_start_time
-                prev_spend_time = first_spend_time
-
-                for i in range(travels_num-2):
-                    next_destination = self.finish_dest_samplers[age_sex][
-                        prev_destination
-                    ]()
-                    if next_destination == 'inne':
-                        next_destination_with_other_split = self.other_travels_samplers[age_sex]()
-                    else:
-                        next_destination_with_other_split = next_destination
-
-                    next_start_time = prev_start_time + prev_spend_time
-                    next_spend_time = self.spend_time_samplers[age_sex][
-                        next_destination_with_other_split
-                    ]()
-
-                    if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():  # do not cancel this trip
-                        schedule.append(
-                            ScheduleElement(
-                                travel_start_time=next_start_time,
-                                dest_activity_type=next_destination_with_other_split,
-                                dest_activity_dur_time=next_spend_time
-                            )
-                        )
-                        prev_destination = next_destination
-
-                    prev_start_time = next_start_time
-                    prev_spend_time = next_spend_time
-
-                last_destination = 'dom'
-                last_start_time = prev_start_time + prev_spend_time
-
-                if schedule:
-                    schedule.append(
-                        ScheduleElement(
-                            travel_start_time=last_start_time,
-                            dest_activity_type=last_destination
-                        )
-                    )
+                prev_start_time = next_start_time
+                prev_spend_time = next_spend_time
 
         return schedule
 
