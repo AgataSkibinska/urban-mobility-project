@@ -491,33 +491,6 @@ def test_day_schedule_sampler_7(
         dur_time = end_time - start_time
         assert schedule[i].dest_activity_dur_time == dur_time
 
-# def test_buildings_sampler(
-#     buildings_gdf: gpd.GeoDataFrame,
-#     regions_centroids_gdf: gpd.GeoDataFrame
-# ):
-#     buildings_sampler = BuildingsSampler(
-#         buildings_gdf=buildings_gdf,
-#         regions_centroids_gdf=regions_centroids_gdf
-#     )
-
-#     building_1 = buildings_sampler(
-#         region='1',
-#         building_type='dom'
-#     )
-
-#     # 209 is region with no buildings
-#     building_2 = buildings_sampler(
-#         region='209',
-#         building_type='dom'
-#     )
-
-#     assert type(building_1) == Building
-#     assert 17.03027 <= building_1.x <= 17.03859
-#     assert 51.10658 <= building_1.y <= 51.11240
-#     assert type(building_2) == Building
-#     assert round(building_2.x, 6) == round(16.89475215576043, 6)
-#     assert round(building_2.y, 6) == round(51.18178842847963551, 6)
-
 
 def test_gravity_sampler(
     gravity_dist: Dict[str, Dict[str, Dict[str, float]]]

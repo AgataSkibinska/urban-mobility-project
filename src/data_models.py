@@ -161,29 +161,3 @@ class ScheduleElement:
     travel_start_time: int
     dest_activity_type: str
     dest_activity_dur_time: int = 0
-
-
-# @dataclass
-# class Building:
-#     """
-#     Class for keeping information about building.
-
-#     Attributes
-#     ----------
-#         x: float
-#             X coord of building.
-#         y: float
-#             Y coord of building.
-#         type: str
-#             Building type like "szkola", "dom", "praca", "inne", "uczelnia".
-#         region: str
-#             Building region id.
-#         osm_id: str
-#             Building id from OSM.
-#     """
-
-#     x: float
-#     y: float
-#     type: str
-#     region: str
-#     osm_id: str
