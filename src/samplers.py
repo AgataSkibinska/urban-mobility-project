@@ -459,65 +459,67 @@ class DayScheduleSampler:
 
         schedule = []
 
-        any_travel = self.any_travel_samplers[
-            age_sex
-        ]()
+        if age_sex != "0-5":
 
-        if age_sex != "0-5" and any_travel == '1':
-
-            travel_chain = self.travel_chains_samplers[
+            any_travel = self.any_travel_samplers[
                 age_sex
-            ]().split(',')
-
-            first_destination = travel_chain[0]
-
-            if first_destination == 'inne':
-                first_destination_with_other_split = self.other_travels_samplers[age_sex]()
-            else:
-                first_destination_with_other_split = first_destination
-
-            first_start_time = int(
-                self.start_hours_samplers[first_destination]()
-            ) * 60 + self._sample_minutes()
-            first_spend_time = self.spend_time_samplers[age_sex][
-                first_destination_with_other_split
             ]()
 
-            if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():
-                # do not cancel this trip, so add it to schedule
-                schedule.append(
-                    ScheduleElement(
-                        travel_start_time=first_start_time,
-                        dest_activity_type=first_destination_with_other_split,
-                        dest_activity_dur_time=first_spend_time
-                    )
-                )
+            if any_travel == '1':
 
-            prev_start_time = first_start_time
-            prev_spend_time = first_spend_time
+                travel_chain = self.travel_chains_samplers[
+                    age_sex
+                ]().split(',')
 
-            for next_destination in travel_chain[1:]:  # will work fine (min travels in chain = 2)
-                if next_destination == 'inne':
-                    next_destination_with_other_split = self.other_travels_samplers[age_sex]()
+                first_destination = travel_chain[0]
+
+                if first_destination == 'inne':
+                    first_destination_with_other_split = self.other_travels_samplers[age_sex]()
                 else:
-                    next_destination_with_other_split = next_destination
+                    first_destination_with_other_split = first_destination
 
-                next_start_time = prev_start_time + prev_spend_time
-                next_spend_time = self.spend_time_samplers[age_sex][
-                    next_destination_with_other_split
+                first_start_time = int(
+                    self.start_hours_samplers[first_destination]()
+                ) * 60 + self._sample_minutes()
+                first_spend_time = self.spend_time_samplers[age_sex][
+                    first_destination_with_other_split
                 ]()
 
-                if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
+                if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():
                     # do not cancel this trip, so add it to schedule
                     schedule.append(
                         ScheduleElement(
-                            travel_start_time=next_start_time,
-                            dest_activity_type=next_destination_with_other_split,
-                            dest_activity_dur_time=next_spend_time
+                            travel_start_time=first_start_time,
+                            dest_activity_type=first_destination_with_other_split,
+                            dest_activity_dur_time=first_spend_time
                         )
                     )
-                prev_start_time = next_start_time
-                prev_spend_time = next_spend_time
+
+                prev_start_time = first_start_time
+                prev_spend_time = first_spend_time
+
+                for next_destination in travel_chain[1:]:  # will work fine (min travels in chain = 2)
+                    if next_destination == 'inne':
+                        next_destination_with_other_split = self.other_travels_samplers[age_sex]()
+                    else:
+                        next_destination_with_other_split = next_destination
+
+                    next_start_time = prev_start_time + prev_spend_time
+                    next_spend_time = self.spend_time_samplers[age_sex][
+                        next_destination_with_other_split
+                    ]()
+
+                    if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
+                        # do not cancel this trip, so add it to schedule
+                        schedule.append(
+                            ScheduleElement(
+                                travel_start_time=next_start_time,
+                                dest_activity_type=next_destination_with_other_split,
+                                dest_activity_dur_time=next_spend_time
+                            )
+                        )
+                    prev_start_time = next_start_time
+                    prev_spend_time = next_spend_time
 
         return schedule
 
