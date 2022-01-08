@@ -457,39 +457,132 @@ def test_day_schedule_sampler_6(
 
 
 def test_day_schedule_sampler_7(
-    travels_num_dist: Dict[str, Dict[str, float]],
+    any_travel_dist: Dict[str, Dict[str, float]],
+    travel_chains_dist: Dict[str, Dict[str, float]],
     start_hour_dist: Dict[str, Dict[str, float]],
-    dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
     other_travels_dist: Dict[str, Dict[str, float]],
     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
-    trip_cancel_prob: Dict[str, float]
+    trip_cancel_prob_4: Dict[str, float]  # cancel all but 'dom'
 ):
-    travels_num_dist = {
+    any_travel_dist = {
         "16-19_K": {
-            "5": 1
+            "0": 0.0,
+            "1": 1.0
         },
         "45-65_M": {
-            "5": 1
+            "0": 0.0,
+            "1": 1.0
+        }
+    }
+    travel_chains_dist = {
+        "16-19_K": {
+            "inne,dom,inne,praca,dom": 0.5,
+            "inne,inne,dom,inne,dom": 0.5
+        },
+        "45-65_M": {
+            "inne,dom,inne,praca,dom": 0.5,
+            "inne,inne,dom,inne,dom": 0.5
         }
     }
 
     day_schedule_sampler = DayScheduleSampler(
-        travels_num_dist=travels_num_dist,
+        any_travel_dist=any_travel_dist,
+        travel_chains_dist=travel_chains_dist,
         start_hour_dist=start_hour_dist,
-        dest_type_dist=dest_type_dist,
         other_travels_dist=other_travels_dist,
         spend_time_dist_params=spend_time_dist_params,
-        trip_cancel_prob=trip_cancel_prob
+        trip_cancel_prob=trip_cancel_prob_4
     )
 
     schedule = day_schedule_sampler("16-19_K")
 
-    assert len(schedule) == 5
-    for i in range(len(schedule)-1):
-        start_time = schedule[i].travel_start_time
-        end_time = schedule[i+1].travel_start_time
-        dur_time = end_time - start_time
-        assert schedule[i].dest_activity_dur_time == dur_time
+    assert len(schedule) == 0
+
+
+def test_day_schedule_sampler_8(
+    any_travel_dist: Dict[str, Dict[str, float]],
+    travel_chains_dist: Dict[str, Dict[str, float]],
+    start_hour_dist: Dict[str, Dict[str, float]],
+    other_travels_dist: Dict[str, Dict[str, float]],
+    spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+    trip_cancel_prob_5: Dict[str, float]  # cancel all but 'dom' and 'praca'
+):
+    any_travel_dist = {
+        "16-19_K": {
+            "0": 0.0,
+            "1": 1.0
+        },
+        "45-65_M": {
+            "0": 0.0,
+            "1": 1.0
+        }
+    }
+    travel_chains_dist = {
+        "16-19_K": {
+            "inne,dom,inne,dom,praca,dom": 0.5,
+            "praca,inne,dom,inne,dom": 0.5
+        },
+        "45-65_M": {
+            "inne,dom,inne,dom,praca,dom": 0.5,
+            "praca,inne,dom,inne,dom": 0.5
+        }
+    }
+
+    day_schedule_sampler = DayScheduleSampler(
+        any_travel_dist=any_travel_dist,
+        travel_chains_dist=travel_chains_dist,
+        start_hour_dist=start_hour_dist,
+        other_travels_dist=other_travels_dist,
+        spend_time_dist_params=spend_time_dist_params,
+        trip_cancel_prob=trip_cancel_prob_5
+    )
+
+    schedule = day_schedule_sampler("16-19_K")
+
+    assert len(schedule) == 2
+    schedule_chain = []
+    for schedule_element in schedule:
+        schedule_chain.append(schedule_element.dest_activity_type)
+        assert schedule_element.dest_activity_type in [
+            'dom', 'praca'
+        ]
+    assert schedule_chain == ['praca', 'dom']
+
+
+# def test_day_schedule_sampler_7(
+#     travels_num_dist: Dict[str, Dict[str, float]],
+#     start_hour_dist: Dict[str, Dict[str, float]],
+#     dest_type_dist: Dict[str, Dict[str, Dict[str, float]]],
+#     other_travels_dist: Dict[str, Dict[str, float]],
+#     spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
+#     trip_cancel_prob: Dict[str, float]
+# ):
+#     travels_num_dist = {
+#         "16-19_K": {
+#             "5": 1
+#         },
+#         "45-65_M": {
+#             "5": 1
+#         }
+#     }
+
+#     day_schedule_sampler = DayScheduleSampler(
+#         travels_num_dist=travels_num_dist,
+#         start_hour_dist=start_hour_dist,
+#         dest_type_dist=dest_type_dist,
+#         other_travels_dist=other_travels_dist,
+#         spend_time_dist_params=spend_time_dist_params,
+#         trip_cancel_prob=trip_cancel_prob
+#     )
+
+#     schedule = day_schedule_sampler("16-19_K")
+
+#     assert len(schedule) == 5
+#     for i in range(len(schedule)-1):
+#         start_time = schedule[i].travel_start_time
+#         end_time = schedule[i+1].travel_start_time
+#         dur_time = end_time - start_time
+#         assert schedule[i].dest_activity_dur_time == dur_time
 
 
 def test_gravity_sampler(

@@ -471,6 +471,7 @@ class DayScheduleSampler:
                     age_sex
                 ]().split(',')
 
+                prev_non_canceled_dest = 'dom'
                 first_destination = travel_chain[0]
 
                 if first_destination == 'inne':
@@ -494,6 +495,7 @@ class DayScheduleSampler:
                             dest_activity_dur_time=first_spend_time
                         )
                     )
+                    prev_non_canceled_dest = first_destination_with_other_split
 
                 prev_start_time = first_start_time
                 prev_spend_time = first_spend_time
@@ -509,15 +511,17 @@ class DayScheduleSampler:
                         next_destination_with_other_split
                     ]()
 
-                    if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
-                        # do not cancel this trip, so add it to schedule
-                        schedule.append(
-                            ScheduleElement(
-                                travel_start_time=next_start_time,
-                                dest_activity_type=next_destination_with_other_split,
-                                dest_activity_dur_time=next_spend_time
+                    if not (prev_non_canceled_dest == 'dom' and next_destination_with_other_split == 'dom'):
+                        if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
+                            # do not cancel this trip, so add it to schedule
+                            schedule.append(
+                                ScheduleElement(
+                                    travel_start_time=next_start_time,
+                                    dest_activity_type=next_destination_with_other_split,
+                                    dest_activity_dur_time=next_spend_time
+                                )
                             )
-                        )
+                            prev_non_canceled_dest = next_destination_with_other_split
                     prev_start_time = next_start_time
                     prev_spend_time = next_spend_time
 

@@ -11,3 +11,6 @@ mobility_venv/*
 notebooks/*
 src.egg-info/*
 results/*
+*/test.ipynb
+.DS_Store
+**/.DS_Store
