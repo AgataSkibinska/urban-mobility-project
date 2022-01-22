@@ -1,11 +1,11 @@
-import json
+import ujson as json
 import os
 import pickle
 from multiprocessing import Pool
+import numpy as np
 
 from src.models import TrafficModel
 from src.utils import explode
-
 
 def run(
     in_dir_path: str = '../experiments/input_data/base_distributions',
@@ -54,78 +54,92 @@ def run(
                 of such files depends on the parameter: num_simulations.
     """
 
-    def load_object(name, in_dir='out'):
+    def flatten_dist(data,prev_keys=list(), sep="", lvl=0, max_level=1, normal=False):
+        if lvl == max_level:
+            return [
+                (sep.join(prev_keys),
+                ((np.array(list(data.keys())), np.array(list(data.values())))) if not normal else data)
+            ]
+        return [
+            (flat_key, flay_val) 
+            for key, value in data.items() 
+            for flat_key, flay_val in flatten_dist(value, [*prev_keys, key], sep, lvl + 1, max_level, normal)
+        ]
+
+    def load_dist(name, in_dir='out'):
         file_name = name if name.endswith('.json') else (name + '.json')
         file_path = os.path.join(in_dir, file_name)
+
         with open(file_path, 'r') as f:
             return json.load(f)
+            
 
     # Demography distributions
     data_dir = in_dir_path + '/demography/'
 
     data_file = 'population_dist.json'
-    population_dist = load_object(name=data_file, in_dir=data_dir)
+    population_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir), max_level=0)[0][1]
 
     data_file = 'demography_dist.json'
-    demography_dist = load_object(name=data_file, in_dir=data_dir)
+    demography_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir), max_level=0)[0][1]
 
     # Decision tree distributions
     data_dir = in_dir_path + '/decision_tree/'
 
     data_file = 'pub_trans_comfort_dist.json'
-    pub_trans_comfort_dist = load_object(name=data_file, in_dir=data_dir)
+    pub_trans_comfort_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'pub_trans_punctuality_dist.json'
-    pub_trans_punctuality_dist = load_object(name=data_file, in_dir=data_dir)
+    pub_trans_punctuality_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'bicycle_infrastr_comfort_dist.json'
-    bicycle_infrastr_comfort_dist = load_object(name=data_file, in_dir=data_dir)
+    bicycle_infrastr_comfort_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'pedestrian_inconvenience_dist.json'
-    pedestrian_inconvenience_dist = load_object(name=data_file, in_dir=data_dir)
+    pedestrian_inconvenience_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'household_persons_dist.json'
-    household_persons_dist = load_object(name=data_file, in_dir=data_dir)
+    household_persons_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'household_cars_dist.json'
-    household_cars_dist = load_object(name=data_file, in_dir=data_dir)
+    household_cars_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'household_bicycles_dist.json'
-    household_bicycles_dist = load_object(name=data_file, in_dir=data_dir)
+    household_bicycles_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     # Travel planning distributions
     data_dir = in_dir_path + '/travel_planning/'
 
     data_file = 'any_travel_dist.json'
-    any_travel_dist = load_object(name=data_file, in_dir=data_dir)
+    any_travel_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'travel_chains_dist.json'
-    travel_chains_dist = load_object(name=data_file, in_dir=data_dir)
+    travel_chains_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'start_hour_dist.json'
-    start_hour_dist = load_object(name=data_file, in_dir=data_dir)
+    start_hour_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'other_travels_dist.json'
-    other_travels_dist = load_object(name=data_file, in_dir=data_dir)
+    other_travels_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     data_file = 'spend_time_dist_params.json'
-    spend_time_dist_params = load_object(name=data_file, in_dir=data_dir)
+    spend_time_dist_params = flatten_dist(load_dist(name=data_file, in_dir=data_dir), max_level=2, normal=True)
 
     data_file = 'trip_cancel_prob.json'
-    trip_cancel_prob = load_object(name=data_file, in_dir=data_dir)
+    trip_cancel_prob = load_dist(name=data_file, in_dir=data_dir)
 
     data_file = 'gravity_dist.json'
-    gravity_dist = load_object(name=data_file, in_dir=data_dir)
+    gravity_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir), max_level=2)
 
     data_file = 'drivers_dist.json'
-    drivers_dist = load_object(name=data_file, in_dir=data_dir)
+    drivers_dist = flatten_dist(load_dist(name=data_file, in_dir=data_dir))
 
     # Interregional distances and decision tree classifier
     data_dir = in_dir_path.replace(in_dir_path.split('/')[-1], '')
 
     # interregional distances
     data_file = 'interregional_distances.json'
-    interregional_distances = load_object(name=data_file, in_dir=data_dir)
+    interregional_distances = load_dist(name=data_file, in_dir=data_dir)
 
     # decision tree
     data_file = 'decision_tree.pickle'
@@ -157,51 +171,23 @@ def run(
         'start_time': sim_start_time,
         'step_time': sim_step_time,
         'end_time': sim_end_time,
-        'out_dir_path': out_dir_path
     }
 
     with Pool(num_processes) as p:
         p.map(
             run_single,
-            [[params, i+1] for i in range(num_simulations)]
+            [[params, i+1, out_dir_path] for i in range(num_simulations)]
         )
 
 
 def run_single(params):
+    model_params, run_num, out_dir_path = params
+    model = TrafficModel(**model_params)
 
-    run_num = params[1]
-    params = params[0]
-
-    model = TrafficModel(
-        N=params['N'],
-        population_dist=params['population_dist'],
-        demography_dist=params['demography_dist'],
-        pub_trans_comfort_dist=params['pub_trans_comfort_dist'],
-        pub_trans_punctuality_dist=params['pub_trans_punctuality_dist'],
-        bicycle_infrastr_comfort_dist=params['bicycle_infrastr_comfort_dist'],
-        pedestrian_inconvenience_dist=params['pedestrian_inconvenience_dist'],
-        household_persons_dist=params['household_persons_dist'],
-        household_cars_dist=params['household_cars_dist'],
-        household_bicycles_dist=params['household_bicycles_dist'],
-        any_travel_dist=params['any_travel_dist'],
-        travel_chains_dist=params['travel_chains_dist'],
-        start_hour_dist=params['start_hour_dist'],
-        other_travels_dist=params['other_travels_dist'],
-        spend_time_dist_params=params['spend_time_dist_params'],
-        trip_cancel_prob=params['trip_cancel_prob'],
-        decision_tree=params['decision_tree'],
-        gravity_dist=params['gravity_dist'],
-        drivers_dist=params['drivers_dist'],
-        interregional_distances=params['interregional_distances'],
-        start_time=params['start_time'],
-        step_time=params['step_time'],
-        end_time=params['end_time']
-    )
-
-    for i in range(
-        params['start_time'],
-        params['end_time']+1,
-        params['step_time']
+    for _ in range(
+        model_params['start_time'],
+        model_params['end_time']+1,
+        model_params['step_time']
     ):
         model.step()
 
@@ -217,14 +203,13 @@ def run_single(params):
         fill_value=''
     )
 
-    out_dir_path = params['out_dir_path']
     if not os.path.exists(out_dir_path):
         os.makedirs(out_dir_path)
 
-    file_name = 'agents_results_' + str(run_num) + '.csv'
+    file_name = 'agents_results_' + str(run_num) + '.pkl'
     out_file = os.path.join(out_dir_path, file_name)
-    agents_results.to_csv(out_file)
+    agents_results.to_pickle(out_file)
 
-    file_name = 'travels_results_' + str(run_num) + '.csv'
+    file_name = 'travels_results_' + str(run_num) + '.pkl'
     out_file = os.path.join(out_dir_path, file_name)
-    travels_results.to_csv(out_file)
+    travels_results.to_pickle(out_file)

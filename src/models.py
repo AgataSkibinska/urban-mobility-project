@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List, Tuple
 
 from mesa import Model
 from mesa.datacollection import DataCollector
@@ -9,32 +9,35 @@ from .agents import Person
 from .classifiers import TranportModeDecisionTree
 from .samplers import (AgeSexSampler, DayScheduleSampler, DriverSampler,
                        GravitySampler, RegionSampler,
-                       TransportModeInputsSampler)
+                       TransportModeInputsSampler, DistributionFloatTuple)
+
+
 
 
 class TrafficModel(Model):
     """A model with some number of agents."""
+
     def __init__(
         self,
         N: int,
-        population_dist: Dict[str, float],
-        demography_dist: Dict[str, float],
-        pub_trans_comfort_dist: Dict[str, Dict[str, float]],
-        pub_trans_punctuality_dist: Dict[str, Dict[str, float]],
-        bicycle_infrastr_comfort_dist: Dict[str, Dict[str, float]],
-        pedestrian_inconvenience_dist: Dict[str, Dict[str, float]],
-        household_persons_dist: Dict[str, Dict[str, float]],
-        household_cars_dist: Dict[str, Dict[str, float]],
-        household_bicycles_dist: Dict[str, Dict[str, float]],
-        any_travel_dist: Dict[str, Dict[str, float]],
-        travel_chains_dist: Dict[str, Dict[str, float]],
-        start_hour_dist: Dict[str, Dict[str, float]],
-        other_travels_dist: Dict[str, Dict[str, float]],
-        spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
-        trip_cancel_prob: Dict[str, float],
+        population_dist: DistributionFloatTuple,
+        demography_dist: DistributionFloatTuple,
+        pub_trans_comfort_dist: List[Tuple[str, DistributionFloatTuple]],
+        pub_trans_punctuality_dist: List[Tuple[str, DistributionFloatTuple]],
+        bicycle_infrastr_comfort_dist: List[Tuple[str, DistributionFloatTuple]],
+        pedestrian_inconvenience_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_persons_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_cars_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_bicycles_dist: List[Tuple[str, DistributionFloatTuple]],
+        any_travel_dist: List[Tuple[str, DistributionFloatTuple]],
+        travel_chains_dist: List[Tuple[str, DistributionFloatTuple]],
+        start_hour_dist: List[Tuple[str, DistributionFloatTuple]],
+        other_travels_dist: List[Tuple[str, DistributionFloatTuple]],
+        spend_time_dist_params: List[Tuple[str,  Dict[str, int]]],
+        trip_cancel_prob: List[Tuple[str, float]],
         decision_tree: DecisionTreeClassifier,
-        gravity_dist: Dict[str, Dict[str, Dict[str, float]]],
-        drivers_dist: Dict[str, Dict[str, float]],
+        gravity_dist: List[Tuple[str,  DistributionFloatTuple]],
+        drivers_dist: List[Tuple[str, DistributionFloatTuple]],
         interregional_distances: Dict[str, Dict[str, float]],
         start_time: int = 4 * 60,
         step_time: int = 60,
@@ -51,10 +54,12 @@ class TrafficModel(Model):
 
         # All Agent subclasses init
         self.home_region_sampler = RegionSampler(
-            prob_dist=population_dist
+            prob_dist=population_dist,
+            num_samples=self.num_agents
         )
         self.age_sex_sampler = AgeSexSampler(
-            prob_dist=demography_dist
+            prob_dist=demography_dist,
+            num_samples=self.num_agents
         )
         self.mode_inputs_sampler = TransportModeInputsSampler(
             pub_trans_comfort_dist=pub_trans_comfort_dist,
@@ -63,7 +68,8 @@ class TrafficModel(Model):
             pedestrian_inconvenience_dist=pedestrian_inconvenience_dist,
             household_persons_dist=household_persons_dist,
             household_cars_dist=household_cars_dist,
-            household_bicycles_dist=household_bicycles_dist
+            household_bicycles_dist=household_bicycles_dist,
+            num_samples=self.num_agents
         )
         self.day_schedule_sampler = DayScheduleSampler(
             any_travel_dist=any_travel_dist,
@@ -86,7 +92,7 @@ class TrafficModel(Model):
 
         # Create agents
         for i in range(self.num_agents):
-            a = Person(
+            self.schedule.add(Person(
                 unique_id=i,
                 model=self,
                 home_region_sampler=self.home_region_sampler,
@@ -99,8 +105,7 @@ class TrafficModel(Model):
                 interregional_distances=self.interregional_distances,
                 start_time=self.start_time,
                 step_time=self.step_time
-            )
-            self.schedule.add(a)
+            ))
 
         self.agent_data_collector = DataCollector(
             agent_reporters={

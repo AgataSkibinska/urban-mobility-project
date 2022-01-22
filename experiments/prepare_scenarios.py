@@ -1,5 +1,5 @@
 import itertools
-import json
+import ujson as json
 import os
 import shutil
 import sys

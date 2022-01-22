@@ -1,4 +1,4 @@
-import json
+import ujson as json
 import os
 import sys
 from distutils.dir_util import copy_tree
@@ -46,8 +46,7 @@ def get_output_folder_postfix(scenario):
     return postfix
 
 
-if __name__ == '__main__':
-
+def main():
     scenarios_folder_path = sys.argv[1]
     assert type(scenarios_folder_path) == str
     assert len(scenarios_folder_path) > 0
@@ -129,3 +128,7 @@ if __name__ == '__main__':
             num_processes=num_processes
         )
         print('Finished '+str(i+1)+' simulation.')
+
+
+if __name__ == '__main__':
+    main()

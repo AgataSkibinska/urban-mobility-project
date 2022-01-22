@@ -1,10 +1,19 @@
-from typing import Dict, List
+from typing import Any, Dict, List, Tuple
 
 # import geopandas as gpd
 import numpy as np
+from numpy.random import default_rng, MT19937
+
 
 from .data_models import ScheduleElement, TransportModeInputs
 
+
+GLOBAL_SEED = 2137
+GLOBAL_RNG = default_rng(MT19937(GLOBAL_SEED))
+RNG_BUFFER = 32
+
+
+DistributionFloatTuple = Tuple[List[str], List[float]]
 
 class BaseSampler:
     """
@@ -13,7 +22,8 @@ class BaseSampler:
 
     def __init__(
         self,
-        prob_dist: Dict[str, float]
+        prob_dist: Tuple[List[Any], List[float]],
+        num_samples: int = RNG_BUFFER,
     ):
         """
         Constructs BaseSampler with given probability distribution.
@@ -21,33 +31,43 @@ class BaseSampler:
         Parameters
         ----------
             prob_dist : dict
-                Dictionary {object_id: str : probability: float} contains
+                Dictionary {object_id: T : probability: float} contains
                 probabilities of selecting elements.
         """
 
-        assert 0.99 < round(sum(prob_dist.values()), 4) <= 1
+        self.object_ids_samples = None
+        self.object_ids = prob_dist[0]
+        self.probs = prob_dist[1]
+        self.rng = GLOBAL_RNG
+        self.counter = 0
+        self.num_samples = num_samples
 
-        self.prob_dist = prob_dist
+        # assert 0.99 < np.around(np.sum(self.probs), decimals=2) <= 1
 
+    
     def __call__(
         self
-    ) -> str:
+    ) -> Any:
         """
         Sample object.
 
         Returns
         -------
-            object_id : str
+            object_id : T
         """
 
-        object_ids = list(self.prob_dist.keys())
-        probs = list(self.prob_dist.values())
+        if self.counter % self.num_samples == 0:
+            self.counter = self.counter % self.num_samples
+            self.object_ids_samples = self.rng.choice(
+                self.object_ids,
+                size=self.num_samples,
+                p=self.probs
+            )
+        
+        value = self.object_ids_samples[self.counter]
+        self.counter = self.counter + 1
 
-        sample = np.random.multinomial(1, probs)
-        sample = np.argmax(sample)
-        object_id = object_ids[sample]
-
-        return object_id
+        return value
 
 
 class BaseNormalSampler:
@@ -80,6 +100,9 @@ class BaseNormalSampler:
         self.loc = loc
         self.scale = scale
         self.min_value = min_value
+        self.samples = None
+        self.rng = GLOBAL_RNG
+        self.counter = 0
 
     def __call__(self) -> int:
         """
@@ -91,12 +114,18 @@ class BaseNormalSampler:
                     Sampled integer.
         """
 
-        sample = max(
-            int(np.random.normal(self.loc, self.scale)),
-            self.min_value
-        )
+        if self.counter % RNG_BUFFER == 0:
+            self.samples = np.maximum(
+                np.floor(
+                    self.rng.normal(self.loc, self.scale, RNG_BUFFER)
+                ),
+                self.min_value
+            )
 
-        return sample
+        value = self.samples[self.counter]
+        self.counter = (self.counter + 1) % RNG_BUFFER
+
+        return value
 
 
 class RegionSampler(BaseSampler):
@@ -106,11 +135,13 @@ class RegionSampler(BaseSampler):
 
     def __init__(
         self,
-        prob_dist: Dict[str, float]
+        prob_dist: DistributionFloatTuple,
+        num_samples: int = RNG_BUFFER
     ):
         BaseSampler.__init__(
             self,
-            prob_dist
+            prob_dist,
+            num_samples
         )
 
 
@@ -123,11 +154,13 @@ class AgeSexSampler(BaseSampler):
 
     def __init__(
         self,
-        prob_dist: Dict[str, float]
+        prob_dist: DistributionFloatTuple,
+        num_samples: int = RNG_BUFFER
     ):
         BaseSampler.__init__(
             self,
-            prob_dist
+            prob_dist,
+            num_samples
         )
 
 
@@ -137,15 +170,17 @@ class TransportModeInputsSampler:
     classifier.
     """
 
+    
     def __init__(
         self,
-        pub_trans_comfort_dist: Dict[str, Dict[str, float]],
-        pub_trans_punctuality_dist: Dict[str, Dict[str, float]],
-        bicycle_infrastr_comfort_dist: Dict[str, Dict[str, float]],
-        pedestrian_inconvenience_dist: Dict[str, Dict[str, float]],
-        household_persons_dist: Dict[str, Dict[str, float]],
-        household_cars_dist: Dict[str, Dict[str, float]],
-        household_bicycles_dist: Dict[str, Dict[str, float]]
+        pub_trans_comfort_dist: List[Tuple[str, DistributionFloatTuple]],
+        pub_trans_punctuality_dist: List[Tuple[str, DistributionFloatTuple]],
+        bicycle_infrastr_comfort_dist: List[Tuple[str, DistributionFloatTuple]],
+        pedestrian_inconvenience_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_persons_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_cars_dist: List[Tuple[str, DistributionFloatTuple]],
+        household_bicycles_dist: List[Tuple[str, DistributionFloatTuple]],
+        num_samples: int = RNG_BUFFER
     ):
         """
         Constructs TransportModeInputsSampler with given probability
@@ -202,50 +237,48 @@ class TransportModeInputsSampler:
                 }
                 contains probabilities for household_bicycles input.
                 Sampled household_bicycles will be converted to int.
+            num_samples: int
+                Number of actors to somehow adjust BaseSampler
         """
 
-        self.pub_trans_comfort_samplers = {}
-        for age_sex, input_dist in pub_trans_comfort_dist.items():
-            self.pub_trans_comfort_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        approx_num_samples = num_samples // 12
 
-        self.pub_trans_punctuality_samplers = {}
-        for age_sex, input_dist in pub_trans_punctuality_dist.items():
-            self.pub_trans_punctuality_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.pub_trans_comfort_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in pub_trans_comfort_dist
+        }
 
-        self.bicycle_infrastr_comfort_samplers = {}
-        for age_sex, input_dist in bicycle_infrastr_comfort_dist.items():
-            self.bicycle_infrastr_comfort_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.pub_trans_punctuality_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in pub_trans_punctuality_dist
+        }
 
-        self.pedestrian_inconvenience_samplers = {}
-        for age_sex, input_dist in pedestrian_inconvenience_dist.items():
-            self.pedestrian_inconvenience_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.bicycle_infrastr_comfort_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in bicycle_infrastr_comfort_dist
+        }
 
-        self.household_persons_samplers = {}
-        for age_sex, input_dist in household_persons_dist.items():
-            self.household_persons_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.pedestrian_inconvenience_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in pedestrian_inconvenience_dist
+        }
 
-        self.household_cars_samplers = {}
-        for age_sex, input_dist in household_cars_dist.items():
-            self.household_cars_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.household_persons_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in household_persons_dist
+        }
 
-        self.household_bicycles_samplers = {}
-        for age_sex, input_dist in household_bicycles_dist.items():
-            self.household_bicycles_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.household_cars_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in household_cars_dist
+        }
 
+        self.household_bicycles_samplers = {
+            age_sex: BaseSampler((input_dist[0].astype(np.int), input_dist[1]), approx_num_samples)
+            for age_sex, input_dist in household_bicycles_dist
+        }
+
+    
     def __call__(
         self,
         age_sex: str
@@ -284,41 +317,13 @@ class TransportModeInputsSampler:
 
             input_values = TransportModeInputs(
                 age=age_mapping[age_sex],
-                pub_trans_comfort=int(
-                    self.pub_trans_comfort_samplers[
-                        age_sex
-                    ]()
-                ),
-                pub_trans_punctuality=int(
-                    self.pub_trans_punctuality_samplers[
-                        age_sex
-                    ]()
-                ),
-                bicycle_infrastr_comfort=int(
-                    self.bicycle_infrastr_comfort_samplers[
-                        age_sex
-                    ]()
-                ),
-                pedestrian_inconvenience=int(
-                    self.pedestrian_inconvenience_samplers[
-                        age_sex
-                    ]()
-                ),
-                household_persons=int(
-                    self.household_persons_samplers[
-                        age_sex
-                    ]()
-                ),
-                household_cars=int(
-                    self.household_cars_samplers[
-                        age_sex
-                    ]()
-                ),
-                household_bicycles=int(
-                    self.household_bicycles_samplers[
-                        age_sex
-                    ]()
-                )
+                pub_trans_comfort= self.pub_trans_comfort_samplers[age_sex](),
+                pub_trans_punctuality=self.pub_trans_punctuality_samplers[age_sex](),
+                bicycle_infrastr_comfort=self.bicycle_infrastr_comfort_samplers[age_sex](),
+                pedestrian_inconvenience=self.pedestrian_inconvenience_samplers[age_sex](),
+                household_persons=self.household_persons_samplers[age_sex](),
+                household_cars=self.household_cars_samplers[age_sex](),
+                household_bicycles=self.household_bicycles_samplers[age_sex]()
             )
 
         else:
@@ -342,14 +347,15 @@ class DayScheduleSampler:
     Sampler class to prepare plan of travels for all day.
     """
 
+    
     def __init__(
         self,
-        any_travel_dist: Dict[str, Dict[str, float]],
-        travel_chains_dist: Dict[str, Dict[str, float]],
-        start_hour_dist: Dict[str, Dict[str, float]],
-        other_travels_dist: Dict[str, Dict[str, float]],
-        spend_time_dist_params: Dict[str, Dict[str, Dict[str, int]]],
-        trip_cancel_prob: Dict[str, float]
+        any_travel_dist: List[Tuple[str, DistributionFloatTuple]],
+        travel_chains_dist: List[Tuple[str, DistributionFloatTuple]],
+        start_hour_dist: List[Tuple[str, DistributionFloatTuple]],
+        other_travels_dist: List[Tuple[str, DistributionFloatTuple]],
+        spend_time_dist_params: List[Tuple[str,  Dict[str, int]]],
+        trip_cancel_prob: List[Tuple[str, float]]
     ):
         """
         Constructs DayScheduleSampler with given probability
@@ -401,44 +407,34 @@ class DayScheduleSampler:
                 associated with a specific destination place type.
         """
 
-        self.any_travel_samplers = {}
-        for age_sex, dist in any_travel_dist.items():
-            self.any_travel_samplers[age_sex] = BaseSampler(
-                dist
-            )
+        self.any_travel_samplers = {
+            age_sex: BaseSampler(dist) for age_sex, dist in any_travel_dist
+        }
 
-        self.travel_chains_samplers = {}
-        for age_sex, dist in travel_chains_dist.items():
-            self.travel_chains_samplers[age_sex] = BaseSampler(
-                dist
-            )
+        self.travel_chains_samplers = {
+            age_sex: BaseSampler(dist) for age_sex, dist in travel_chains_dist
+        }
 
-        self.start_hours_samplers = {}
-        for dest_type, dist in start_hour_dist.items():
-            self.start_hours_samplers[dest_type] = BaseSampler(
-                dist
-            )
+        self.start_hours_samplers = {
+            dest_type: BaseSampler((dist[0].astype(np.int), dist[1]))
+            for dest_type, dist in start_hour_dist
+        }
 
-        self.other_travels_samplers = {}
-        for age_sex, dist in other_travels_dist.items():
-            self.other_travels_samplers[age_sex] = BaseSampler(
-                dist
-            )
+        self.other_travels_samplers = {
+            age_sex: BaseSampler(dist) for age_sex, dist in other_travels_dist
+        }
 
-        self.spend_time_samplers = {}
-        for age_sex in spend_time_dist_params.keys():
-            self.spend_time_samplers[age_sex] = {}
-            for place_type, params in spend_time_dist_params[age_sex].items():
-                self.spend_time_samplers[age_sex][
-                    place_type
-                ] = BaseNormalSampler(
+        self.spend_time_samplers = {
+            key: BaseNormalSampler(
                     loc=params['loc'],
                     scale=params['scale'],
                     min_value=10
-                )
+            ) for key, params in spend_time_dist_params
+        }
 
         self.trip_cancel_prob = trip_cancel_prob
 
+    
     def __call__(
         self,
         age_sex: str
@@ -460,16 +456,16 @@ class DayScheduleSampler:
         schedule = []
 
         if age_sex != "0-5":
-
             any_travel = self.any_travel_samplers[
                 age_sex
             ]()
 
             if any_travel == '1':
-
                 travel_chain = self.travel_chains_samplers[
                     age_sex
                 ]().split(',')
+
+                cancel_states = GLOBAL_RNG.random(len(travel_chain)).tolist()
 
                 first_destination = travel_chain[0]
 
@@ -478,14 +474,10 @@ class DayScheduleSampler:
                 else:
                     first_destination_with_other_split = first_destination
 
-                first_start_time = int(
-                    self.start_hours_samplers[first_destination]()
-                ) * 60 + self._sample_minutes()
-                first_spend_time = self.spend_time_samplers[age_sex][
-                    first_destination_with_other_split
-                ]()
+                first_start_time = self.start_hours_samplers[first_destination]() * 60 + self._sample_minutes()
+                first_spend_time = self.spend_time_samplers[age_sex + first_destination_with_other_split]()
 
-                if self.trip_cancel_prob[first_destination_with_other_split] <= np.random.random():
+                if self.trip_cancel_prob[first_destination_with_other_split] <= cancel_states.pop():
                     # do not cancel this trip, so add it to schedule
                     schedule.append(
                         ScheduleElement(
@@ -505,11 +497,9 @@ class DayScheduleSampler:
                         next_destination_with_other_split = next_destination
 
                     next_start_time = prev_start_time + prev_spend_time
-                    next_spend_time = self.spend_time_samplers[age_sex][
-                        next_destination_with_other_split
-                    ]()
+                    next_spend_time = self.spend_time_samplers[age_sex + next_destination_with_other_split]()
 
-                    if self.trip_cancel_prob[next_destination_with_other_split] <= np.random.random():
+                    if self.trip_cancel_prob[next_destination_with_other_split] <= cancel_states.pop():
                         # do not cancel this trip, so add it to schedule
                         schedule.append(
                             ScheduleElement(
@@ -526,7 +516,7 @@ class DayScheduleSampler:
     def _sample_minutes(
         self
     ) -> int:
-        return int(np.random.uniform(0, 60))
+        return GLOBAL_RNG.integers(0, 60)
 
 
 class GravitySampler:
@@ -535,9 +525,10 @@ class GravitySampler:
     start region and travel destination type.
     """
 
+    
     def __init__(
         self,
-        gravity_dist: Dict[str, Dict[str, Dict[str, float]]]
+        gravity_dist: List[Tuple[str, DistributionFloatTuple]]
     ):
         """
         Constructs GravitySampler with given distribution.
@@ -555,15 +546,11 @@ class GravitySampler:
                 with given start region and destination type (like 'szkola'...)
         """
 
-        self.dest_region_samplers = {}
-        for dest_type in gravity_dist.keys():
-            self.dest_region_samplers[dest_type] = {}
-            for start_region, dist in gravity_dist[dest_type].items():
-                self.dest_region_samplers[dest_type][
-                    start_region
-                ] = BaseSampler(
-                    dist
-                )
+        self.dest_region_samplers = {
+            key: BaseSampler(dist, 10)
+            for key, dist in gravity_dist
+        }
+
 
     def __call__(
         self,
@@ -588,7 +575,8 @@ class GravitySampler:
                 Sampled destination region id.
         """
 
-        dest_region = self.dest_region_samplers[dest_type][start_region]()
+        dest_region = self.dest_region_samplers[dest_type + start_region]()
+        # print(self.dest_region_samplers[dest_type + start_region].counter)
 
         return dest_region
 
@@ -599,7 +587,7 @@ class DriverSampler:
     """
     def __init__(
         self,
-        drivers_dist: Dict[str, Dict[str, float]]
+        drivers_dist: List[Tuple[str, DistributionFloatTuple]]
     ):
         """
         Constructs DriverSampler with given probability distribution.
@@ -613,11 +601,9 @@ class DriverSampler:
                 contains probabilities for drivers_dist input. Sampled
                 drivers_dist will be converted to int.
         """
-        self.drivers_samplers = {}
-        for age_sex, input_dist in drivers_dist.items():
-            self.drivers_samplers[age_sex] = BaseSampler(
-                input_dist
-            )
+        self.drivers_samplers = { 
+            age_sex: BaseSampler(input_dist) for age_sex, input_dist in drivers_dist
+        }
 
     def __call__(
         self,
