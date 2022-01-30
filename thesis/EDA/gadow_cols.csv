@@ -1,0 +1,69 @@
+index,name
+0,Unnamed: 0_level_0_ID odpowiedzi,user_id
+1,Jaka jest Twoja płeć?_Płeć,respondent_sex
+2,Ile masz lat?_Wiek,respondent_age
+3,Jaki jest poziom Twojego wykształcenia?_Wykształcenie,respondent_education_status
+4,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (1),respondent_primary_job
+13,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dzieci poniżej 6 roku życia,house_under_6_person_number
+14,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dzieci w wieku 6-15 lat,house_6_to_15_person_number
+15,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dorośli powyżej 15 roku życia wśród członków Twojej rodziny,house_over_15_family_member_number
+16,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dorośli powyżej 15 roku życia wśród wśród niezależnych współlokatorów,house_over_15_non_family_member_number
+32,Jak często korzystasz ze wskazanych środków transportu?_Pieszo,usage_walk
+33,Jak często korzystasz ze wskazanych środków transportu?_Rower prywatny,usage_owned_bike
+34,Jak często korzystasz ze wskazanych środków transportu?_Rower miejski,usage_city_bike
+35,"Jak często korzystasz ze wskazanych środków transportu?_Motocykl, skuter lub motorower",usage_motor
+36,Jak często korzystasz ze wskazanych środków transportu?_Hulajnoga elektryczna,usage_scooter
+37,Jak często korzystasz ze wskazanych środków transportu?_Samochód osobowy jako pasażer,usage_car_passenger
+38,Jak często korzystasz ze wskazanych środków transportu?_Samochód osobowy jako kierowca,usage_car_driver
+39,Jak często korzystasz ze wskazanych środków transportu?_Tramwaj,usage_tram
+40,Jak często korzystasz ze wskazanych środków transportu?_Komunikacja autobusowa,usage_bus
+43,Jak często korzystasz ze wskazanych środków transportu?_Wypożyczalnia pojazdów osobowych,usage_car_rental
+44,Jak często korzystasz ze wskazanych środków transportu?_Carpooling,usage_carpooling
+46,Jak często korzystasz ze wskazanych środków transportu?_Taksówka,usage_taxi
+47,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Pieszo,safety_walk
+48,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Rower prywatny,safety_owned_bike
+49,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Rower miejski,safety_city_bike
+50,"Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Motocykl, skuter lub motorower",safety_motor
+51,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Hulajnoga elektryczna,safety_scooter
+52,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Samochód osobowy jako pasażer,safety_car_passenger
+53,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Samochód osobowy jako kierowca,safety_car_driver
+54,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Tramwaj,safety_tram
+55,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Komunikacja autobusowa,safety_bus
+58,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Wypożyczalnia pojazdów osobowych,safety
+59,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Carpooling,safety_carpooling
+61,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Taksówka,safety_taxi
+62,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Pieszo",cost_walk
+63,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Rower prywatny",cost_owned_bike
+64,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Rower miejski",cost_city_bike
+65,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Motocykl, skuter lub motorower",cost_motor
+66,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Hulajnoga elektryczna",cost_scooter
+67,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Samochód osobowy jako pasażer",cost_car_passenger
+68,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Samochód osobowy jako kierowca",cost_car_driver
+69,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Tramwaj",cost_tram
+70,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Komunikacja autobusowa",cost_bus
+73,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Wypożyczalnia pojazdów osobowych",cost_car_rental
+74,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Carpooling",cost_carpooling
+76,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Taksówka",cost_taxi
+77,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niekorzystne ustawienie sygnalizacji świetlnej,prefences_walk_wrong_intersection_lights
+78,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak chodników i konieczność poruszania się jezdnią/poboczem/wydeptaną ścieżką,prefences_walk_no_sidewalk
+79,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zły stan nawierzchni chodników,prefences_walk_bad_surface
+80,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zastawianie chodników przez parkujące samochody,prefences_walk_blocked_sidewalks
+81,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niebezpieczne zachowania kierowców,prefences_walk_car_danger
+82,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zagrożenie ze strony rowerzystów poruszających się chodnikami,preferences_walk_bike_danger
+83,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zbyt wysokie krawężniki,preferences_walk_tall_curbs
+84,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak bieżącego utrzymania czystości/odśnieżania,preferences_walk_no_cleaning_snow_removal
+85,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niewystarczająca liczba przejść dla pieszych,preferences_walk_insufficient_number_pedestrain_crossing
+86,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak miejsc wypoczynku na trasie dojścia (np. ławki, zieleń)",preferences_walk_no_resting_place
+87,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Uciążliwy ruch kołowy,preferences_walk_heavy_traffic
+88,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niewłaściwe oświetlenie ciągów pieszych,preferences_walk_insufficient_lighting
+91,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Niekorzystne ustawienia sygnalizacji świetlnej
+90,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Nie odczuwam uciążliwości w podróżach pieszych we Wrocławiu,preferences_walk_no_inconvenience
+180,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Samochód osobowy służbowy,house_company_car
+183,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Samochód osobowy prywatny,house_owned_car
+184,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Rower prywatny,house_owned_bike
+185,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Hulajnoga elektryczna,house_scooter
+192,"Czy Twój obecny stan zdrowia ma negatywny wpływ na sposób, w jaki poruszasz się po mieście?_Unnamed: 192_level_1",respondent_has_mobility_issues
+194,"Czy aktualnie pod Twoją stałą opieką znajduje się dziecko, osoba starsza lub niepełnosprawna?_Unnamed: 194_level_1",respondent_provides_care
+195,Czy zdarza Ci się przemieszczać po mieście razem ze zwierzętami domowymi?_Unnamed: 195_level_1,respondent_travels_with_pets
+196,Czy posiadasz prawo jazdy kategorii A?_Unnamed: 196_level_1,respondent_has_motor_license
+197,Czy posiadasz prawo jazdy kategorii B?_Unnamed: 197_level_1,respondent_has_driving_license

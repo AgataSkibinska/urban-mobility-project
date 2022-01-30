@@ -1,0 +1,470 @@
+,0
+0,Unnamed: 0_level_0_ID odpowiedzi
+1,Jaka jest Twoja płeć?_Płeć
+2,Ile masz lat?_Wiek
+3,Jaki jest poziom Twojego wykształcenia?_Wykształcenie
+4,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (1)
+5,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (2)
+6,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (3)
+7,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (4)
+8,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (5)
+9,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (6)
+10,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (7)
+11,Jaki jest Twój status zawodowy?_Jaki jest Twój status zawodowy? (8)
+12,Adres zamieszkania_Jaki jest Twój adres zamieszkania?
+13,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dzieci poniżej 6 roku życia
+14,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dzieci w wieku 6-15 lat
+15,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dorośli powyżej 15 roku życia wśród członków Twojej rodziny
+16,Ilu jest domowników w Twoim miejscu zamieszkania włącznie z Tobą?_Dorośli powyżej 15 roku życia wśród wśród niezależnych współlokatorów
+17,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Pieszo
+18,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Rower prywatny
+19,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Rower miejski
+20,"Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Motocykl, skuter lub motorower"
+21,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Hulajnoga elektryczna
+22,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Samochód osobowy jako pasażer
+23,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Samochód osobowy jako kierowca
+24,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Tramwaj
+25,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Komunikacja autobusowa
+26,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Komunikacja zbiorowa poza Wrocławiem
+27,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Pociąg
+28,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Wypożyczalnia pojazdów osobowych
+29,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Carpooling
+30,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Inne
+31,Z jakich środków transportu korzystasz w trakcie swoich codziennych podróży po mieście?_Taksówka
+32,Jak często korzystasz ze wskazanych środków transportu?_Pieszo
+33,Jak często korzystasz ze wskazanych środków transportu?_Rower prywatny
+34,Jak często korzystasz ze wskazanych środków transportu?_Rower miejski
+35,"Jak często korzystasz ze wskazanych środków transportu?_Motocykl, skuter lub motorower"
+36,Jak często korzystasz ze wskazanych środków transportu?_Hulajnoga elektryczna
+37,Jak często korzystasz ze wskazanych środków transportu?_Samochód osobowy jako pasażer
+38,Jak często korzystasz ze wskazanych środków transportu?_Samochód osobowy jako kierowca
+39,Jak często korzystasz ze wskazanych środków transportu?_Tramwaj
+40,Jak często korzystasz ze wskazanych środków transportu?_Komunikacja autobusowa
+41,Jak często korzystasz ze wskazanych środków transportu?_Komunikacja zbiorowa poza Wrocławiem
+42,Jak często korzystasz ze wskazanych środków transportu?_Pociąg
+43,Jak często korzystasz ze wskazanych środków transportu?_Wypożyczalnia pojazdów osobowych
+44,Jak często korzystasz ze wskazanych środków transportu?_Carpooling
+45,Jak często korzystasz ze wskazanych środków transportu?_Inne
+46,Jak często korzystasz ze wskazanych środków transportu?_Taksówka
+47,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Pieszo
+48,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Rower prywatny
+49,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Rower miejski
+50,"Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Motocykl, skuter lub motorower"
+51,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Hulajnoga elektryczna
+52,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Samochód osobowy jako pasażer
+53,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Samochód osobowy jako kierowca
+54,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Tramwaj
+55,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Komunikacja autobusowa
+56,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Komunikacja zbiorowa poza Wrocławiem
+57,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Pociąg
+58,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Wypożyczalnia pojazdów osobowych
+59,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Carpooling
+60,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Inne
+61,Jak oceniasz wskazane środki transportu pod kątem poczucia bezpieczeństwa?_Taksówka
+62,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Pieszo"
+63,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Rower prywatny"
+64,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Rower miejski"
+65,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Motocykl, skuter lub motorower"
+66,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Hulajnoga elektryczna"
+67,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Samochód osobowy jako pasażer"
+68,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Samochód osobowy jako kierowca"
+69,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Tramwaj"
+70,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Komunikacja autobusowa"
+71,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Komunikacja zbiorowa poza Wrocławiem"
+72,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Pociąg"
+73,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Wypożyczalnia pojazdów osobowych"
+74,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Carpooling"
+75,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Inne"
+76,"Jak oceniasz wskazane środki pod kątem średnich kosztów, które ponosisz ze względu na korzystanie z nich?_Taksówka"
+77,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niekorzystne ustawienie sygnalizacji świetlnej
+78,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak chodników i konieczność poruszania się jezdnią/poboczem/wydeptaną ścieżką
+79,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zły stan nawierzchni chodników
+80,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zastawianie chodników przez parkujące samochody
+81,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niebezpieczne zachowania kierowców
+82,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zagrożenie ze strony rowerzystów poruszających się chodnikami
+83,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Zbyt wysokie krawężniki
+84,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak bieżącego utrzymania czystości/odśnieżania
+85,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niewystarczająca liczba przejść dla pieszych
+86,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Brak miejsc wypoczynku na trasie dojścia (np. ławki, zieleń)"
+87,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Uciążliwy ruch kołowy
+88,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Niewłaściwe oświetlenie ciągów pieszych
+89,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Inne
+90,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pieszo: Nie odczuwam uciążliwości w podróżach pieszych we Wrocławiu
+91,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Niekorzystne ustawienia sygnalizacji świetlnej
+92,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Brak ciągłości dróg rowerowych
+93,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Konieczność poruszania się po jezdni
+94,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Niebezpieczne zachowania kierowców samochodów
+95,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Zły stan nawierzchni
+96,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Niewystarczająca liczba stojaków rowerowych
+97,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Inne
+98,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower prywatny: Nie odczuwam uciążliwości w podróżach rowerowych po Wrocławiu
+99,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: niekorzystne ustawienia sygnalizacji świetlnej
+100,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: brak ciągłości dróg rowerowych
+101,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: konieczność poruszania się po jezdni
+102,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: niebezpieczne zachowania kierowców samochodów
+103,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: duża odległość do najbliższej stacji roweru
+104,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: zbyt wysokie koszty
+105,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: Inne
+106,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Rower miejski: Nie odczuwam uciążliwości w podróżach rowerowych po Wrocławiu
+107,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Brak poczucia bezpieczeństwa"
+108,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Ograniczenia dostępności pojazdów z wypożyczalni"
+109,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Zbyt wysokie koszty usług wypożyczalni"
+110,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Brak bezpiecznego miejsca do zaparkowania pojazdu"
+111,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Inne"
+112,"Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Motocykl, skuter lub motorower: Nie odczuwam uciążliwości w podróżach motorem / skuterem / motorowerem po Wrocławiu"
+113,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Hulajnoga elektryczna: brak poczucia bezpieczeństwa/obawa przed kolizją
+114,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Hulajnoga elektryczna: brak uregulowań dotyczących zasad poruszania się po mieście
+115,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Hulajnoga elektryczna: zbyt wysokie koszty usług wypożyczalni
+116,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Hulajnoga elektryczna: Inne
+117,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Hulajnoga elektryczna: Nie odczuwam uciążliwości w podróżach hulajnogą elektryczną po Wrocławiu
+118,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako pasażer: Konieczność oczekiwania na auto z kierowcą
+119,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako pasażer: Zbyt duże natężenie ruchu
+120,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako pasażer: Inne
+121,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako pasażer: Nie odczuwam uciążliwości w podróżach samochodem po Wrocławiu
+122,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Zbyt duże natężenie ruchu/ korki
+123,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Brak dostępności parkingu pod domem
+124,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Brak dostępności parkingu w miejscu docelowym
+125,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Zbyt wysokie koszty utrzymania i parkowania pojazdu
+126,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Obawa przed kolizją z innymi uczestnikami ruchu
+127,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Zły stan nawierzchni dróg
+128,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Niekorzystne ustawienia sygnalizacji świetlnej
+129,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Inne
+130,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Samochód osobowy jako kierowca: Nie odczuwam uciążliwości w podróżach samochodem po Wrocławiu
+131,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Duża odległość do najbliższego przystanku
+132,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Niepunktualność kursów
+133,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Duże zapełnienie pojazdów w godzinach dojazdu do pracy/szkoły
+134,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Brak bezpośredniego połączenia do miejsca docelowego
+135,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Niska częstotliwość kursowania
+136,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Zbyt wysokie koszty przejazdów
+137,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Inne
+138,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Tramwaj: Nie odczuwam uciążliwości w podróżach tramwajem lub autobusem po Wrocławiu
+139,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Duża odległość do najbliższego przystanku
+140,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Niepunktualność kursów
+141,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Duże zapełnienie pojazdów w godzinach dojazdu do pracy/szkoły
+142,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Brak bezpośredniego połączenia do miejsca docelowego
+143,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Niska częstotliwość kursowania
+144,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Zbyt wysokie koszty przejazdów
+145,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Inne
+146,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja autobusowa: Nie odczuwam uciążliwości w podróżach tramwajem lub autobusem po Wrocławiu
+147,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Duża odległość do najbliższego przystanku
+148,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Niepunktualność kursów
+149,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Duże zapełnienie pojazdów w godzinach dojazdu do pracy/szkoły
+150,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Brak bezpośredniego połączenia do miejsca docelowego
+151,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Niska częstotliwość kursowania
+152,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Zbyt wysokie koszty przejazdów
+153,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Inne
+154,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Komunikacja zbiorowa poza Wrocławiem: Nie odczuwam uciążliwości w podróżach tramwajem lub autobusem po Wrocławiu
+155,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Duża odległość od domu do stacji
+156,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Duża odległość od stacji do miejsca docelowego
+157,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Niepunktualność pociągów
+158,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Częstotliwość kursowania pociągów
+159,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Duże zapełnienie pociągów
+160,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Zbyt wysokie koszty przejazdów
+161,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Inne
+162,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Pociąg: Nie odczuwam uciążliwości w podróżach pociągiem po Wrocławiu
+163,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Wypożyczalnia pojazdów osobowych: Zbyt wysokie koszty usługi
+164,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Wypożyczalnia pojazdów osobowych: Dostępność pojazdów
+165,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Wypożyczalnia pojazdów osobowych: Inne
+166,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Wypożyczalnia pojazdów osobowych: Nie odczuwam uciążliwości w podróżach wypożyczonym autem po Wrocławiu
+167,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Carpooling: Częste zmiany liczby uczestników podróży
+168,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Carpooling: Możliwość zorganizowania kursu tylko w jedną stronę
+169,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Carpooling: Kłopotliwy podział kosztów podróży
+170,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Carpooling: Inne
+171,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Carpooling: Nie odczuwam uciążliwości we wspólnych podróżach autem po Wrocławiu
+172,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Inne: Boję się tego środka transportu
+173,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Inne: Nie mam dostępu do tego środka transportu
+174,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Inne: Środek transportu jest drogi
+175,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Taksówka: Boję się tego środka transportu
+176,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Taksówka: Nie mam dostępu do tego środka transportu
+177,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Taksówka: Środek transportu jest drogi
+178,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Taksówka: Inne
+179,Jakie elementy stanowią dla Ciebie największą uciążliwość w codziennych podróżach danym środkiem transportu?_Taksówka: Nie odczuwam uciążliwości w podróżach taksówką po Wrocławiu
+180,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Samochód osobowy służbowy
+181,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Inne
+182,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Żadne z wymienionych
+183,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Samochód osobowy prywatny
+184,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Rower prywatny
+185,Jakie środki transportu posiadasz na własność (jako właściciel lub współwłaściciel)?_Hulajnoga elektryczna
+186,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Samochód osobowy służbowy
+187,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Inne
+188,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Żadne z wymienionych
+189,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Samochód osobowy prywatny
+190,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Rower prywatny
+191,Czy z wymienionych przez Ciebie środków transportu korzystają również pozostali domownicy?_Hulajnoga elektryczna
+192,"Czy Twój obecny stan zdrowia ma negatywny wpływ na sposób, w jaki poruszasz się po mieście?_Unnamed: 192_level_1"
+193,Jaki jest rodzaj Twoich ograniczeń związanych z poruszaniem się po mieście?_Unnamed: 193_level_1
+194,"Czy aktualnie pod Twoją stałą opieką znajduje się dziecko, osoba starsza lub niepełnosprawna?_Unnamed: 194_level_1"
+195,Czy zdarza Ci się przemieszczać po mieście razem ze zwierzętami domowymi?_Unnamed: 195_level_1
+196,Czy posiadasz prawo jazdy kategorii A?_Unnamed: 196_level_1
+197,Czy posiadasz prawo jazdy kategorii B?_Unnamed: 197_level_1
+198,Numer regionu zamieszkania_Unnamed: 198_level_1
+199,ID podróży (1)_Unnamed: 199_level_1
+200,Data rozpoczecia podróży (1)_Unnamed: 200_level_1
+201,Czas trwania podróży [s] (1)_Unnamed: 201_level_1
+202,Środek transportu (1)_Unnamed: 202_level_1
+203,Typ miejsca startu (1)_Unnamed: 203_level_1
+204,Typ miejsca zakończenia (1)_Unnamed: 204_level_1
+205,Miejsce startu (1)_Unnamed: 205_level_1
+206,Numer regionu miejsca startu (1)_Unnamed: 206_level_1
+207,Numer regionu miejsca zakończenia (1)_Unnamed: 207_level_1
+208,Miejsce zakończenia (1)_Unnamed: 208_level_1
+209,ID podróży (2)_Unnamed: 209_level_1
+210,Data rozpoczecia podróży (2)_Unnamed: 210_level_1
+211,Czas trwania podróży [s] (2)_Unnamed: 211_level_1
+212,Środek transportu (2)_Unnamed: 212_level_1
+213,Typ miejsca startu (2)_Unnamed: 213_level_1
+214,Typ miejsca zakończenia (2)_Unnamed: 214_level_1
+215,Miejsce startu (2)_Unnamed: 215_level_1
+216,Numer regionu miejsca startu (2)_Unnamed: 216_level_1
+217,Numer regionu miejsca zakończenia (2)_Unnamed: 217_level_1
+218,Miejsce zakończenia (2)_Unnamed: 218_level_1
+219,ID podróży (3)_Unnamed: 219_level_1
+220,Data rozpoczecia podróży (3)_Unnamed: 220_level_1
+221,Czas trwania podróży [s] (3)_Unnamed: 221_level_1
+222,Środek transportu (3)_Unnamed: 222_level_1
+223,Typ miejsca startu (3)_Unnamed: 223_level_1
+224,Typ miejsca zakończenia (3)_Unnamed: 224_level_1
+225,Miejsce startu (3)_Unnamed: 225_level_1
+226,Numer regionu miejsca startu (3)_Unnamed: 226_level_1
+227,Numer regionu miejsca zakończenia (3)_Unnamed: 227_level_1
+228,Miejsce zakończenia (3)_Unnamed: 228_level_1
+229,ID podróży (4)_Unnamed: 229_level_1
+230,Data rozpoczecia podróży (4)_Unnamed: 230_level_1
+231,Czas trwania podróży [s] (4)_Unnamed: 231_level_1
+232,Środek transportu (4)_Unnamed: 232_level_1
+233,Typ miejsca startu (4)_Unnamed: 233_level_1
+234,Typ miejsca zakończenia (4)_Unnamed: 234_level_1
+235,Miejsce startu (4)_Unnamed: 235_level_1
+236,Numer regionu miejsca startu (4)_Unnamed: 236_level_1
+237,Numer regionu miejsca zakończenia (4)_Unnamed: 237_level_1
+238,Miejsce zakończenia (4)_Unnamed: 238_level_1
+239,ID podróży (5)_Unnamed: 239_level_1
+240,Data rozpoczecia podróży (5)_Unnamed: 240_level_1
+241,Czas trwania podróży [s] (5)_Unnamed: 241_level_1
+242,Środek transportu (5)_Unnamed: 242_level_1
+243,Typ miejsca startu (5)_Unnamed: 243_level_1
+244,Typ miejsca zakończenia (5)_Unnamed: 244_level_1
+245,Miejsce startu (5)_Unnamed: 245_level_1
+246,Numer regionu miejsca startu (5)_Unnamed: 246_level_1
+247,Numer regionu miejsca zakończenia (5)_Unnamed: 247_level_1
+248,Miejsce zakończenia (5)_Unnamed: 248_level_1
+249,ID podróży (6)_Unnamed: 249_level_1
+250,Data rozpoczecia podróży (6)_Unnamed: 250_level_1
+251,Czas trwania podróży [s] (6)_Unnamed: 251_level_1
+252,Środek transportu (6)_Unnamed: 252_level_1
+253,Typ miejsca startu (6)_Unnamed: 253_level_1
+254,Typ miejsca zakończenia (6)_Unnamed: 254_level_1
+255,Miejsce startu (6)_Unnamed: 255_level_1
+256,Numer regionu miejsca startu (6)_Unnamed: 256_level_1
+257,Numer regionu miejsca zakończenia (6)_Unnamed: 257_level_1
+258,Miejsce zakończenia (6)_Unnamed: 258_level_1
+259,ID podróży (7)_Unnamed: 259_level_1
+260,Data rozpoczecia podróży (7)_Unnamed: 260_level_1
+261,Czas trwania podróży [s] (7)_Unnamed: 261_level_1
+262,Środek transportu (7)_Unnamed: 262_level_1
+263,Typ miejsca startu (7)_Unnamed: 263_level_1
+264,Typ miejsca zakończenia (7)_Unnamed: 264_level_1
+265,Miejsce startu (7)_Unnamed: 265_level_1
+266,Numer regionu miejsca startu (7)_Unnamed: 266_level_1
+267,Numer regionu miejsca zakończenia (7)_Unnamed: 267_level_1
+268,Miejsce zakończenia (7)_Unnamed: 268_level_1
+269,ID podróży (8)_Unnamed: 269_level_1
+270,Data rozpoczecia podróży (8)_Unnamed: 270_level_1
+271,Czas trwania podróży [s] (8)_Unnamed: 271_level_1
+272,Środek transportu (8)_Unnamed: 272_level_1
+273,Typ miejsca startu (8)_Unnamed: 273_level_1
+274,Typ miejsca zakończenia (8)_Unnamed: 274_level_1
+275,Miejsce startu (8)_Unnamed: 275_level_1
+276,Numer regionu miejsca startu (8)_Unnamed: 276_level_1
+277,Numer regionu miejsca zakończenia (8)_Unnamed: 277_level_1
+278,Miejsce zakończenia (8)_Unnamed: 278_level_1
+279,ID podróży (9)_Unnamed: 279_level_1
+280,Data rozpoczecia podróży (9)_Unnamed: 280_level_1
+281,Czas trwania podróży [s] (9)_Unnamed: 281_level_1
+282,Środek transportu (9)_Unnamed: 282_level_1
+283,Typ miejsca startu (9)_Unnamed: 283_level_1
+284,Typ miejsca zakończenia (9)_Unnamed: 284_level_1
+285,Miejsce startu (9)_Unnamed: 285_level_1
+286,Numer regionu miejsca startu (9)_Unnamed: 286_level_1
+287,Numer regionu miejsca zakończenia (9)_Unnamed: 287_level_1
+288,Miejsce zakończenia (9)_Unnamed: 288_level_1
+289,ID podróży (10)_Unnamed: 289_level_1
+290,Data rozpoczecia podróży (10)_Unnamed: 290_level_1
+291,Czas trwania podróży [s] (10)_Unnamed: 291_level_1
+292,Środek transportu (10)_Unnamed: 292_level_1
+293,Typ miejsca startu (10)_Unnamed: 293_level_1
+294,Typ miejsca zakończenia (10)_Unnamed: 294_level_1
+295,Miejsce startu (10)_Unnamed: 295_level_1
+296,Numer regionu miejsca startu (10)_Unnamed: 296_level_1
+297,Numer regionu miejsca zakończenia (10)_Unnamed: 297_level_1
+298,Miejsce zakończenia (10)_Unnamed: 298_level_1
+299,ID podróży (11)_Unnamed: 299_level_1
+300,Data rozpoczecia podróży (11)_Unnamed: 300_level_1
+301,Czas trwania podróży [s] (11)_Unnamed: 301_level_1
+302,Środek transportu (11)_Unnamed: 302_level_1
+303,Typ miejsca startu (11)_Unnamed: 303_level_1
+304,Typ miejsca zakończenia (11)_Unnamed: 304_level_1
+305,Miejsce startu (11)_Unnamed: 305_level_1
+306,Numer regionu miejsca startu (11)_Unnamed: 306_level_1
+307,Numer regionu miejsca zakończenia (11)_Unnamed: 307_level_1
+308,Miejsce zakończenia (11)_Unnamed: 308_level_1
+309,ID podróży (12)_Unnamed: 309_level_1
+310,Data rozpoczecia podróży (12)_Unnamed: 310_level_1
+311,Czas trwania podróży [s] (12)_Unnamed: 311_level_1
+312,Środek transportu (12)_Unnamed: 312_level_1
+313,Typ miejsca startu (12)_Unnamed: 313_level_1
+314,Typ miejsca zakończenia (12)_Unnamed: 314_level_1
+315,Miejsce startu (12)_Unnamed: 315_level_1
+316,Numer regionu miejsca startu (12)_Unnamed: 316_level_1
+317,Numer regionu miejsca zakończenia (12)_Unnamed: 317_level_1
+318,Miejsce zakończenia (12)_Unnamed: 318_level_1
+319,ID podróży (13)_Unnamed: 319_level_1
+320,Data rozpoczecia podróży (13)_Unnamed: 320_level_1
+321,Czas trwania podróży [s] (13)_Unnamed: 321_level_1
+322,Środek transportu (13)_Unnamed: 322_level_1
+323,Typ miejsca startu (13)_Unnamed: 323_level_1
+324,Typ miejsca zakończenia (13)_Unnamed: 324_level_1
+325,Miejsce startu (13)_Unnamed: 325_level_1
+326,Numer regionu miejsca startu (13)_Unnamed: 326_level_1
+327,Numer regionu miejsca zakończenia (13)_Unnamed: 327_level_1
+328,Miejsce zakończenia (13)_Unnamed: 328_level_1
+329,ID podróży (14)_Unnamed: 329_level_1
+330,Data rozpoczecia podróży (14)_Unnamed: 330_level_1
+331,Czas trwania podróży [s] (14)_Unnamed: 331_level_1
+332,Środek transportu (14)_Unnamed: 332_level_1
+333,Typ miejsca startu (14)_Unnamed: 333_level_1
+334,Typ miejsca zakończenia (14)_Unnamed: 334_level_1
+335,Miejsce startu (14)_Unnamed: 335_level_1
+336,Numer regionu miejsca startu (14)_Unnamed: 336_level_1
+337,Numer regionu miejsca zakończenia (14)_Unnamed: 337_level_1
+338,Miejsce zakończenia (14)_Unnamed: 338_level_1
+339,ID podróży (15)_Unnamed: 339_level_1
+340,Data rozpoczecia podróży (15)_Unnamed: 340_level_1
+341,Czas trwania podróży [s] (15)_Unnamed: 341_level_1
+342,Środek transportu (15)_Unnamed: 342_level_1
+343,Typ miejsca startu (15)_Unnamed: 343_level_1
+344,Typ miejsca zakończenia (15)_Unnamed: 344_level_1
+345,Miejsce startu (15)_Unnamed: 345_level_1
+346,Numer regionu miejsca startu (15)_Unnamed: 346_level_1
+347,Numer regionu miejsca zakończenia (15)_Unnamed: 347_level_1
+348,Miejsce zakończenia (15)_Unnamed: 348_level_1
+349,ID podróży (16)_Unnamed: 349_level_1
+350,Data rozpoczecia podróży (16)_Unnamed: 350_level_1
+351,Czas trwania podróży [s] (16)_Unnamed: 351_level_1
+352,Środek transportu (16)_Unnamed: 352_level_1
+353,Typ miejsca startu (16)_Unnamed: 353_level_1
+354,Typ miejsca zakończenia (16)_Unnamed: 354_level_1
+355,Miejsce startu (16)_Unnamed: 355_level_1
+356,Numer regionu miejsca startu (16)_Unnamed: 356_level_1
+357,Numer regionu miejsca zakończenia (16)_Unnamed: 357_level_1
+358,Miejsce zakończenia (16)_Unnamed: 358_level_1
+359,ID podróży (17)_Unnamed: 359_level_1
+360,Data rozpoczecia podróży (17)_Unnamed: 360_level_1
+361,Czas trwania podróży [s] (17)_Unnamed: 361_level_1
+362,Środek transportu (17)_Unnamed: 362_level_1
+363,Typ miejsca startu (17)_Unnamed: 363_level_1
+364,Typ miejsca zakończenia (17)_Unnamed: 364_level_1
+365,Miejsce startu (17)_Unnamed: 365_level_1
+366,Numer regionu miejsca startu (17)_Unnamed: 366_level_1
+367,Numer regionu miejsca zakończenia (17)_Unnamed: 367_level_1
+368,Miejsce zakończenia (17)_Unnamed: 368_level_1
+369,ID podróży (18)_Unnamed: 369_level_1
+370,Data rozpoczecia podróży (18)_Unnamed: 370_level_1
+371,Czas trwania podróży [s] (18)_Unnamed: 371_level_1
+372,Środek transportu (18)_Unnamed: 372_level_1
+373,Typ miejsca startu (18)_Unnamed: 373_level_1
+374,Typ miejsca zakończenia (18)_Unnamed: 374_level_1
+375,Miejsce startu (18)_Unnamed: 375_level_1
+376,Numer regionu miejsca startu (18)_Unnamed: 376_level_1
+377,Numer regionu miejsca zakończenia (18)_Unnamed: 377_level_1
+378,Miejsce zakończenia (18)_Unnamed: 378_level_1
+379,ID podróży (19)_Unnamed: 379_level_1
+380,Data rozpoczecia podróży (19)_Unnamed: 380_level_1
+381,Czas trwania podróży [s] (19)_Unnamed: 381_level_1
+382,Środek transportu (19)_Unnamed: 382_level_1
+383,Typ miejsca startu (19)_Unnamed: 383_level_1
+384,Typ miejsca zakończenia (19)_Unnamed: 384_level_1
+385,Miejsce startu (19)_Unnamed: 385_level_1
+386,Numer regionu miejsca startu (19)_Unnamed: 386_level_1
+387,Numer regionu miejsca zakończenia (19)_Unnamed: 387_level_1
+388,Miejsce zakończenia (19)_Unnamed: 388_level_1
+389,ID podróży (20)_Unnamed: 389_level_1
+390,Data rozpoczecia podróży (20)_Unnamed: 390_level_1
+391,Czas trwania podróży [s] (20)_Unnamed: 391_level_1
+392,Środek transportu (20)_Unnamed: 392_level_1
+393,Typ miejsca startu (20)_Unnamed: 393_level_1
+394,Typ miejsca zakończenia (20)_Unnamed: 394_level_1
+395,Miejsce startu (20)_Unnamed: 395_level_1
+396,Numer regionu miejsca startu (20)_Unnamed: 396_level_1
+397,Numer regionu miejsca zakończenia (20)_Unnamed: 397_level_1
+398,Miejsce zakończenia (20)_Unnamed: 398_level_1
+399,ID podróży (21)_Unnamed: 399_level_1
+400,Data rozpoczecia podróży (21)_Unnamed: 400_level_1
+401,Czas trwania podróży [s] (21)_Unnamed: 401_level_1
+402,Środek transportu (21)_Unnamed: 402_level_1
+403,Typ miejsca startu (21)_Unnamed: 403_level_1
+404,Typ miejsca zakończenia (21)_Unnamed: 404_level_1
+405,Miejsce startu (21)_Unnamed: 405_level_1
+406,Numer regionu miejsca startu (21)_Unnamed: 406_level_1
+407,Numer regionu miejsca zakończenia (21)_Unnamed: 407_level_1
+408,Miejsce zakończenia (21)_Unnamed: 408_level_1
+409,ID podróży (22)_Unnamed: 409_level_1
+410,Data rozpoczecia podróży (22)_Unnamed: 410_level_1
+411,Czas trwania podróży [s] (22)_Unnamed: 411_level_1
+412,Środek transportu (22)_Unnamed: 412_level_1
+413,Typ miejsca startu (22)_Unnamed: 413_level_1
+414,Typ miejsca zakończenia (22)_Unnamed: 414_level_1
+415,Miejsce startu (22)_Unnamed: 415_level_1
+416,Numer regionu miejsca startu (22)_Unnamed: 416_level_1
+417,Numer regionu miejsca zakończenia (22)_Unnamed: 417_level_1
+418,Miejsce zakończenia (22)_Unnamed: 418_level_1
+419,ID podróży (23)_Unnamed: 419_level_1
+420,Data rozpoczecia podróży (23)_Unnamed: 420_level_1
+421,Czas trwania podróży [s] (23)_Unnamed: 421_level_1
+422,Środek transportu (23)_Unnamed: 422_level_1
+423,Typ miejsca startu (23)_Unnamed: 423_level_1
+424,Typ miejsca zakończenia (23)_Unnamed: 424_level_1
+425,Miejsce startu (23)_Unnamed: 425_level_1
+426,Numer regionu miejsca startu (23)_Unnamed: 426_level_1
+427,Numer regionu miejsca zakończenia (23)_Unnamed: 427_level_1
+428,Miejsce zakończenia (23)_Unnamed: 428_level_1
+429,ID podróży (24)_Unnamed: 429_level_1
+430,Data rozpoczecia podróży (24)_Unnamed: 430_level_1
+431,Czas trwania podróży [s] (24)_Unnamed: 431_level_1
+432,Środek transportu (24)_Unnamed: 432_level_1
+433,Typ miejsca startu (24)_Unnamed: 433_level_1
+434,Typ miejsca zakończenia (24)_Unnamed: 434_level_1
+435,Miejsce startu (24)_Unnamed: 435_level_1
+436,Numer regionu miejsca startu (24)_Unnamed: 436_level_1
+437,Numer regionu miejsca zakończenia (24)_Unnamed: 437_level_1
+438,Miejsce zakończenia (24)_Unnamed: 438_level_1
+439,ID podróży (25)_Unnamed: 439_level_1
+440,Data rozpoczecia podróży (25)_Unnamed: 440_level_1
+441,Czas trwania podróży [s] (25)_Unnamed: 441_level_1
+442,Środek transportu (25)_Unnamed: 442_level_1
+443,Typ miejsca startu (25)_Unnamed: 443_level_1
+444,Typ miejsca zakończenia (25)_Unnamed: 444_level_1
+445,Miejsce startu (25)_Unnamed: 445_level_1
+446,Numer regionu miejsca startu (25)_Unnamed: 446_level_1
+447,Numer regionu miejsca zakończenia (25)_Unnamed: 447_level_1
+448,Miejsce zakończenia (25)_Unnamed: 448_level_1
+449,ID podróży (26)_Unnamed: 449_level_1
+450,Data rozpoczecia podróży (26)_Unnamed: 450_level_1
+451,Czas trwania podróży [s] (26)_Unnamed: 451_level_1
+452,Środek transportu (26)_Unnamed: 452_level_1
+453,Typ miejsca startu (26)_Unnamed: 453_level_1
+454,Typ miejsca zakończenia (26)_Unnamed: 454_level_1
+455,Miejsce startu (26)_Unnamed: 455_level_1
+456,Numer regionu miejsca startu (26)_Unnamed: 456_level_1
+457,Numer regionu miejsca zakończenia (26)_Unnamed: 457_level_1
+458,Miejsce zakończenia (26)_Unnamed: 458_level_1
+459,ID podróży (27)_Unnamed: 459_level_1
+460,Data rozpoczecia podróży (27)_Unnamed: 460_level_1
+461,Czas trwania podróży [s] (27)_Unnamed: 461_level_1
+462,Środek transportu (27)_Unnamed: 462_level_1
+463,Typ miejsca startu (27)_Unnamed: 463_level_1
+464,Typ miejsca zakończenia (27)_Unnamed: 464_level_1
+465,Miejsce startu (27)_Unnamed: 465_level_1
+466,Numer regionu miejsca startu (27)_Unnamed: 466_level_1
+467,Numer regionu miejsca zakończenia (27)_Unnamed: 467_level_1
+468,Miejsce zakończenia (27)_Unnamed: 468_level_1

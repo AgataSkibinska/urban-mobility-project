@@ -1,0 +1,17 @@
+,agent_id,start_region,start_place_type,dest_region,dest_place_type,travel_start_time,dest_activity_dur_time,transport_mode,is_driver
+0,0,321,dom,9,other_shopping,462,55,1,
+1,0,9,other_shopping,321,dom,517,34,1,
+2,2,50,dom,158,religion,1271,22,0,1
+3,2,158,religion,50,dom,1293,61,0,1
+4,3,87,dom,28,praca,308,523,3,
+5,3,28,praca,87,dom,831,26,3,
+6,4,50,dom,120,praca,599,346,2,
+7,4,120,praca,50,dom,945,91,2,
+8,5,36,dom,36,praca,458,374,2,
+9,5,36,praca,36,dom,832,117,2,
+10,7,32,dom,32,praca,582,375,2,
+11,7,32,praca,32,dom,957,198,2,
+12,8,221,dom,262,praca,466,512,0,1
+13,8,262,praca,221,dom,978,62,0,1
+14,9,199,dom,352,praca,442,329,0,1
+15,9,352,praca,199,dom,771,189,0,0

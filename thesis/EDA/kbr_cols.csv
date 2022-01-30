@@ -1,0 +1,41 @@
+number,name,new_name
+6,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Wprowadzenie opłat za wjazd do centrum dla wszystkich pojazdów, preferences_centrum_entrance_billed
+7,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Dopuszczenie dojazdu do centrum dla pojazdów, które nie zanieczyszczają środowiska (np. pojazdy elektryczne, hybrydowe lub spełniające najwyższe normy spalania) ", preferences_centrum_entrance_for_eco_vehicles
+8,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jaka jest Pana/Pani opinia na temat rozwiązań wspierających kursowanie tramwajów i autobusów, takich jak priorytet przejazdu na skrzyżowaniach oraz wydzielone pasy na jezdniach? ", prefences_pt_transit_priority
+9,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Z jakiego środka transportu zbiorowego korzysta Pan/Pani najczęściej?, prefences_prefered_travel_mode
+13,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia wygodę jazdy pojazdami komunikacji zbiorowej? , prefences_pt_comfort
+14,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia czystość taboru komunikacji zbiorowej we Wrocławiu? , prefences_pt_cleanliness
+15,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia punktualność komunikacji zbiorowej we Wrocławiu? , prefences_pt_punctuality
+16,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak ocenia Pan/Pani efekty dotychczasowych działań związanych z rozbudową systemu rowerowego we Wrocławiu (dróg i parkingów rowerowych)?, prefences_bicyle_infrastructure_improvemets
+17,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niekorzystne ustawienia sygnalizacji świetlnej], prefences_walk_wrong_intersection_lights
+18,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak chodników i konieczność poruszania się jezdnią/poboczem/wydeptaną ścieżką], prefences_walk_no_sidewalk
+19,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zły stan nawierzchni chodników], prefences_walk_bad_surface
+20,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zastawianie chodników przez parkujące samochody], prefences_walk_blocked_sidewalks
+21,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niebezpieczne zachowania kierowców], prefences_walk_car_danger
+22,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zagrożenie ze strony rowerzystów poruszających się chodnikami], preferences_walk_bike_danger
+23,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zbyt wysokie krawężniki], preferences_walk_tall_curbs
+24,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak bieżącego utrzymania czystości/odśnieżania], preferences_walk_no_cleaning_snow_removal
+25,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niewystarczająca liczba przejść dla pieszych], preferences_walk_insufficient_number_pedestrain_crossing
+26,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak miejsc wypoczynku na trasie dojścia (np. ławki, zieleń)]", preferences_walk_no_resting_place
+27,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [uciążliwy ruch kołowy], preferences_walk_heavy_traffic
+28,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niewłaściwe oświetlenie ciągów pieszych], preferences_walk_insufficient_lighting
+29,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [nie odczuwam uciążliwości w podróżach pieszych po Wrocławiu], preferences_walk_no_inconvenience
+31,DANE O GOSPODARSTWIE DOMOWYM_Liczba osób w gospodarstwie domowym [ogółem], house_total_person_number
+32,DANE O GOSPODARSTWIE DOMOWYM_Liczba osób w gospodarstwie domowym [powyżej 6 roku życia], house_over_6_person_number
+33,"DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód prywatny, zarejestrowany na osobę z gosp. domowego]", house_owned_car_number
+34,"DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód prywatny, nie zarejestrowany na osobę z gosp. domowego [użyczone]]", house_lent_car_number
+35,DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód służbowy], house_company_car_number
+36,DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Rower], house_bicycle_number
+37,DANE O RESPONDENCIE_Przedział wiekowy, respondent_age
+38,DANE O RESPONDENCIE_Płeć, respondent_sex
+39,DANE O RESPONDENCIE_Zajęcie podstawowe, respondent_primary_job
+40,DANE O RESPONDENCIE_Zajęcie dodatkowe, respondent_secondary_job
+41,DANE O RESPONDENCIE_Kondycja fizyczna, respondent_physical_condition
+43,DANE O RESPONDENCIE_Opieka nad innymi osobami, respondent_provides_care
+44,DANE O RESPONDENCIE_Posiadanie prawa jazdy kat. B, respondent_has_driving_license
+45,DANE O RESPONDENCIE_Posiadanie biletu okresowego, respondent_has_season_ticket
+46,DANE O RESPONDENCIE_Posiadanie ulgi na przejazd komunikacją zbiorową we Wrocławiu, respondent_has_pt_discount
+254,DANE DO STATYSTYK_czas trwania podróży, total_travel_time
+255,23:59:00_pora dnia, part_of_day
+256,23:59:00_środek transportu grupa, travel_mode
+257,23:59:00_motywacje, motivation

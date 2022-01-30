@@ -1,0 +1,320 @@
+,0
+0,Lp_Lp
+1,IDENTYFIKACJA ANKIETY_ID_LOS (numer kwestionariusza)
+2,IDENTYFIKACJA ANKIETY_Nr ankietera
+3,IDENTYFIKACJA ANKIETY_Data wypełnienia kwestionariusza
+4,IDENTYFIKACJA ANKIETY_Godzina wypełnienia kwestionariusza
+5,IDENTYFIKACJA ANKIETY_Nr rejonu komunikacyjnego
+6,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Wprowadzenie opłat za wjazd do centrum dla wszystkich pojazdów
+7,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Dopuszczenie dojazdu do centrum dla pojazdów, które nie zanieczyszczają środowiska (np. pojazdy elektryczne, hybrydowe lub spełniające najwyższe normy spalania) "
+8,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jaka jest Pana/Pani opinia na temat rozwiązań wspierających kursowanie tramwajów i autobusów, takich jak priorytet przejazdu na skrzyżowaniach oraz wydzielone pasy na jezdniach? "
+9,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Z jakiego środka transportu zbiorowego korzysta Pan/Pani najczęściej?
+10,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Dlaczego? 
+[tramwaj/autobus]"
+11,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Dlaczego? [Inne]
+[tramwaj/autobus]"
+12,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jaka jest Pana/Pani opinia na temat rozwoju systemu kolei aglomeracyjnej na terenie Wrocławia i wokół niego (rozbudowa układu torowego, zwiększenie częstotliwości itd.)?"
+13,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia wygodę jazdy pojazdami komunikacji zbiorowej? 
+14,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia czystość taboru komunikacji zbiorowej we Wrocławiu? 
+15,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak Pan/Pani ocenia punktualność komunikacji zbiorowej we Wrocławiu? 
+16,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jak ocenia Pan/Pani efekty dotychczasowych działań związanych z rozbudową systemu rowerowego we Wrocławiu (dróg i parkingów rowerowych)?
+17,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niekorzystne ustawienia sygnalizacji świetlnej]
+18,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak chodników i konieczność poruszania się jezdnią/poboczem/wydeptaną ścieżką]
+19,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zły stan nawierzchni chodników]
+20,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zastawianie chodników przez parkujące samochody]
+21,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niebezpieczne zachowania kierowców]
+22,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zagrożenie ze strony rowerzystów poruszających się chodnikami]
+23,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [zbyt wysokie krawężniki]
+24,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak bieżącego utrzymania czystości/odśnieżania]
+25,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niewystarczająca liczba przejść dla pieszych]
+26,"PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [brak miejsc wypoczynku na trasie dojścia (np. ławki, zieleń)]"
+27,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [uciążliwy ruch kołowy]
+28,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [niewłaściwe oświetlenie ciągów pieszych]
+29,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [nie odczuwam uciążliwości w podróżach pieszych po Wrocławiu]
+30,PREFERENCJE DOT. MOBILNOŚCI MIEJSKIEJ_Jakie elementy stanowią dla Pana/Pani największa uciążliwość w codziennych podróżach pieszych po Wrocławiu (można wskazać maksymalnie 3 odpowiedzi) [Inne]
+31,DANE O GOSPODARSTWIE DOMOWYM_Liczba osób w gospodarstwie domowym [ogółem]
+32,DANE O GOSPODARSTWIE DOMOWYM_Liczba osób w gospodarstwie domowym [powyżej 6 roku życia]
+33,"DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód prywatny, zarejestrowany na osobę z gosp. domowego]"
+34,"DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód prywatny, nie zarejestrowany na osobę z gosp. domowego [użyczone]]"
+35,DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Samochód służbowy]
+36,DANE O GOSPODARSTWIE DOMOWYM_Liczba środków transportu w gospodarstwie domowym [Rower]
+37,DANE O RESPONDENCIE_Przedział wiekowy
+38,DANE O RESPONDENCIE_Płeć
+39,DANE O RESPONDENCIE_Zajęcie podstawowe
+40,DANE O RESPONDENCIE_Zajęcie dodatkowe
+41,DANE O RESPONDENCIE_Kondycja fizyczna
+42,DANE O RESPONDENCIE_Kondycja fizyczna [Inne]
+43,DANE O RESPONDENCIE_Opieka nad innymi osobami
+44,DANE O RESPONDENCIE_Posiadanie prawa jazdy kat. B
+45,DANE O RESPONDENCIE_Posiadanie biletu okresowego
+46,DANE O RESPONDENCIE_Posiadanie ulgi na przejazd komunikacją zbiorową we Wrocławiu
+47,DANE O RESPONDENCIE_Czy Pan/Pani odbył/a w dniu wczorajszym co najmniej jedną podróż?
+48,DANE O RESPONDENCIE_Jaki był powód nie odbycia podróży?
+49,IDENTYFIKACJA OSOBY_Nr. osoby w gosp. dom.
+50,IDENTYFIKACJA OSOBY_Nr podróży
+51,"OPIS PODRÓŻY ""ŹRÓDŁO""_Godzina rozpoczęcia podróży
+[gg:mm:ss]"
+52,"OPIS PODRÓŻY ""ŹRÓDŁO""_Z jakiego miejsca"
+53,"OPIS PODRÓŻY ""ŹRÓDŁO""_Miejsce rozpoczęcia podróży [Gmina]"
+54,"OPIS PODRÓŻY ""ŹRÓDŁO""_Miejsce rozpoczęcia podróży 
+[Ulica, tylko poza Wrocławiem]"
+55,"OPIS PODRÓŻY ""ŹRÓDŁO""_nr"
+56,"OPIS PODRÓŻY ""ŹRÓDŁO""_Punkt charakterystyczny"
+57,"OPIS PODRÓŻY ""ŹRÓDŁO""_Nr rejonu"
+58,"OPIS PODRÓŻY ""CEL""_Mijesce zakończenia podróży [Gmina]"
+59,"OPIS PODRÓŻY ""CEL""_Mijesce zakończenia podróży
+[Ulica, tylko poza Wrocławiem]"
+60,"OPIS PODRÓŻY ""CEL""_nr"
+61,"OPIS PODRÓŻY ""CEL""_punkt charakterystyczny"
+62,"OPIS PODRÓŻY ""CEL""_Nr rejonu"
+63,"OPIS PODRÓŻY ""CEL""_Do jakiego miejsca"
+64,"OPIS PODRÓŻY ""CEL""_Godzina zakończenia podróży 
+[gg:mm:ss]"
+65,"OPIS PODRÓŻY ""CEL""_Do jakiego miejsca [Inne]"
+66,PRZEMIESZCZENIE 1_Godzina rozpoczęcia jazdy/dojścia (gg:mm:ss)
+67,PRZEMIESZCZENIE 1_Wykorzystany środek transportu w ramach wykonywanej podróży
+68,PRZEMIESZCZENIE 1_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+69,PRZEMIESZCZENIE 1_Liczba osób
+70,PRZEMIESZCZENIE 1_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+71,PRZEMIESZCZENIE 1_Przyczyna dla [P] Przemieszczenie piesze
+72,PRZEMIESZCZENIE 1_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+73,PRZEMIESZCZENIE 1_Przyczyna dla [R] Przemieszczenie rowerem
+74,PRZEMIESZCZENIE 1_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+75,"PRZEMIESZCZENIE 1_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+76,"PRZEMIESZCZENIE 1_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+77,"PRZEMIESZCZENIE 1_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+78,"PRZEMIESZCZENIE 1_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+79,PRZEMIESZCZENIE 1_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+80,PRZEMIESZCZENIE 1_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+81,PRZEMIESZCZENIE 1_Przyczyna dla [C]: Carpooling
+82,PRZEMIESZCZENIE 1_Przyczyna dla [C]: Carpooling [Inne]
+83,PRZEMIESZCZENIE 1_Przyczyna dla [P] Przemieszczenie piesze.1
+84,PRZEMIESZCZENIE 1_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+85,PRZEMIESZCZENIE 1_Przyczyna dla [R] Przemieszczenie rowerem.1
+86,PRZEMIESZCZENIE 1_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+87,"PRZEMIESZCZENIE 1_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+88,"PRZEMIESZCZENIE 1_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+89,"PRZEMIESZCZENIE 1_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+90,"PRZEMIESZCZENIE 1_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+91,PRZEMIESZCZENIE 1_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+92,PRZEMIESZCZENIE 1_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+93,PRZEMIESZCZENIE 1_Przyczyna dla [C]: Carpooling.1
+94,PRZEMIESZCZENIE 1_Przyczyna dla [C]: Carpooling [Inne].1
+95,PRZEMIESZCZENIE 1_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+96,PRZEMIESZCZENIE 2_Dodać następną jazdę/dojście?
+97,PRZEMIESZCZENIE 2_Godzina rozpoczęcia jazdy/dojścia (gg:mm) 
+98,PRZEMIESZCZENIE 2_Wykorzystany środek transportu w ramach wykonywanej podróży
+99,PRZEMIESZCZENIE 2_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+100,PRZEMIESZCZENIE 2_Liczba osób
+101,PRZEMIESZCZENIE 2_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+102,PRZEMIESZCZENIE 2_Przyczyna dla [P] Przemieszczenie piesze
+103,PRZEMIESZCZENIE 2_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+104,PRZEMIESZCZENIE 2_Przyczyna dla [R] Przemieszczenie rowerem
+105,PRZEMIESZCZENIE 2_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+106,"PRZEMIESZCZENIE 2_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+107,"PRZEMIESZCZENIE 2_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+108,"PRZEMIESZCZENIE 2_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+109,"PRZEMIESZCZENIE 2_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+110,PRZEMIESZCZENIE 2_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+111,PRZEMIESZCZENIE 2_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+112,PRZEMIESZCZENIE 2_Przyczyna dla [C]: Carpooling
+113,PRZEMIESZCZENIE 2_Przyczyna dla [C]: Carpooling [Inne]
+114,PRZEMIESZCZENIE 2_Przyczyna dla [P] Przemieszczenie piesze.1
+115,PRZEMIESZCZENIE 2_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+116,PRZEMIESZCZENIE 2_Przyczyna dla [R] Przemieszczenie rowerem.1
+117,PRZEMIESZCZENIE 2_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+118,"PRZEMIESZCZENIE 2_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+119,"PRZEMIESZCZENIE 2_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+120,"PRZEMIESZCZENIE 2_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+121,"PRZEMIESZCZENIE 2_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+122,PRZEMIESZCZENIE 2_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+123,PRZEMIESZCZENIE 2_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+124,PRZEMIESZCZENIE 2_Przyczyna dla [C]: Carpooling.1
+125,PRZEMIESZCZENIE 2_Przyczyna dla [C]: Carpooling [Inne].1
+126,PRZEMIESZCZENIE 2_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+127,PRZEMIESZCZENIE 3_Dodać następną jazdę/dojście?
+128,PRZEMIESZCZENIE 3_Godzina rozpoczęcia jazdy/dojścia (gg:mm) 
+129,PRZEMIESZCZENIE 3_Wykorzystany środek transportu w ramach wykonywanej podróży
+130,PRZEMIESZCZENIE 3_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+131,PRZEMIESZCZENIE 3_Liczba osób
+132,PRZEMIESZCZENIE 3_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+133,PRZEMIESZCZENIE 3_Przyczyna dla [P] Przemieszczenie piesze
+134,PRZEMIESZCZENIE 3_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+135,PRZEMIESZCZENIE 3_Przyczyna dla [R] Przemieszczenie rowerem
+136,PRZEMIESZCZENIE 3_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+137,"PRZEMIESZCZENIE 3_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+138,"PRZEMIESZCZENIE 3_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+139,"PRZEMIESZCZENIE 3_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+140,"PRZEMIESZCZENIE 3_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+141,PRZEMIESZCZENIE 3_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+142,PRZEMIESZCZENIE 3_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+143,PRZEMIESZCZENIE 3_Przyczyna dla [C]: Carpooling
+144,PRZEMIESZCZENIE 3_Przyczyna dla [C]: Carpooling [Inne]
+145,PRZEMIESZCZENIE 3_Przyczyna dla [P] Przemieszczenie piesze.1
+146,PRZEMIESZCZENIE 3_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+147,PRZEMIESZCZENIE 3_Przyczyna dla [R] Przemieszczenie rowerem.1
+148,PRZEMIESZCZENIE 3_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+149,"PRZEMIESZCZENIE 3_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+150,"PRZEMIESZCZENIE 3_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+151,"PRZEMIESZCZENIE 3_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+152,"PRZEMIESZCZENIE 3_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+153,PRZEMIESZCZENIE 3_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+154,PRZEMIESZCZENIE 3_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+155,PRZEMIESZCZENIE 3_Przyczyna dla [C]: Carpooling.1
+156,PRZEMIESZCZENIE 3_Przyczyna dla [C]: Carpooling [Inne].1
+157,PRZEMIESZCZENIE 3_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+158,PRZEMIESZCZENIE 4_Dodać następną jazdę/dojście?
+159,PRZEMIESZCZENIE 4_Godzina rozpoczęcia jazdy/dojścia (gg:mm) 
+160,PRZEMIESZCZENIE 4_Wykorzystany środek transportu w ramach wykonywanej podróży
+161,PRZEMIESZCZENIE 4_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+162,PRZEMIESZCZENIE 4_Liczba osób
+163,PRZEMIESZCZENIE 4_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+164,PRZEMIESZCZENIE 4_Przyczyna dla [P] Przemieszczenie piesze
+165,PRZEMIESZCZENIE 4_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+166,PRZEMIESZCZENIE 4_Przyczyna dla [R] Przemieszczenie rowerem
+167,PRZEMIESZCZENIE 4_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+168,"PRZEMIESZCZENIE 4_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+169,"PRZEMIESZCZENIE 4_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+170,"PRZEMIESZCZENIE 4_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+171,"PRZEMIESZCZENIE 4_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+172,PRZEMIESZCZENIE 4_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+173,PRZEMIESZCZENIE 4_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+174,PRZEMIESZCZENIE 4_Przyczyna dla [C]: Carpooling
+175,PRZEMIESZCZENIE 4_Przyczyna dla [C]: Carpooling [Inne]
+176,PRZEMIESZCZENIE 4_Przyczyna dla [P] Przemieszczenie piesze.1
+177,PRZEMIESZCZENIE 4_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+178,PRZEMIESZCZENIE 4_Przyczyna dla [R] Przemieszczenie rowerem.1
+179,PRZEMIESZCZENIE 4_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+180,"PRZEMIESZCZENIE 4_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+181,"PRZEMIESZCZENIE 4_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+182,"PRZEMIESZCZENIE 4_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+183,"PRZEMIESZCZENIE 4_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+184,PRZEMIESZCZENIE 4_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+185,PRZEMIESZCZENIE 4_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+186,PRZEMIESZCZENIE 4_Przyczyna dla [C]: Carpooling.1
+187,PRZEMIESZCZENIE 4_Przyczyna dla [C]: Carpooling [Inne].1
+188,PRZEMIESZCZENIE 4_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+189,PRZEMIESZCZENIE 5_Dodać następną jazdę/dojście?
+190,PRZEMIESZCZENIE 5_Godzina rozpoczęcia jazdy/dojścia (gg:mm) 
+191,PRZEMIESZCZENIE 5_Wykorzystany środek transportu w ramach wykonywanej podróży
+192,PRZEMIESZCZENIE 5_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+193,PRZEMIESZCZENIE 5_Liczba osób
+194,PRZEMIESZCZENIE 5_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+195,PRZEMIESZCZENIE 5_Przyczyna dla [P] Przemieszczenie piesze
+196,PRZEMIESZCZENIE 5_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+197,PRZEMIESZCZENIE 5_Przyczyna dla [R] Przemieszczenie rowerem
+198,PRZEMIESZCZENIE 5_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+199,"PRZEMIESZCZENIE 5_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+200,"PRZEMIESZCZENIE 5_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+201,"PRZEMIESZCZENIE 5_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+202,"PRZEMIESZCZENIE 5_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+203,PRZEMIESZCZENIE 5_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+204,PRZEMIESZCZENIE 5_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+205,PRZEMIESZCZENIE 5_Przyczyna dla [C]: Carpooling
+206,PRZEMIESZCZENIE 5_Przyczyna dla [C]: Carpooling [Inne]
+207,PRZEMIESZCZENIE 5_Przyczyna dla [P] Przemieszczenie piesze.1
+208,PRZEMIESZCZENIE 5_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+209,PRZEMIESZCZENIE 5_Przyczyna dla [R] Przemieszczenie rowerem.1
+210,PRZEMIESZCZENIE 5_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+211,"PRZEMIESZCZENIE 5_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+212,"PRZEMIESZCZENIE 5_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+213,"PRZEMIESZCZENIE 5_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+214,"PRZEMIESZCZENIE 5_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+215,PRZEMIESZCZENIE 5_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+216,PRZEMIESZCZENIE 5_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+217,PRZEMIESZCZENIE 5_Przyczyna dla [C]: Carpooling.1
+218,PRZEMIESZCZENIE 5_Przyczyna dla [C]: Carpooling [Inne].1
+219,PRZEMIESZCZENIE 5_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+220,PRZEMIESZCZENIE 6_Dodać następną jazdę/dojście?
+221,PRZEMIESZCZENIE 6_Godzina rozpoczęcia jazdy/dojścia (gg:mm:ss)
+222,PRZEMIESZCZENIE 6_Wykorzystany środek transportu w ramach wykonywanej podróży
+223,PRZEMIESZCZENIE 6_Wykorzystany środek transportu w ramach wykonywanej podróży [Inne]
+224,PRZEMIESZCZENIE 6_Liczba osób
+225,PRZEMIESZCZENIE 6_Numer linii autobusowej (dotyczy komunikacji zbiorowej we Wrocławiu)
+226,PRZEMIESZCZENIE 6_Przyczyna dla [P] Przemieszczenie piesze
+227,PRZEMIESZCZENIE 6_Przyczyna dla [P] Przemieszczenie piesze [Inne]
+228,PRZEMIESZCZENIE 6_Przyczyna dla [R] Przemieszczenie rowerem
+229,PRZEMIESZCZENIE 6_Przyczyna dla [R] Przemieszczenie rowerem [Inne]
+230,"PRZEMIESZCZENIE 6_Przyczyna dla [SOK, SOP, M] Samochód, motor "
+231,"PRZEMIESZCZENIE 6_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne]"
+232,"PRZEMIESZCZENIE 6_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa "
+233,"PRZEMIESZCZENIE 6_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne]"
+234,PRZEMIESZCZENIE 6_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  
+235,PRZEMIESZCZENIE 6_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne]
+236,PRZEMIESZCZENIE 6_Przyczyna dla [C]: Carpooling
+237,PRZEMIESZCZENIE 6_Przyczyna dla [C]: Carpooling [Inne]
+238,PRZEMIESZCZENIE 6_Przyczyna dla [P] Przemieszczenie piesze.1
+239,PRZEMIESZCZENIE 6_Przyczyna dla [P] Przemieszczenie piesze [Inne].1
+240,PRZEMIESZCZENIE 6_Przyczyna dla [R] Przemieszczenie rowerem.1
+241,PRZEMIESZCZENIE 6_Przyczyna dla [R] Przemieszczenie rowerem [Inne].1
+242,"PRZEMIESZCZENIE 6_Przyczyna dla [SOK, SOP, M] Samochód, motor .1"
+243,"PRZEMIESZCZENIE 6_Przyczyna dla [SOK, SOP, M] Samochód, motor  [Inne].1"
+244,"PRZEMIESZCZENIE 6_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa .1"
+245,"PRZEMIESZCZENIE 6_Przyczyna dla [KW, KZ , T,  PO] Komunikacja zbiorowa  [Inne].1"
+246,PRZEMIESZCZENIE 6_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych  .1
+247,PRZEMIESZCZENIE 6_Przyczyna dla [E]: Wypożyczalnia pojazdów elektrycznych   [Inne].1
+248,PRZEMIESZCZENIE 6_Przyczyna dla [C]: Carpooling.1
+249,PRZEMIESZCZENIE 6_Przyczyna dla [C]: Carpooling [Inne].1
+250,PRZEMIESZCZENIE 6_Godzina zakończenia jazdy/dojścia (gg:mm:ss)
+251,DANE DO STATYSTYK_Liczba przemieszczeń
+252,DANE DO STATYSTYK_środek transportu
+253,DANE DO STATYSTYK_typ podróży
+254,DANE DO STATYSTYK_czas trwania podróży
+255,23:59:00_środek transportu podgrupa
+256,23:59:00_środek transportu grupa
+257,23:59:00_pora dnia
+258,23:59:00_motywacje
+259,23:59:00_motywacje grupy
+260,23:59:00_ŚT_pom
+261,Przemieszczenie 1_rodzaj autobusu
+262,Przemieszczenie 2_rodzaj autobusu
+263,Przemieszczenie 3_rodzaj autobusu
+264,Przemieszczenie 4_rodzaj autobusu
+265,Przemieszczenie 5_rodzaj autobusu
+266,Przemieszczenie 5_liczba przesiadek
+267,"Przemieszczenie 5_przemieszczenie 1
+piesze [1]/niepiesze[0]"
+268,"Przemieszczenie 5_przemieszczenie 2
+piesze [1]/niepiesze[0]"
+269,"Przemieszczenie 5_przemieszczenie 3
+piesze [1]/niepiesze[0]"
+270,"Przemieszczenie 5_przemieszczenie 4
+piesze [1]/niepiesze[0]"
+271,"Przemieszczenie 5_przemieszczenie 5
+piesze [1]/niepiesze[0]"
+272,"Przemieszczenie 5_przemieszczenie 6
+piesze [1]/niepiesze[0]"
+273,Przemieszczenie 5_liczba przesiadek.1
+274,"Przemieszczenie 5_przemieszczenie 1
+Komunikacja zbiorowa [KZ]"
+275,"Przemieszczenie 5_przemieszczenie 2
+Komunikacja zbiorowa [KZ]"
+276,"Przemieszczenie 5_przemieszczenie 3
+Komunikacja zbiorowa [KZ]"
+277,"Przemieszczenie 5_przemieszczenie 4
+Komunikacja zbiorowa [KZ]"
+278,"Przemieszczenie 5_przemieszczenie 5
+Komunikacja zbiorowa [KZ]"
+279,"Przemieszczenie 5_przemieszczenie 6
+Komunikacja zbiorowa [KZ]"
+280,Przemieszczenie 5_Czy w przemieszczeniu wystąpiło przemieszczenie KZ?
+281,"Przemieszczenie 5_Liczba przesiadek
+[komunikacja zbiorowa]"
+282,Przemieszczenie 1_czas dojścia
+283,Przemieszczenie 2_czas dojścia
+284,Przemieszczenie 3_czas dojścia
+285,Przemieszczenie 4_czas dojścia
+286,Przemieszczenie 5_czas dojścia
+287,Przemieszczenie 1_czas ogólnie
+288,Przemieszczenie 2_czas ogólnie
+289,Przemieszczenie 3_czas ogólnie
+290,Przemieszczenie 4_czas ogólnie
+291,Przemieszczenie 5_czas ogólnie
+292,Przemieszczenie 5_c
+293,Przemieszczenie 5_00:05:00
+294,12290.267442599752_współczynnik korygujący
+295,12290.267442599752_Numer rejonu zagregowanego
+296,12290.267442599752_a
+297,12290.267442599752_b
+298,12290.267442599752_średnie napełnienie
+299,12290.267442599752_motywacje grupy
